@@ -127,6 +127,10 @@ enum combo_events {
 	, PNC_EH
 	, PNC_NC
 	, PNC_TO
+	, PNC_PN
+	, PNC_CA
+	, PNC_TE
+	, PNC_HO
 	, PNC_DOT_COMMA
 	, PNC_QUOT_COMMA
 	// PNC RIGHT
@@ -196,6 +200,10 @@ const uint16_t PROGMEM pnc_PA[] = {PNC_P, PNC_A, COMBO_END};
 const uint16_t PROGMEM pnc_EH[] = {PNC_E, PNC_H, COMBO_END};
 const uint16_t PROGMEM pnc_NC[] = {PNC_N, PNC_C, COMBO_END};
 const uint16_t PROGMEM pnc_TO[] = {PNC_T, PNC_O, COMBO_END};
+const uint16_t PROGMEM pnc_PN[] = {PNC_P, PNC_N, COMBO_END};
+const uint16_t PROGMEM pnc_CA[] = {PNC_C, PNC_A, COMBO_END};
+const uint16_t PROGMEM pnc_TE[] = {PNC_T, PNC_E, COMBO_END};
+const uint16_t PROGMEM pnc_HO[] = {PNC_H, PNC_O, COMBO_END};
 const uint16_t PROGMEM pnc_DOT_COMMA[] = {PNC_DOT, PNC_COMMA, COMBO_END}; // ;
 const uint16_t PROGMEM pnc_QUOT_COMMA[] = {PNC_QUOT, PNC_COMMA, COMBO_END}; // '
 // PNC RIGHT
@@ -264,6 +272,10 @@ combo_t key_combos[] = {
 	, [PNC_EH] = COMBO_ACTION(pnc_EH)
 	, [PNC_NC] = COMBO_ACTION(pnc_NC)
 	, [PNC_TO] = COMBO_ACTION(pnc_TO)
+	, [PNC_PN] = COMBO_ACTION(pnc_PN)
+	, [PNC_CA] = COMBO_ACTION(pnc_CA)
+	, [PNC_TE] = COMBO_ACTION(pnc_TE)
+	, [PNC_HO] = COMBO_ACTION(pnc_HO)
 	, [PNC_DOT_COMMA] = COMBO_ACTION(pnc_DOT_COMMA) //;
 	, [PNC_QUOT_COMMA] = COMBO_ACTION(pnc_QUOT_COMMA) //'
 	// PNC RIGHT
@@ -1174,6 +1186,50 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 		case PNC_TO:
 			// ц
 			tap_code(KC_W);
+		break;
+		case PNC_PN:
+			// ри
+			tap_code(KC_H);
+			if (mods & MOD_BIT(KC_LSFT)) {
+				unregister_mods(MOD_BIT(KC_LSFT));
+				tap_code(KC_B);
+				register_mods(MOD_BIT(KC_LSFT));
+			} else {
+				tap_code(KC_B);
+			}
+		break;
+		case PNC_CA:
+			// са
+			tap_code(KC_C);
+			if (mods & MOD_BIT(KC_LSFT)) {
+				unregister_mods(MOD_BIT(KC_LSFT));
+				tap_code(KC_F);
+				register_mods(MOD_BIT(KC_LSFT));
+			} else {
+				tap_code(KC_F);
+			}
+		break;
+		case PNC_TE:
+			// те
+			tap_code(KC_N);
+			if (mods & MOD_BIT(KC_LSFT)) {
+				unregister_mods(MOD_BIT(KC_LSFT));
+				tap_code(KC_T);
+				register_mods(MOD_BIT(KC_LSFT));
+			} else {
+				tap_code(KC_T);
+			}
+		break;
+		case PNC_HO:
+			// но
+			tap_code(KC_Y);
+			if (mods & MOD_BIT(KC_LSFT)) {
+				unregister_mods(MOD_BIT(KC_LSFT));
+				tap_code(KC_J);
+				register_mods(MOD_BIT(KC_LSFT));
+			} else {
+				tap_code(KC_J);
+			}
 		break;
 		// PNC RIGHT
 		case PNC_R03:
