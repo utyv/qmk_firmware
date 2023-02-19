@@ -1,0 +1,9 @@
+COMBO_ENABLE           = yes
+MOUSEKEY_ENABLE = no      # Mouse keys
+EXTRAKEY_ENABLE = no      # Audio control and System control
+# SWAP_HANDS_ENABLE = yes # doesn't work
+SPACE_CADET_ENABLE = no
+GRAVE_ESC_ENABLE = no 
+MAGIC_ENABLE = no
+MUSIC_ENABLE = no
+#TAP_DANCE_ENABLE = yes
