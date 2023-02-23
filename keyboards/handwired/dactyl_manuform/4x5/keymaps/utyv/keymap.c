@@ -303,11 +303,23 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_N, KC_T, KC_NO // те
 	, 0xc0, 0x00// но
 	, KC_Y, KC_J, KC_NO // но
-	, 0x9d, 0x40// рсаток
+	, 0x05, 0x58// !ст-рка
 	, KC_C, KC_N, KC_H, KC_J, KC_R, KC_F, KC_NO // строка
-	, 0xf9, 0x40// ратенок
-	, KC_Y, KC_J, KC_V, KC_T, KC_Y, KC_R, KC_K, KC_F, KC_N, KC_E, KC_H, KC_F, KC_NO // номенклатура
-		
+	, 0x05, 0x98// !ст-рки
+	, KC_C, KC_N, KC_H, KC_J, KC_R, KC_B, KC_NO // строки
+	, 0x40, 0x30// !к-нк
+	, KC_R, KC_J, KC_Y, KC_T, KC_W, KC_NO // конец
+	, 0x81, 0x80// !сл-и
+	, KC_T, KC_C, KC_K, KC_B, KC_NO // если
+	, 0x44, 0x04// !тк-т
+	, KC_N, KC_J, KC_U, KC_L, KC_F, KC_NO // тогда
+	, 0x10, 0x10// !м-к
+	, KC_B, KC_Y, KC_F, KC_X, KC_T, KC_NO // иначе
+	, 0x29, 0x01// !спр-с
+	, KC_P, KC_F, KC_G, KC_H, KC_J, KC_C, KC_NO // запрос
+	, 0x10, 0x02// !м-в
+	, KC_Y, KC_J, KC_D, KC_S, KC_Q, KC_NO // новый
+			
 	, 0x00, 0x00 // end
 };
  
