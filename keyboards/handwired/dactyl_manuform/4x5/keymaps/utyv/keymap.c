@@ -219,22 +219,22 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_Y, KC_NO // н
 	, 0x80, 0x00// о
 	, KC_J, KC_NO // о
-	, 0x00, 0x01// б
-	, KC_COMM, KC_NO // б
-	, 0x00, 0x02// ч
-	, KC_X, KC_NO // ч
-	, 0x00, 0x04// й
-	, KC_Q, KC_NO // й
-	, 0x00, 0x08// ж
-	, KC_SCLN, KC_NO // ж
-	, 0x00, 0x10// ы
-	, KC_S, KC_NO // ы
-	, 0x00, 0x20// г
-	, KC_U, KC_NO // г
-	, 0x00, 0x40// к
+	, 0x00, 0x01// к
 	, KC_R, KC_NO // к
-	, 0x00, 0x80// д
-	, KC_L, KC_NO // д
+	, 0x00, 0x02// у
+	, KC_E, KC_NO // у
+	, 0x00, 0x04// л
+	, KC_K, KC_NO // л
+	, 0x00, 0x08// я
+	, KC_Z, KC_NO // я
+	, 0x00, 0x10// б
+	, KC_COMM, KC_NO // б
+	, 0x00, 0x20// ы
+	, KC_S, KC_NO // ы
+	, 0x00, 0x40// м
+	, KC_V, KC_NO // м
+	, 0x00, 0x80// ю
+	, KC_DOT, KC_NO // ю
 	, 0x41, 0x00// рн
 	, KC_K, KC_NO // л
 	, 0x82, 0x00// ио
@@ -283,18 +283,24 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_RBRC, KC_NO // ъ
 	, 0x06, 0x00// ис
 	, KC_DOT, KC_NO // ю
-	, 0x00, 0x41// бк
-	, KC_DOT, KC_NO // ю
-	, 0x00, 0x82// чд
-	, KC_W, KC_NO // ц
-	, 0x00, 0x11// бы
-	, KC_I, KC_NO // ш
-	, 0x00, 0x22// чг
+	, 0x00, 0x82// ую
+	, KC_Q, KC_NO // й
+	, 0x00, 0x41// км
 	, KC_LBRC, KC_NO // х
-	, 0x00, 0x14// йы
-	, KC_O, KC_NO // щ
-	, 0x00, 0x28// жг
+	, 0x00, 0x0a// уя
+	, KC_L, KC_NO // д
+	, 0x00, 0x05// кл
+	, KC_SCLN, KC_NO // ж
+	, 0x00, 0x28// яы
 	, KC_QUOT, KC_NO // э
+	, 0x00, 0x14// лб
+	, KC_W, KC_NO // ц
+	, 0x00, 0x22// уы
+	, KC_U, KC_NO // г
+	, 0x00, 0x11// кб
+	, KC_O, KC_NO // щ
+	, 0x00, 0x09// кя
+	, KC_GRV, KC_NO // ё
 	, 0x03, 0x00// ри
 	, KC_H, KC_B, KC_NO // ри
 	, 0x0c, 0x00// са
@@ -303,6 +309,12 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_N, KC_T, KC_NO // те
 	, 0xc0, 0x00// но
 	, KC_Y, KC_J, KC_NO // но
+	, 0x00, 0x03// ку
+	, KC_R, KC_E, KC_NO // ку
+	, 0x00, 0x0c// ля
+	, KC_K, KC_Z, KC_NO // ля
+	, 0x00, 0x30// бы
+	, KC_COMM, KC_S, KC_NO // бы
 	, 0x05, 0x58// !ст-рка
 	, KC_C, KC_N, KC_H, KC_J, KC_R, KC_F, KC_NO // строка
 	, 0x05, 0x98// !ст-рки
@@ -319,7 +331,15 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_P, KC_F, KC_G, KC_H, KC_J, KC_C, KC_NO // запрос
 	, 0x10, 0x02// !м-в
 	, KC_Y, KC_J, KC_D, KC_S, KC_Q, KC_NO // новый
-			
+	, 0x40, 0x10// !к-к
+	, KC_W, KC_B, KC_R, KC_K, KC_NO // цикл
+	, 0x40, 0x50// !к-ка
+	, KC_W, KC_B, KC_R, KC_K, KC_F, KC_NO // цикла
+	, 0x40, 0x15// !к-стк
+	, KC_R, KC_F, KC_SCLN, KC_L, KC_J, KC_U, KC_J, KC_NO // каждого
+	, 0x08, 0x10// !п-к
+	, KC_G, KC_J, KC_R, KC_F, KC_NO // пока
+									
 	, 0x00, 0x00 // end
 };
  
@@ -631,7 +651,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		is_ctab_active = false;
 	}
 	
+	// shift2 cleanup
+	if ((mods & MOD_BIT(KC_LCTL)) && !record->event.pressed && 
+		(
+			keycode == KC_D || keycode == KC_K || keycode == ST_4 || keycode == ST_2
+		)
+	) {
+		--shift2_counter;
+		return false;
+	}
 	
+		
 	// my dance finish
 	if (record->event.pressed && my_dance_counter) {
 		if (my_dance_key == keycode) {
@@ -1101,15 +1131,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			}
 		break;
 		
-		case KC_D:
-		case KC_K:
-			if (shift2_counter) {
-				--shift2_counter;
-			}
-		break;
-		case KC_LCTL:
-			shift2_counter = 0;
-		break;
 		}
 	}
 	
@@ -1259,6 +1280,9 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 		switch(combo_index) {
 		case CB_LSPC_NUM:
 		case CB_RSPC_NUM:
+			// shift2 cleanup
+			shift2_counter = 0;
+
 			if (ctl_hold != KC_NO) {
 				unregister_code16(ctl_hold);
 				ctl_hold = KC_NO;
