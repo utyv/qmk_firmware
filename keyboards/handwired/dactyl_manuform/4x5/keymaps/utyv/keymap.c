@@ -339,7 +339,9 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_R, KC_F, KC_SCLN, KC_L, KC_J, KC_U, KC_J, KC_NO // каждого
 	, 0x08, 0x10// !п-к
 	, KC_G, KC_J, KC_R, KC_F, KC_NO // пока
-									
+	, 0x3c, 0x00// !тпрм
+	, KC_L, KC_J, KC_COMM, KC_H, KC_S, KC_Q, KC_SPACE, KC_L, KC_T, KC_Y, KC_M, KC_NO // добрый^день
+										
 	, 0x00, 0x00 // end
 };
  
