@@ -499,7 +499,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 void tap_alt_code2(uint16_t mods, uint8_t n1, uint8_t n2) {
 	unregister_mods(mods);
+	wait_ms(10);
 	register_mods(MOD_BIT(KC_LEFT_ALT));
+	wait_ms(10);
 	if (n1 == 0) {
 		tap_code(KC_KP_0);
 	} else {
@@ -510,13 +512,17 @@ void tap_alt_code2(uint16_t mods, uint8_t n1, uint8_t n2) {
 	} else {
 		tap_code(KC_KP_1 + n2 - 1);
 	}
+	wait_ms(10);
 	unregister_mods(MOD_BIT(KC_LEFT_ALT));
+	wait_ms(10);
 	register_mods(mods);
 }
 
 void tap_alt_code3(uint16_t mods, uint8_t n1, uint8_t n2, uint8_t n3) {
 	unregister_mods(mods);
+	wait_ms(10);
 	register_mods(MOD_BIT(KC_LEFT_ALT));
+	wait_ms(10);
 	if (n1 == 0) {
 		tap_code(KC_KP_0);
 	} else {
@@ -532,7 +538,9 @@ void tap_alt_code3(uint16_t mods, uint8_t n1, uint8_t n2, uint8_t n3) {
 	} else {
 		tap_code(KC_KP_1 + n3 - 1);
 	}
+	wait_ms(10);
 	unregister_mods(MOD_BIT(KC_LEFT_ALT));
+	wait_ms(10);
 	register_mods(mods);
 }
 
