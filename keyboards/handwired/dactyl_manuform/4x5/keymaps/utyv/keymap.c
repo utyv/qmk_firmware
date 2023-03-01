@@ -707,16 +707,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				// №
 				tap_code(KC_BSPC);
 				tap_alt_code3(mods, 2, 5, 2);
+				clear_my_dance();
 			break;
 			case M_PERC:
 				// $
 				tap_code(KC_BSPC);
 				tap_alt_code2(mods, 3, 6);
+				clear_my_dance();
 			break;
 			case M_PIPE:
 				// backslash
 				tap_code(KC_BSPC);
 				tap_alt_code2(mods, 9, 2);
+				clear_my_dance();
 			break;
 			}
 			return false;
