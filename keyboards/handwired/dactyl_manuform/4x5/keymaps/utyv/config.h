@@ -53,3 +53,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SPLIT_USB_TIMEOUT 2500
 //#define TAP_CODE_DELAY 500
 //#define DOUBLE_REPORT
+
+#undef DEBOUNCE
+#define DEBOUNCE 10
