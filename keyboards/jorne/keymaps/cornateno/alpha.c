@@ -10,14 +10,14 @@ const uint8_t PROGMEM alpha_dict[] = {
 	, BM_AL(AL_6), 0		, RU_N, NC
 	, BM_AL(AL_7), 0		, RU_O, NC
 	
-	, 0, BM_AR(AR_0)			, RU_K
-	, 0, BM_AR(AR_1)			, RU_U
-	, 0, BM_AR(AR_2)			, RU_L
-	, 0, BM_AR(AR_3)			, RU_Q
-	, 0, BM_AR(AR_4)			, RU_B
-	, 0, BM_AR(AR_5)			, RU_Y
-	, 0, BM_AR(AR_6)			, RU_M
-	, 0, BM_AR(AR_7)			, RU_YU
+	, 0, BM_AR(AR_0)			, RU_K, NC
+	, 0, BM_AR(AR_1)			, RU_U, NC
+	, 0, BM_AR(AR_2)			, RU_L, NC
+	, 0, BM_AR(AR_3)			, RU_Q, NC
+	, 0, BM_AR(AR_4)			, RU_B, NC
+	, 0, BM_AR(AR_5)			, RU_Y, NC
+	, 0, BM_AR(AR_6)			, RU_M, NC
+	, 0, BM_AR(AR_7)			, RU_YU, NC
 	
 	, BM_AL(AL_0) + BM_AL(AL_6), 0			, RU_L, NC
 	, BM_AL(AL_1) + BM_AL(AL_7), 0			, RU_V, NC
@@ -68,98 +68,3 @@ const uint8_t PROGMEM alpha_dict[] = {
 	
 };
 
-
-bool is_alpha(uint16_t keycode) {
-	if (keycode >= AL_0 && keycode <= AR_7) {
-		return true;
-	}
-	return false;
-}
-
-bool process_alpha(uint16_t keycode, bool pressed) {
-	if (!is_alpha(keycode)) {
-		return true;
-	}
-	
-	if (pressed) {
-		++chord_counter;
-		chord |= 1 << (keycode - AL_0);
-		if (is_shift) {
-			is_chord_shift = true;
-		}
-	} else {
-		if (chord >= 0x10000) {
-			// the chord contains betas
-			return true;
-		}
-		--chord_counter;
-		if (!chord_counter) {
-			uint16_t i = 0;
-			
-			uint8_t chord_lo = (uint8_t) chord;
-			uint8_t chord_hi = (uint8_t) (chord >> 8);
-			uint8_t state = 0;
-			uint8_t dict_lo = 0;
-			uint8_t dict_hi = 0;
-			uint8_t dict_key = 0;
-			bool caps_first = is_chord_shift && !is_shift;
-			bool is_first = true;
-		
-			while (true) {
-				switch (state) {
-				case 0:
-					dict_lo = pgm_read_byte_near(alpha_dict+i);
-					dict_hi = pgm_read_byte_near(alpha_dict+i+1);
-				
-					if (dict_lo == 0x00 && dict_hi == 0x00) {
-						state = 9; // end
-					} else if (dict_lo == chord_lo && dict_hi == chord_hi) {
-						state = 2; // print word
-						i += 2;
-					} else {
-						state = 1; // skip word
-						i += 2;
-					}
-				break;
-				case 1:
-					dict_key = pgm_read_byte_near(alpha_dict+i);
-					if (dict_key == NC) {
-						state = 0; // check chord
-					}
-					i++;
-				break;
-				case 2:
-					dict_key = pgm_read_byte_near(alpha_dict+i);
-					if (dict_key == NC) {
-						state = 9; // end
-					} else {
-						if (caps_first && is_first) {
-							register_mods(MOD_BIT(KC_LSFT));
-							wait_ms(MOD_DELAY);
-							tap_code(dict_key);
-							wait_ms(MOD_DELAY);
-							unregister_mods(MOD_BIT(KC_LSFT));
-							
-						} else {
-							tap_code(dict_key);
-						}
-						is_first = false;
-					}
-					i++;
-				break;
-				}
-				if (state == 9) {
-					break;
-				}
-				if (i > 0xfffd) {
-					break;
-				}
-			}
-		}
-		chord = 0;
-		is_chord_shift = false;
-			
-	}
-		
-	return false;
-}

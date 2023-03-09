@@ -18,11 +18,35 @@ enum keycodes {
 	, AR_5
 	, AR_6
 	, AR_7
+	, BL_0
+	, BL_1
+	, BL_2
+	, BL_3
+	, BL_4
+	, BL_5
+	, BL_6
+	, BL_7
+	, BR_0
+	, BR_1
+	, BR_2
+	, BR_3
+	, BR_4
+	, BR_5
+	, BR_6
+	, BR_7
+	, CLL
+	, SFL
+	, LRL
+	, LRR
+	, SFR
+	, CLR
 };
 
-// bit maps for alphas
+// bit maps
 #define BM_AL(code) (1 << (code - AL_0))
 #define BM_AR(code) (1 << (code - AR_0))
+#define BM_BL(code) (1 << (code - BL_0))
+#define BM_BR(code) (1 << (code - BR_0))
 
 // russian letters 
 #define RU_A KC_F
@@ -79,25 +103,19 @@ enum keycodes {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // control codes in dictionaries
 // next chord
 #define NC KC_NO
-	
-	
+// shift on
+#define SFN KC_A	
+// shift off
+#define SFF KC_B
+// ctrl on
+#define CLN KC_C
+// ctrl off
+#define CLF KC_D
+// alt on
+#define ALN KC_E
+// alt off
+#define ALF KC_F
 	
