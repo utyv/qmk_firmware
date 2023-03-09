@@ -343,7 +343,23 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_L, KC_J, KC_COMM, KC_H, KC_S, KC_Q, KC_SPACE, KC_L, KC_T, KC_Y, KC_M, KC_NO // добрый^день
 	, 0x10, 0x03// !м-вс
 	, KC_V, KC_F, KC_C, KC_C, KC_B, KC_D, KC_NO // массив
-											
+	, 0x50, 0x4c// !мк-тра
+	, KC_Y, KC_J, KC_V, KC_T, KC_Y, KC_R, KC_K, KC_F, KC_N, KC_E, KC_H, KC_F, KC_NO // номенклатура
+	, 0x50, 0x8c// !мк-три
+	, KC_Y, KC_J, KC_V, KC_T, KC_Y, KC_R, KC_K, KC_F, KC_N, KC_E, KC_H, KC_S, KC_NO // номенклатуры
+	, 0xc0, 0x05// !кл-ст
+	, KC_R, KC_J, KC_K, KC_B, KC_X, KC_T, KC_C, KC_N, KC_D, KC_J, KC_NO // количество
+	, 0x38, 0x8c// !прм-три
+	, KC_G, KC_F, KC_H, KC_F, KC_V, KC_T, KC_N, KC_H, KC_S, KC_NO // параметры
+	, 0x0c, 0x06// !тп-вт
+	, KC_L, KC_J, KC_COMM, KC_F, KC_D, KC_B, KC_N, KC_M, KC_NO // добавить
+	, 0x07, 0x06// !вст-вт
+	, KC_D, KC_C, KC_N, KC_F, KC_D, KC_B, KC_N, KC_M, KC_NO // вставить
+	, 0xc0, 0xb0// !кл-нки
+	, KC_R, KC_J, KC_K, KC_J, KC_Y, KC_R, KC_B, KC_NO // колонки
+	, 0xc0, 0x70// !кл-нка
+	, KC_R, KC_J, KC_K, KC_J, KC_Y, KC_R, KC_F, KC_NO // колонка
+												
 	, 0x00, 0x00 // end
 };
  
