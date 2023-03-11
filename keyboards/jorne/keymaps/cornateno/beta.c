@@ -1,8 +1,8 @@
 #include "beta.h"
 
 const uint8_t PROGMEM beta_dict[] = {
-	0, 0, BM_BL(BL_0), 0 			, ALN, KC_KP_4, KC_KP_6, NC // .
-	, 0, 0, 0, BM_BL(BL_0) 			, ALN, KC_KP_4, KC_KP_6, NC // .
+	0, 0, BM_BL(BL_0), 0 			, ALN, KC_KP_4, KC_KP_6, TD, KC_BSPC, ALN, KC_KP_5, KC_KP_8, TD, KC_BSPC, ALN, KC_KP_4, KC_KP_6, ALF, ALN, KC_KP_4, KC_KP_6, ALF, ALN, KC_KP_4, KC_KP_6, ALF, NC // . : ...
+	, 0, 0, 0, BM_BL(BL_0) 			, ALN, KC_KP_4, KC_KP_6, TD, KC_BSPC, ALN, KC_KP_5, KC_KP_8, TD, KC_BSPC, ALN, KC_KP_4, KC_KP_6, ALF, ALN, KC_KP_4, KC_KP_6, ALF, ALN, KC_KP_4, KC_KP_6, ALF, NC // . : ...
 	, 0, 0, BM_BL(BL_1), 0 			, ALN, KC_KP_4, KC_KP_4, NC // ,
 	, 0, 0, 0, BM_BL(BL_1) 			, ALN, KC_KP_4, KC_KP_4, NC // ,
 	, 0, 0, BM_BL(BL_2), 0 			, ALN, KC_KP_3, KC_KP_9, NC // '

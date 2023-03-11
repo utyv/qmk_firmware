@@ -114,7 +114,7 @@ bool process_mods(uint16_t keycode, bool pressed) {
 
 	if (!(keycode >= CLL && keycode <= CLR)) {
 		return true;
-	}
+	}	
 	
 	if (pressed) {
 		switch (keycode) {

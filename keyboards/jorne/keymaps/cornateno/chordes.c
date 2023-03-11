@@ -58,8 +58,9 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 			uint8_t dict_3 = 0;
 			
 			uint8_t dict_key = 0;
-			//bool caps_first = is_short && is_chord_shift && (!is_shift());
-			//bool is_first = true;
+			bool caps_first = is_short && is_chord_shift && (!is_shift());
+			bool is_first = true;
+			uint8_t dance_count = 0;
 		
 			while (true) {
 				switch (state) {
@@ -78,12 +79,15 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 					} else if (dict_0 == chord_0 && dict_1 == chord_1 
 							&& dict_2 == chord_2 && dict_3 == chord_3
 						) {
-						state = PRNT_ST;
-						//dict += 2;
+						dance_count = check_dance(chord);
+						if (dance_count) {
+							state = SKP_DNC_ST;
+						} else {
+							state = PRNT_ST;
+						}
 						dict += (is_short ? 2 : 4);
 					} else {
 						state = SKP_WRD_ST;
-						//dict += 2;
 						dict += (is_short ? 2 : 4);
 					}
 				break;
@@ -110,18 +114,35 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 						alt_on();
 					} else if (!is_short && dict_key == ALF) {
 						alt_off();
+					} else if (!is_short && dict_key == TD) {
+						start_dance(chord);
+						state = END_ST;
 					} else {
-						//if (caps_first && is_first) {
-						//	shift_on();
-						//	tap_code(dict_key);
-						//	shift_off();
-						//} else {
+						if (caps_first && is_first) {
+							shift_on();
 							tap_code(dict_key);
-						//}
-						//is_first = false;
+							shift_off();
+						} else {
+							tap_code(dict_key);
+						}
+						is_first = false;
 					}
 					dict++;
 				break;
+				case SKP_DNC_ST:
+					dict_key = pgm_read_byte_near(dict);
+					if (dict_key == NC) {
+						state = CHK_CHORD_ST;
+					} else if (dict_key == TD) {
+						dance_count--;
+						if (!dance_count) {
+							state = PRNT_ST;
+						}
+					}
+					dict++;
+				
+				break;
+				
 				}
 				
 				if (state == END_ST) {

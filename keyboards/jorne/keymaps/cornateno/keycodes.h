@@ -118,4 +118,6 @@ enum keycodes {
 #define ALN KC_E
 // alt off
 #define ALF KC_F
+// dance
+#define TD KC_G
 	
