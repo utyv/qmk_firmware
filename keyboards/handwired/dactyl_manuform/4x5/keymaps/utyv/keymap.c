@@ -11,6 +11,7 @@ uint16_t my_dance_key = KC_NO;
 uint16_t ctl_hold = KC_NO;
 uint16_t steno_chord = 0;
 bool is_steno_shift = false;
+bool is_phonetic = false;
 
 enum layers {
 	_DEF = 0
@@ -114,8 +115,10 @@ enum combo_events {
 	// LAYOUT
 	, CB_QZ
 	, CB_W_LPR
+	, CB_E_RPR
 	, PNC_N_UND
 	, PNC_A_LPR
+	, PNC_E_RPR
 	// MISC
 	, CB_LSPC_SFT
 	, CB_RSPC_SFT
@@ -153,8 +156,10 @@ const uint16_t PROGMEM pnc_QUOT_COMMA[] = {PNC_QUOT, PNC_COMMA, COMBO_END}; // '
 // LAYOUT
 const uint16_t PROGMEM combo_QZ[] = {KC_Q, KC_Z, COMBO_END};
 const uint16_t PROGMEM combo_W_LPR[] = {KC_W, KC_GRV, COMBO_END};
+const uint16_t PROGMEM combo_E_RPR[] = {KC_E, KC_RBRC, COMBO_END};
 const uint16_t PROGMEM pnc_N_UND[] = {ST_1, PNC_UNDSCR, COMBO_END};
 const uint16_t PROGMEM pnc_A_LPR[] = {ST_3, PNC_LBRKTL, COMBO_END};
+const uint16_t PROGMEM pnc_E_RPR[] = {ST_5, PNC_RBRKTL, COMBO_END};
 // MISC
 const uint16_t PROGMEM combo_LSPC_SFT[] = {M_LSPC, KC_LSFT, COMBO_END}; // enter
 const uint16_t PROGMEM combo_RSPC_SFT[] = {M_RSPC, KC_LSFT, COMBO_END}; // enter
@@ -189,8 +194,10 @@ combo_t key_combos[] = {
 	// LAYOUT
 	, [CB_QZ] = COMBO_ACTION(combo_QZ)
 	, [CB_W_LPR] = COMBO_ACTION(combo_W_LPR)
+	, [CB_E_RPR] = COMBO_ACTION(combo_E_RPR)
 	, [PNC_N_UND] = COMBO_ACTION(pnc_N_UND)
 	, [PNC_A_LPR] = COMBO_ACTION(pnc_A_LPR)
+	, [PNC_E_RPR] = COMBO_ACTION(pnc_E_RPR)
 	// MISC
 	, [CB_LSPC_SFT] = COMBO_ACTION(combo_LSPC_SFT) 
 	, [CB_RSPC_SFT] = COMBO_ACTION(combo_RSPC_SFT) 
@@ -315,6 +322,10 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_K, KC_Z, KC_NO // ля
 	, 0x00, 0x30// бы
 	, KC_COMM, KC_S, KC_NO // бы
+	, 0x8a, 0x00// иао
+	, KC_B, KC_P, KC_NO // из
+	, 0x00, 0x0e// уля
+	, KC_L, KC_K, KC_Z, KC_NO // для
 	, 0x05, 0x58// !ст-рка
 	, KC_C, KC_N, KC_H, KC_J, KC_R, KC_F, KC_NO // строка
 	, 0x05, 0x98// !ст-рки
@@ -339,8 +350,12 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_R, KC_F, KC_SCLN, KC_L, KC_J, KC_U, KC_J, KC_NO // каждого
 	, 0x08, 0x10// !п-к
 	, KC_G, KC_J, KC_R, KC_F, KC_NO // пока
-	, 0x3c, 0x00// !тпрм
+	, 0x2c, 0x24// !тпр-тн
 	, KC_L, KC_J, KC_COMM, KC_H, KC_S, KC_Q, KC_SPACE, KC_L, KC_T, KC_Y, KC_M, KC_NO // добрый^день
+	, 0x2c, 0x0c// !тпр-тр
+	, KC_L, KC_J, KC_COMM, KC_H, KC_J, KC_T, KC_SPACE, KC_E, KC_N, KC_H, KC_J, KC_NO // доброе^утро
+	, 0x2c, 0x0b// !тпр-вср
+	, KC_L, KC_J, KC_COMM, KC_H, KC_S, KC_Q, KC_SPACE, KC_D, KC_T, KC_X, KC_T, KC_H, KC_NO // добрый^вечер
 	, 0x10, 0x03// !м-вс
 	, KC_V, KC_F, KC_C, KC_C, KC_B, KC_D, KC_NO // массив
 	, 0x50, 0x4c// !мк-тра
@@ -359,10 +374,91 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_R, KC_J, KC_K, KC_J, KC_Y, KC_R, KC_B, KC_NO // колонки
 	, 0xc0, 0x70// !кл-нка
 	, KC_R, KC_J, KC_K, KC_J, KC_Y, KC_R, KC_F, KC_NO // колонка
-												
+													
 	, 0x00, 0x00 // end
 };
- 
+
+const uint8_t PROGMEM phonetic_dictionary[] = {
+	0x01, 0x00// r
+	, KC_R, KC_NO // r
+	, 0x02, 0x00// i
+	, KC_I, KC_NO // i
+	, 0x04, 0x00// s
+	, KC_S, KC_NO // s
+	, 0x08, 0x00// a
+	, KC_A, KC_NO // a
+	, 0x10, 0x00// t
+	, KC_T, KC_NO // t
+	, 0x20, 0x00// e
+	, KC_E, KC_NO // e
+	, 0x40, 0x00// n
+	, KC_N, KC_NO // n
+	, 0x80, 0x00// o
+	, KC_O, KC_NO // o
+	, 0x00, 0x01// k
+	, KC_K, KC_NO // k
+	, 0x00, 0x02// u
+	, KC_U, KC_NO // u
+	, 0x00, 0x04// l
+	, KC_L, KC_NO // l
+	, 0x00, 0x08// q
+	, KC_Q, KC_NO // q
+	, 0x00, 0x10// b
+	, KC_B, KC_NO // b
+	, 0x00, 0x20// y
+	, KC_Y, KC_NO // y
+	, 0x00, 0x40// m
+	, KC_M, KC_NO // m
+	, 0x41, 0x00// rn
+	, KC_L, KC_NO // l
+	, 0x82, 0x00// io
+	, KC_V, KC_NO // v
+	, 0x88, 0x00// ao
+	, KC_Z, KC_NO // z
+	, 0x50, 0x00// tn
+	, KC_M, KC_NO // m
+	, 0xa0, 0x00// eo
+	, KC_P, KC_NO // p
+	, 0x11, 0x00// rt
+	, KC_Y, KC_NO // y
+	, 0x22, 0x00// ie
+	, KC_G, KC_NO // g
+	, 0x14, 0x00// st
+	, KC_U, KC_NO // u
+	, 0x28, 0x00// ae
+	, KC_Q, KC_NO // q
+	, 0x05, 0x00// rs
+	, KC_K, KC_NO // k
+	, 0x0a, 0x00// ia
+	, KC_D, KC_NO // d
+	, 0x81, 0x00// ro
+	, KC_X, KC_NO // x
+	, 0x42, 0x00// in
+	, KC_B, KC_NO // b
+	, 0x84, 0x00// so
+	, KC_H, KC_NO // h
+	, 0x48, 0x00// an
+	, KC_W, KC_NO // w
+	, 0x90, 0x00// to
+	, KC_C, KC_NO // c
+	, 0x60, 0x00// en
+	, KC_F, KC_NO // f
+	, 0x12, 0x00// it
+	, KC_J, KC_NO // j
+	, 0x00, 0x82// uю
+	, KC_J, KC_NO // j
+	, 0x00, 0x41// km
+	, KC_H, KC_NO // h
+	, 0x00, 0x0a// uq
+	, KC_D, KC_NO // d
+	, 0x00, 0x14// lb
+	, KC_C, KC_NO // c
+	, 0x00, 0x22// uy
+	, KC_G, KC_NO // g
+													
+	, 0x00, 0x00 // end
+};
+	
 #define MY_LAYOUT( \
     L00, L01, L02, L03, L04,                     R04, R03, R02, R01, R00, \
     L10, L11, L12, L13, L14,                     R14, R13, R12, R11, R10, \
@@ -602,6 +698,11 @@ bool process_steno_release(uint16_t keycode, uint16_t mods) {
 	
 	if (!steno_counter) {
 	
+		const uint8_t *dict = steno_dictionary;
+		if (is_phonetic) {
+			dict = phonetic_dictionary;
+		}
+		
 		uint16_t i = 0;
 		
 		uint8_t steno_chord_lo = (uint8_t) steno_chord;
@@ -616,8 +717,8 @@ bool process_steno_release(uint16_t keycode, uint16_t mods) {
 		while (true) {
 			switch (state) {
 			case 0:
-				dict_lo = pgm_read_byte_near(steno_dictionary+i);
-				dict_hi = pgm_read_byte_near(steno_dictionary+i+1);
+				dict_lo = pgm_read_byte_near(dict+i);
+				dict_hi = pgm_read_byte_near(dict+i+1);
 				
 				if (dict_lo == 0x00 && dict_hi == 0x00) {
 					state = 9; // end
@@ -630,14 +731,14 @@ bool process_steno_release(uint16_t keycode, uint16_t mods) {
 				}
 			break;
 			case 1:
-				dict_key = pgm_read_byte_near(steno_dictionary+i);
+				dict_key = pgm_read_byte_near(dict+i);
 				if (dict_key == KC_NO) {
 					state = 0; // check chord
 				}
 				i++;
 			break;
 			case 2:
-				dict_key = pgm_read_byte_near(steno_dictionary+i);
+				dict_key = pgm_read_byte_near(dict+i);
 				if (dict_key == KC_NO) {
 					state = 9; // end
 				} else {
@@ -1267,13 +1368,25 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 			layer_clear();
 			layer_on(_PNC);
 		break;
+		case CB_E_RPR:
+			// phonetic
+			layer_clear();
+			layer_on(_PNC);
+			is_phonetic = true;
+		break;
 		case PNC_N_UND:
 			// DEF
 			layer_clear();
 			layer_on(_DEF);
+			is_phonetic = false;
 		break;
 		case PNC_A_LPR:
 			// PNCATEHO
+			is_phonetic = false;
+		break;
+		case PNC_E_RPR:
+			// phonetic
+			is_phonetic = true;
 		break;
 		// MISC
 		case CB_LSPC_SFT:
