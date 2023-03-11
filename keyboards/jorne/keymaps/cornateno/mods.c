@@ -37,14 +37,6 @@ void shift_off(void) {
 	}
 }
 
-void shift_reset(void) {
-	if (is_shift()) {
-		shift_on();
-	} else {
-		shift_off();
-	}
-}
-
 bool is_ctl(void) {
 	return mods & (FLAG_CLL | FLAG_CLR);
 }
@@ -65,14 +57,6 @@ void ctl_off(void) {
 	//	wait_ms(MOD_DELAY);
 	//	mods &= ~FLAG_CTL;
 	//}
-}
-
-void ctl_reset(void) {
-	if (is_ctl()) {
-		ctl_on();
-	} else {
-		ctl_off();
-	}
 }
 
 bool is_layer(void) {
@@ -109,8 +93,21 @@ void alt_off(void) {
 	}
 }
 
-void alt_reset(void) {
+void reset_mods(void) {
+	if (!is_shift()) {
+		shift_off();
+	}
+	if (!is_ctl()) {
+		ctl_off();
+	}
 	alt_off();
+
+	if (is_shift()) {
+		shift_on();
+	}
+	if (is_ctl()) {
+		ctl_on();
+	}
 }
 
 bool process_mods(uint16_t keycode, bool pressed) {
@@ -165,8 +162,7 @@ bool process_mods(uint16_t keycode, bool pressed) {
 		}
 	}
 	
-	shift_reset();
-	ctl_reset();
+	reset_mods();
 	
 	return false;
 }

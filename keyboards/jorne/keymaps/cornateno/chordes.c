@@ -98,17 +98,17 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 					dict_key = pgm_read_byte_near(dict);
 					if (dict_key == NC) {
 						state = END_ST;
-					} else if (dict_key == SFN) {
+					} else if (!is_short && dict_key == SFN) {
 						shift_on();
-					} else if (dict_key == SFF) {
+					} else if (!is_short && dict_key == SFF) {
 						shift_off();
 					//} else if (dict_key == CLN) {
 					//	ctl_on();
 					//} else if (dict_key == CLF) {
 					//	ctl_off();
-					} else if (dict_key == ALN) {
+					} else if (!is_short && dict_key == ALN) {
 						alt_on();
-					} else if (dict_key == ALF) {
+					} else if (!is_short && dict_key == ALF) {
 						alt_off();
 					} else {
 						//if (caps_first && is_first) {
@@ -132,9 +132,8 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 				//}
 			}
 			
-			alt_reset();
-			shift_reset();
-			//ctl_reset();
+			reset_mods();
+			
 			chord = 0;
 			is_chord_shift = false;
 

@@ -62,7 +62,7 @@ const uint8_t PROGMEM alpha_dict[] = {
 	, 0, BM_AR(AR_2) + BM_AR(AR_3)			, RU_L, RU_Q, NC
 	, 0, BM_AR(AR_4) + BM_AR(AR_5)			, RU_B, RU_Y, NC
 
-	, BM_AL(SL_S) + BM_AL(SL_T)									, BM_AR(SR_R) + BM_AR(SR_K) + BM_AR(SR_A)						, RU_S, RU_T, RU_R, RU_R, RU_O, RU_K, RU_A, NC
+	, BM_AL(SL_S) + BM_AL(SL_T)									, BM_AR(SR_R) + BM_AR(SR_K) + BM_AR(SR_A)						, RU_S, RU_T, RU_R, RU_O, RU_K, RU_A, NC
 
 	, 0x00, 0x00 // end
 	
