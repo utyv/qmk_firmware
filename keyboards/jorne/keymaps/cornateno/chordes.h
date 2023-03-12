@@ -4,6 +4,7 @@
 #include "mods.h"
 #include "alpha.h"
 #include "beta.h"
+#include "layer.h"
 #include "dance.h"
 
 bool process_chorde(uint16_t keycode, bool pressed);

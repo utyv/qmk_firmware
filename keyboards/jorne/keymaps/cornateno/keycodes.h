@@ -43,10 +43,10 @@ enum keycodes {
 };
 
 // bit maps
-#define BM_AL(code) (1 << (code - AL_0))
-#define BM_AR(code) (1 << (code - AR_0))
-#define BM_BL(code) (1 << (code - BL_0))
-#define BM_BR(code) (1 << (code - BR_0))
+#define BM_AL(code) (1 << (AL_ ## code - AL_0))
+#define BM_AR(code) (1 << (AR_ ## code - AR_0))
+#define BM_BL(code) (1 << (BL_ ## code - BL_0))
+#define BM_BR(code) (1 << (BR_ ## code - BR_0))
 
 // russian letters 
 #define RU_A KC_F
@@ -84,22 +84,22 @@ enum keycodes {
 #define RU_Q KC_Z
 
 // STENO LETTERS
-#define SL_V AL_1
-#define SL_S AL_0
-#define SL_T AL_2
-#define SL_P AL_3
-#define SL_R AL_5
-#define SL_M AL_4
-#define SL_K AL_6
-#define SL_L AL_7
-#define SR_V AR_1
-#define SR_S AR_0
-#define SR_T AR_2
-#define SR_R AR_3
-#define SR_N AR_5
-#define SR_K AR_4
-#define SR_A AR_6
-#define SR_I AR_7
+#define SL_V BM_AL(1)
+#define SL_S BM_AL(0)
+#define SL_T BM_AL(2)
+#define SL_P BM_AL(3)
+#define SL_R BM_AL(5)
+#define SL_M BM_AL(4)
+#define SL_K BM_AL(6)
+#define SL_L BM_AL(7)
+#define SR_V BM_AR(1)
+#define SR_S BM_AR(0)
+#define SR_T BM_AR(2)
+#define SR_R BM_AR(3)
+#define SR_N BM_AR(5)
+#define SR_K BM_AR(4)
+#define SR_A BM_AR(6)
+#define SR_I BM_AR(7)
 
 
 

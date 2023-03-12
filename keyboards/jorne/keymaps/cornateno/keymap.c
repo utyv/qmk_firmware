@@ -6,6 +6,7 @@
 #include "mods.c"
 #include "alpha.c"
 #include "beta.c"
+#include "layer.c"
 #include "chordes.c"
 #include "dance.c"
 

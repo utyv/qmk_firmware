@@ -31,18 +31,22 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 		--chord_counter;
 		
 		if (!chord_counter) {
-			bool is_short = (chord < 0x10000);
+			bool is_short = false;
 			
 			const uint8_t *dict = 0;
 			
-			if (is_short) {
-				dict = alpha_dict;
+			if (is_layer()) {
+				dict = layer_dict;
 			} else {
-				if (is_shift()) {
-					dict = beta_s_dict;
+				is_short = (chord < 0x10000);
+				if (is_short) {
+					dict = alpha_dict;
 				} else {
-					dict = beta_dict;
-
+					if (is_shift()) {
+						dict = beta_s_dict;
+					} else {
+						dict = beta_dict;
+					}
 				}
 			}
 			
