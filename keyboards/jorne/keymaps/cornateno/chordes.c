@@ -102,6 +102,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 					dict_key = pgm_read_byte_near(dict);
 					if (dict_key == NC) {
 						state = END_ST;
+						stop_dance();
 					} else if (!is_short && dict_key == SFN) {
 						shift_on();
 					} else if (!is_short && dict_key == SFF) {

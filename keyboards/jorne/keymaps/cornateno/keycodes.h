@@ -120,4 +120,8 @@ enum keycodes {
 #define ALF KC_F
 // dance
 #define TD KC_G
+
+// alt codes
+#define AC2(c1, c2) ALN, KC_KP_ ## c1, KC_KP_ ## c2 
+#define AC3(c1, c2, c3) ALN, KC_KP_ ## c1, KC_KP_ ## c2, KC_KP_ ## c3 
 	
