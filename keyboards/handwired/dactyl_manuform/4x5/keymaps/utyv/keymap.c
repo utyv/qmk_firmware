@@ -308,6 +308,10 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_O, KC_NO // щ
 	, 0x00, 0x09// кя
 	, KC_GRV, KC_NO // ё
+	, 0x54, 0x00// стн
+	, KC_SPACE, KC_NO // ^
+	, 0x00, 0x15// клб
+	, KC_SPACE, KC_NO // ^
 	, 0x03, 0x00// ри
 	, KC_H, KC_B, KC_NO // ри
 	, 0x0c, 0x00// са
@@ -374,7 +378,7 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_R, KC_J, KC_K, KC_J, KC_Y, KC_R, KC_B, KC_NO // колонки
 	, 0xc0, 0x70// !кл-нка
 	, KC_R, KC_J, KC_K, KC_J, KC_Y, KC_R, KC_F, KC_NO // колонка
-													
+																
 	, 0x00, 0x00 // end
 };
 
@@ -455,7 +459,11 @@ const uint8_t PROGMEM phonetic_dictionary[] = {
 	, KC_C, KC_NO // c
 	, 0x00, 0x22// uy
 	, KC_G, KC_NO // g
-													
+	, 0x54, 0x00// stn
+	, KC_SPACE, KC_NO // ^
+	, 0x00, 0x15// klb
+	, KC_SPACE, KC_NO // ^
+															
 	, 0x00, 0x00 // end
 };
 	
