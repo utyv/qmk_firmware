@@ -970,7 +970,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			// Ctl
 			case KC_Z:
 			case KC_MINS:
-			case PNC_UNDSCR:
+			case PNC_EXCL:
 				tap_code(KC_Z);
 			return false;
 			case KC_X:
