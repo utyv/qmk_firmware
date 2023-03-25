@@ -29,11 +29,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef LOCKING_SUPPORT_ENABLE
 #undef LOCKING_RESYNC_ENABLE
 #define NO_ACTION_ONESHOT
-//#define NO_ACTION_TAPPING // disables layers
+#define NO_ACTION_TAPPING
 #define NO_MUSIC_MODE
-#define LAYER_STATE_8BIT
-
-#define COMBO_TERM 120
 
 
 //#undef MATRIX_ROWS
@@ -56,3 +53,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #undef DEBOUNCE
 #define DEBOUNCE 10
+#define MOD_DELAY 10
