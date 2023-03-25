@@ -4,6 +4,7 @@
 #include "mods.h"
 #include "dicts.h"
 #include "macros.h"
+#include "multitap.h"
 
 
 bool process_chorde(uint16_t keycode, bool pressed);

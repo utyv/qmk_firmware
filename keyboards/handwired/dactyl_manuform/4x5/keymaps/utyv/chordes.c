@@ -11,8 +11,33 @@ uint32_t chord = 0;
 uint8_t chord_counter = 0;
 bool is_chord_shift = false;
 
+void check_multitap(bool pressed) {
+	
+	//if (is_multitap()) {
+	//	stop_multitap();
+	//}
+	
+	if (pressed) {
+		
+		switch (chord) {
+			case BM(BL_2):
+			case BM(BR_2):
+				start_multitap(KC_DEL);
+			break;
+		}
+		
+	} else {
+		
+	}
+	
+}
+		
 bool process_chorde(uint16_t keycode, bool pressed) {
 
+	if (keycode == LRL || keycode == LRR) {
+		check_multitap(pressed);
+	}
+		
 	if (!(keycode >= AL_0 && keycode <= BR_7)) {
 		return true;
 	}
@@ -30,6 +55,12 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 		--chord_counter;
 		
 		if (!chord_counter) {
+			
+			if (is_multitap()) {
+				stop_multitap();
+				return false;
+			}
+	
 			bool is_short = false;
 			
 			const uint8_t *dict = 0;

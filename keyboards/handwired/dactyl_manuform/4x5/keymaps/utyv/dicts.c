@@ -116,6 +116,10 @@ const uint8_t PROGMEM long_dict[] = {
 	, 0, 0, 0, BM_BR(0)					, KC_BSPC, NC
 	, 0, 0, BM_BL(1), 0					, KC_ENT, NC
 	, 0, 0, 0, BM_BR(1)					, KC_ENT, NC
+	, 0, 0, BM_BL(2), 0					, KC_DEL, NC
+	, 0, 0, 0, BM_BR(2)					, KC_DEL, NC
+	, 0, 0, BM_BL(0) | BM_BL(1), 0		, CLN, KC_BSPC, NC
+	, 0, 0, 0, BM_BR(0) | BM_BR(1)		, CLN, KC_BSPC, NC
 	
 	, 0x00, 0x00, 0x00, 0x00 // end
 	

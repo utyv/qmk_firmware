@@ -5,6 +5,7 @@
 #include "dicts.c"
 #include "chordes.c"
 #include "macros.c"
+#include "multitap.c"
 	
 #define MY_LAYOUT( \
     L00, L01, L02, L03, L04,                     R04, R03, R02, R01, R00, \
@@ -54,5 +55,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	
 	return true;
 	
+}
+
+void matrix_scan_user(void) {
+	process_multitap();
 }
 
