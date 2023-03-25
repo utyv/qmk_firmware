@@ -74,8 +74,8 @@ enum custom_keycodes {
 	, M_CTAB
 	// PNCATEHO
 	, PNC_EXCL
-	, PNC_DOT
-	, PNC_COMMA
+	//, PNC_DOT
+	//, PNC_COMMA
 	, PNC_QUOT
 	, PNC_UNDSCR
 	, PNC_LBRKTL
@@ -110,8 +110,9 @@ enum combo_events {
 	, CB_UP_DOWN
 	, CB_HOME_END
 	// PNCATEHO
-	, PNC_DOT_COMMA
-	, PNC_QUOT_COMMA
+	//, PNC_DOT_COMMA
+	, PNC_SQTL
+	, PNC_SQTR
 	// LAYOUT
 	, CB_QZ
 	, CB_W_LPR
@@ -127,6 +128,8 @@ enum combo_events {
 	, CB_BS_ESC
 	, CB_LSPC_ESC
 	, CB_RSPC_ESC
+	, CB_BS_ENT
+	, CB_ENT_DEL
 	//
 	, COMBO_LENGTH
 };
@@ -150,14 +153,15 @@ const uint16_t PROGMEM combo_LEFT_RGHT[] = {KC_LEFT, KC_RGHT, COMBO_END}; // com
 const uint16_t PROGMEM combo_UP_DOWN[] = {KC_UP, KC_DOWN, COMBO_END}; // menu
 const uint16_t PROGMEM combo_HOME_END[] = {KC_HOME, KC_END, COMBO_END}; // lang
 // PNCATEHO
-const uint16_t PROGMEM pnc_DOT_COMMA[] = {PNC_DOT, PNC_COMMA, COMBO_END}; // ;
-const uint16_t PROGMEM pnc_QUOT_COMMA[] = {PNC_QUOT, PNC_COMMA, COMBO_END}; // '
+//const uint16_t PROGMEM pnc_DOT_COMMA[] = {PNC_DOT, PNC_COMMA, COMBO_END}; // ;
+const uint16_t PROGMEM pnc_SQTL[] = {PNC_RPRNTHL, PNC_QUOT, COMBO_END}; // '
+const uint16_t PROGMEM pnc_SQTR[] = {PNC_LPRNTHR, PNC_QUOT, COMBO_END}; // '
 
 // LAYOUT
 const uint16_t PROGMEM combo_QZ[] = {KC_Q, KC_Z, COMBO_END};
 const uint16_t PROGMEM combo_W_LPR[] = {KC_W, KC_GRV, COMBO_END};
 const uint16_t PROGMEM combo_E_RPR[] = {KC_E, KC_RBRC, COMBO_END};
-const uint16_t PROGMEM pnc_N_UND[] = {ST_1, PNC_UNDSCR, COMBO_END};
+const uint16_t PROGMEM pnc_N_UND[] = {ST_1, PNC_EXCL, COMBO_END};
 const uint16_t PROGMEM pnc_A_LPR[] = {ST_3, PNC_LBRKTL, COMBO_END};
 const uint16_t PROGMEM pnc_E_RPR[] = {ST_5, PNC_RBRKTL, COMBO_END};
 // MISC
@@ -168,6 +172,9 @@ const uint16_t PROGMEM combo_RSPC_NUM[] = {M_RSPC, M_RNUM, COMBO_END}; // ctl
 const uint16_t PROGMEM combo_BS_ESC[] = {KC_BSPC, KC_ESC, COMBO_END}; // ctl bkspc
 const uint16_t PROGMEM combo_LSPC_ESC[] = {M_LSPC, KC_ESC, COMBO_END}; // ctl spc
 const uint16_t PROGMEM combo_RSPC_ESC[] = {M_RSPC, KC_ESC, COMBO_END}; // ctl spc
+const uint16_t PROGMEM combo_BS_ENT[] = {KC_BSPC, KC_ENT, COMBO_END}; // ctl bkspc
+const uint16_t PROGMEM combo_ENT_DEL[] = {KC_ENT, KC_DEL, COMBO_END}; // esc
+
 
 
 
@@ -189,8 +196,9 @@ combo_t key_combos[] = {
 	, [CB_UP_DOWN] = COMBO_ACTION(combo_UP_DOWN) 
 	, [CB_HOME_END] = COMBO_ACTION(combo_HOME_END) 
 	// PNCATEHO
-	, [PNC_DOT_COMMA] = COMBO_ACTION(pnc_DOT_COMMA) //;
-	, [PNC_QUOT_COMMA] = COMBO_ACTION(pnc_QUOT_COMMA) //'
+	//, [PNC_DOT_COMMA] = COMBO_ACTION(pnc_DOT_COMMA) //;
+	, [PNC_SQTL] = COMBO_ACTION(pnc_SQTL) //'
+	, [PNC_SQTR] = COMBO_ACTION(pnc_SQTR) //'
 	// LAYOUT
 	, [CB_QZ] = COMBO_ACTION(combo_QZ)
 	, [CB_W_LPR] = COMBO_ACTION(combo_W_LPR)
@@ -206,6 +214,8 @@ combo_t key_combos[] = {
 	, [CB_BS_ESC] = COMBO_ACTION(combo_BS_ESC) 
 	, [CB_LSPC_ESC] = COMBO_ACTION(combo_LSPC_ESC) 
 	, [CB_RSPC_ESC] = COMBO_ACTION(combo_RSPC_ESC) 
+	, [CB_BS_ENT] = COMBO_ACTION(combo_BS_ENT) 
+	, [CB_ENT_DEL] = COMBO_ACTION(combo_ENT_DEL) 
 	
 };
 
@@ -312,24 +322,50 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_SPACE, KC_NO // ^
 	, 0x00, 0x15// клб
 	, KC_SPACE, KC_NO // ^
-	, 0x03, 0x00// ри
-	, KC_H, KC_B, KC_NO // ри
-	, 0x0c, 0x00// са
-	, KC_C, KC_F, KC_NO // са
-	, 0x30, 0x00// те
-	, KC_N, KC_T, KC_NO // те
-	, 0xc0, 0x00// но
-	, KC_Y, KC_J, KC_NO // но
-	, 0x00, 0x03// ку
-	, KC_R, KC_E, KC_NO // ку
-	, 0x00, 0x0c// ля
-	, KC_K, KC_Z, KC_NO // ля
-	, 0x00, 0x30// бы
-	, KC_COMM, KC_S, KC_NO // бы
-	, 0x8a, 0x00// иао
-	, KC_B, KC_P, KC_NO // из
-	, 0x00, 0x0e// уля
-	, KC_L, KC_K, KC_Z, KC_NO // для
+	, 0x15, 0x00// рст
+	, KC_MINS, KC_NO // -
+	, 0x00, 0x54// лбм
+	, KC_MINS, KC_NO // -
+	, 0x95, 0x00// рсто
+	, KC_SPACE, KC_MINS, KC_SPACE, KC_NO // ^-^
+	, 0x00, 0x56// улбм
+	, KC_SPACE, KC_MINS, KC_SPACE, KC_NO // ^-^
+	, 0xd0, 0x00// тно
+	, KC_LALT, KC_KP_4, KC_KP_6, KC_RALT, KC_NO // {46}
+	, 0x00, 0x07// кул
+	, KC_LALT, KC_KP_4, KC_KP_6, KC_RALT, KC_NO // {46}
+	, 0xd4, 0x00// стно
+	, KC_LALT, KC_KP_4, KC_KP_6, KC_RALT, KC_SPACE, KC_NO // {46}^
+	, 0x00, 0x17// кулб
+	, KC_LALT, KC_KP_4, KC_KP_6, KC_RALT, KC_SPACE, KC_NO // {46}^
+	, 0x70, 0x00// тен
+	, KC_LALT, KC_KP_4, KC_KP_4, KC_RALT, KC_NO // {44}
+	, 0x00, 0x0d// кля
+	, KC_LALT, KC_KP_4, KC_KP_4, KC_RALT, KC_NO // {44}
+	, 0x74, 0x00// стен
+	, KC_LALT, KC_KP_4, KC_KP_4, KC_RALT, KC_SPACE, KC_NO // {44}^
+	, 0x00, 0x1d// кляб
+	, KC_LALT, KC_KP_4, KC_KP_4, KC_RALT, KC_SPACE, KC_NO // {44}^
+	, 0x64, 0x00// сен
+	, KC_LALT, KC_KP_5, KC_KP_9, KC_RALT, KC_NO // {59}
+	, 0x00, 0x19// кяб
+	, KC_LALT, KC_KP_5, KC_KP_9, KC_RALT, KC_NO // {59}
+	, 0xf0, 0x00// тено
+	, KC_LALT, KC_KP_5, KC_KP_8, KC_RALT, KC_NO // {58}
+	, 0x00, 0x0f// куля
+	, KC_LALT, KC_KP_5, KC_KP_8, KC_RALT, KC_NO // {58}
+	, 0xf4, 0x00// стено
+	, KC_LALT, KC_KP_5, KC_KP_8, KC_RALT, KC_SPACE, KC_NO // {58}^
+	, 0x00, 0x1f// куляб
+	, KC_LALT, KC_KP_5, KC_KP_8, KC_RALT, KC_SPACE, KC_NO // {58}^
+	, 0x2c, 0x0c// !тпр-тр
+	, KC_L, KC_J, KC_COMM, KC_H, KC_J, KC_T, KC_SPACE, KC_E, KC_N, KC_H, KC_J, KC_NO // доброе^утро
+	, 0x2c, 0x24// !тпр-тн
+	, KC_L, KC_J, KC_COMM, KC_H, KC_S, KC_Q, KC_SPACE, KC_L, KC_T, KC_Y, KC_M, KC_NO // добрый^день
+	, 0x2c, 0x0b// !тпр-вср
+	, KC_L, KC_J, KC_COMM, KC_H, KC_S, KC_Q, KC_SPACE, KC_D, KC_T, KC_X, KC_T, KC_H, KC_NO // добрый^вечер
+	, 0x05, 0x18// !ст-рк
+	, KC_C, KC_N, KC_H, KC_J, KC_R, KC_NO // строк
 	, 0x05, 0x58// !ст-рка
 	, KC_C, KC_N, KC_H, KC_J, KC_R, KC_F, KC_NO // строка
 	, 0x05, 0x98// !ст-рки
@@ -346,6 +382,8 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_P, KC_F, KC_G, KC_H, KC_J, KC_C, KC_NO // запрос
 	, 0x10, 0x02// !м-в
 	, KC_Y, KC_J, KC_D, KC_S, KC_Q, KC_NO // новый
+	, 0x10, 0x42// !м-ва
+	, KC_Y, KC_J, KC_D, KC_F, KC_Z, KC_NO // новая
 	, 0x40, 0x10// !к-к
 	, KC_W, KC_B, KC_R, KC_K, KC_NO // цикл
 	, 0x40, 0x50// !к-ка
@@ -354,14 +392,10 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_R, KC_F, KC_SCLN, KC_L, KC_J, KC_U, KC_J, KC_NO // каждого
 	, 0x08, 0x10// !п-к
 	, KC_G, KC_J, KC_R, KC_F, KC_NO // пока
-	, 0x2c, 0x24// !тпр-тн
-	, KC_L, KC_J, KC_COMM, KC_H, KC_S, KC_Q, KC_SPACE, KC_L, KC_T, KC_Y, KC_M, KC_NO // добрый^день
-	, 0x2c, 0x0c// !тпр-тр
-	, KC_L, KC_J, KC_COMM, KC_H, KC_J, KC_T, KC_SPACE, KC_E, KC_N, KC_H, KC_J, KC_NO // доброе^утро
-	, 0x2c, 0x0b// !тпр-вср
-	, KC_L, KC_J, KC_COMM, KC_H, KC_S, KC_Q, KC_SPACE, KC_D, KC_T, KC_X, KC_T, KC_H, KC_NO // добрый^вечер
 	, 0x10, 0x03// !м-вс
 	, KC_V, KC_F, KC_C, KC_C, KC_B, KC_D, KC_NO // массив
+	, 0x50, 0x0c// !мк-тр
+	, KC_Y, KC_J, KC_V, KC_T, KC_Y, KC_R, KC_K, KC_F, KC_N, KC_E, KC_H, KC_NO // номенклатур
 	, 0x50, 0x4c// !мк-тра
 	, KC_Y, KC_J, KC_V, KC_T, KC_Y, KC_R, KC_K, KC_F, KC_N, KC_E, KC_H, KC_F, KC_NO // номенклатура
 	, 0x50, 0x8c// !мк-три
@@ -370,15 +404,43 @@ const uint8_t PROGMEM steno_dictionary[] = {
 	, KC_R, KC_J, KC_K, KC_B, KC_X, KC_T, KC_C, KC_N, KC_D, KC_J, KC_NO // количество
 	, 0x38, 0x8c// !прм-три
 	, KC_G, KC_F, KC_H, KC_F, KC_V, KC_T, KC_N, KC_H, KC_S, KC_NO // параметры
+	, 0x38, 0x0c// !прм-тр
+	, KC_G, KC_F, KC_H, KC_F, KC_V, KC_T, KC_N, KC_H, KC_NO // параметр
 	, 0x0c, 0x06// !тп-вт
 	, KC_L, KC_J, KC_COMM, KC_F, KC_D, KC_B, KC_N, KC_M, KC_NO // добавить
 	, 0x07, 0x06// !вст-вт
 	, KC_D, KC_C, KC_N, KC_F, KC_D, KC_B, KC_N, KC_M, KC_NO // вставить
-	, 0xc0, 0xb0// !кл-нки
-	, KC_R, KC_J, KC_K, KC_J, KC_Y, KC_R, KC_B, KC_NO // колонки
+	, 0xc0, 0x30// !кл-нк
+	, KC_R, KC_J, KC_K, KC_J, KC_Y, KC_R, KC_NO // колонк
 	, 0xc0, 0x70// !кл-нка
 	, KC_R, KC_J, KC_K, KC_J, KC_Y, KC_R, KC_F, KC_NO // колонка
-																
+	, 0xc0, 0xb0// !кл-нки
+	, KC_R, KC_J, KC_K, KC_J, KC_Y, KC_R, KC_B, KC_NO // колонки
+	, 0x2c, 0x25// !тпр-стн
+	, KC_G, KC_J, KC_L, KC_H, KC_F, KC_P, KC_L, KC_T, KC_K, KC_T, KC_Y, KC_B, KC_T, KC_NO // подразделение
+	, 0x08, 0x14// !п-тк
+	, KC_J, KC_COMM, KC_RBRC, KC_T, KC_R, KC_N, KC_NO // объект
+	, 0x88, 0x05// !пл-ст
+	, KC_J, KC_COMM, KC_K, KC_F, KC_C, KC_N, KC_M, KC_NO // область
+	, 0x04, 0x20// !т-н
+	, KC_L, KC_F, KC_Y, KC_Y, KC_S, KC_T, KC_NO // данные
+	, 0x81, 0x50// !сл-ка
+	, KC_C, KC_C, KC_S, KC_K, KC_R, KC_F, KC_NO // ссылка
+	, 0x88, 0x04// !пл-т
+	, KC_G, KC_J, KC_K, KC_E, KC_X, KC_B, KC_N, KC_M, KC_NO // получить
+	, 0x65, 0x4c// !стрк-тра
+	, KC_C, KC_N, KC_H, KC_E, KC_R, KC_N, KC_E, KC_H, KC_F, KC_NO // структура
+	, 0x28, 0x24// !пр-тн
+	, KC_Y, KC_T, KC_J, KC_G, KC_H, KC_T, KC_L, KC_T, KC_K, KC_T, KC_Y, KC_J, KC_NO // неопределено
+	, 0x54, 0x04// !тмк-т
+	, KC_L, KC_J, KC_R, KC_E, KC_V, KC_T, KC_Y, KC_N, KC_NO // документ
+	, 0x54, 0x84// !тмк-ти
+	, KC_L, KC_J, KC_R, KC_E, KC_V, KC_T, KC_Y, KC_N, KC_S, KC_NO // документы
+	, 0x29, 0x32// !спр-внк
+	, KC_C, KC_G, KC_H, KC_F, KC_D, KC_J, KC_X, KC_Y, KC_B, KC_R, KC_NO // справочник
+	, 0x29, 0xb2// !спр-внки
+	, KC_C, KC_G, KC_H, KC_F, KC_D, KC_J, KC_X, KC_Y, KC_B, KC_R, KC_B, KC_NO // справочники
+																									
 	, 0x00, 0x00 // end
 };
 
@@ -463,7 +525,43 @@ const uint8_t PROGMEM phonetic_dictionary[] = {
 	, KC_SPACE, KC_NO // ^
 	, 0x00, 0x15// klb
 	, KC_SPACE, KC_NO // ^
-															
+	, 0x15, 0x00// rst
+	, KC_MINS, KC_NO // -
+	, 0x00, 0x54// lbm
+	, KC_MINS, KC_NO // -
+	, 0x95, 0x00// rsto
+	, KC_SPACE, KC_MINS, KC_SPACE, KC_NO // ^-^
+	, 0x00, 0x56// ulbm
+	, KC_SPACE, KC_MINS, KC_SPACE, KC_NO // ^-^
+	, 0xd0, 0x00// tno
+	, KC_LALT, KC_KP_4, KC_KP_6, KC_RALT, KC_NO // {46}
+	, 0x00, 0x07// kul
+	, KC_LALT, KC_KP_4, KC_KP_6, KC_RALT, KC_NO // {46}
+	, 0xd4, 0x00// stno
+	, KC_LALT, KC_KP_4, KC_KP_6, KC_RALT, KC_SPACE, KC_NO // {46}^
+	, 0x00, 0x17// kulb
+	, KC_LALT, KC_KP_4, KC_KP_6, KC_RALT, KC_SPACE, KC_NO // {46}^
+	, 0x70, 0x00// ten
+	, KC_LALT, KC_KP_4, KC_KP_4, KC_RALT, KC_NO // {44}
+	, 0x00, 0x0d// klq
+	, KC_LALT, KC_KP_4, KC_KP_4, KC_RALT, KC_NO // {44}
+	, 0x74, 0x00// sten
+	, KC_LALT, KC_KP_4, KC_KP_4, KC_RALT, KC_SPACE, KC_NO // {44}^
+	, 0x00, 0x1d// klqb
+	, KC_LALT, KC_KP_4, KC_KP_4, KC_RALT, KC_SPACE, KC_NO // {44}^
+	, 0x64, 0x00// sen
+	, KC_LALT, KC_KP_5, KC_KP_9, KC_RALT, KC_NO // {59}
+	, 0x00, 0x19// kqb
+	, KC_LALT, KC_KP_5, KC_KP_9, KC_RALT, KC_NO // {59}
+	, 0xf0, 0x00// teno
+	, KC_LALT, KC_KP_5, KC_KP_8, KC_RALT, KC_NO // {58}
+	, 0x00, 0x0f// kulq
+	, KC_LALT, KC_KP_5, KC_KP_8, KC_RALT, KC_NO // {58}
+	, 0xf4, 0x00// steno
+	, KC_LALT, KC_KP_5, KC_KP_8, KC_RALT, KC_SPACE, KC_NO // {58}^
+	, 0x00, 0x1f// kulqb
+	, KC_LALT, KC_KP_5, KC_KP_8, KC_RALT, KC_SPACE, KC_NO // {58}^
+																
 	, 0x00, 0x00 // end
 };
 	
@@ -536,9 +634,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                    '------+------' '------+------'
      */
     [_PNC] = MY_LAYOUT(
-        ST_1,       ST_3,        ST_5,        ST_7,      PNC_EXCL,                                     PNC_EXCL,  ST_9,     ST_B,        ST_D,        ST_F,
-        ST_0,       ST_2,        ST_4,        ST_6,      PNC_DOT,                                      PNC_DOT,   ST_8,     ST_A,        ST_C,        ST_E,
-        PNC_UNDSCR, PNC_LPRNTHL, PNC_RPRNTHL, PNC_QUOT,  PNC_COMMA,                                    PNC_COMMA, PNC_QUOT, PNC_LPRNTHR, PNC_RPRNTHR, PNC_UNDSCR,
+        ST_1,       ST_3,        ST_5,        ST_7,      KC_BSPC,                                      KC_BSPC,   ST_9,     ST_B,        ST_D,        ST_F,
+        ST_0,       ST_2,        ST_4,        ST_6,      KC_ENT,                                       KC_ENT,    ST_8,     ST_A,        ST_C,        ST_E,
+        PNC_EXCL,   PNC_LPRNTHL, PNC_RPRNTHL, PNC_QUOT,  KC_DEL,                                       KC_DEL,    PNC_QUOT, PNC_LPRNTHR, PNC_RPRNTHR, PNC_EXCL,
                     PNC_LBRKTL,  PNC_RBRKTL,                                                                                PNC_LBRKTR,  PNC_RBRKTR,
 													           MO(_NAV), KC_LSFT,  KC_LSFT,  MO(_NAV),
 													           M_LSPC,   M_LNUM,   M_RNUM,   M_RSPC,
@@ -749,6 +847,16 @@ bool process_steno_release(uint16_t keycode, uint16_t mods) {
 				dict_key = pgm_read_byte_near(dict+i);
 				if (dict_key == KC_NO) {
 					state = 9; // end
+				} else if (dict_key == KC_LALT) {
+					unregister_mods(mods);
+					wait_ms(10);
+					register_mods(MOD_BIT(KC_LALT));
+					wait_ms(10);
+				} else if (dict_key == KC_RALT) {
+					wait_ms(10);
+					unregister_mods(MOD_BIT(KC_LEFT_ALT));
+					wait_ms(10);
+					register_mods(mods);
 				} else {
 					if (caps_first && is_first) {
 						tap_code16(S(dict_key));	
@@ -811,7 +919,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				tap_alt_code2(mods, 6, 3);
 				clear_my_dance();
 				break;
-			case PNC_DOT:
+			//case PNC_DOT:
 			case M_LNUM:
 				switch (my_dance_counter) {
 				case 2:
@@ -888,7 +996,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			return false;
 			case KC_B:
 			case KC_N:
-			case PNC_COMMA:
+			//case PNC_COMMA:
 				unregister_mods(MOD_BIT(KC_LCTL));
 				if (shift2_counter) {
 					ctl_hold = S(KC_DEL);
@@ -924,7 +1032,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			return false;
 			case KC_G:
 			case KC_H:
-			case PNC_DOT:
+			//case PNC_DOT:
 				if (shift2_counter) {
 					unregister_mods(MOD_BIT(KC_LCTL));
 					tap_code16(S(KC_ENT));
@@ -1019,12 +1127,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			// ! ?
 			register_my_dance(keycode);
 		break;
-		case PNC_DOT:
-			// .
-			tap_alt_code2(mods, 4, 6);
-			// . :
-			register_my_dance(keycode);
-		break;
+		//case PNC_DOT:
+		//	// .
+		//	tap_alt_code2(mods, 4, 6);
+		//	// . :
+		//	register_my_dance(keycode);
+		//break;
 		case M_HASH:
 			// #
 			tap_alt_code2(mods, 3, 5);
@@ -1168,10 +1276,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			// }
 			tap_alt_code3(mods, 1, 2, 5);
 		break;
-		case PNC_COMMA:
-			// ,
-			tap_alt_code2(mods, 4, 4);
-		break;
+		//case PNC_COMMA:
+		//	// ,
+		//	tap_alt_code2(mods, 4, 4);
+		//break;
 		case PNC_QUOT:
 			// "
 			tap_alt_code2(mods, 3, 4);
@@ -1343,11 +1451,12 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 			// *
 			tap_code16(S(KC_8));
 		break;
-		case PNC_DOT_COMMA:
-			// ;
-			tap_alt_code2(mods, 5, 9);
-		break;
-		case PNC_QUOT_COMMA:
+		//case PNC_DOT_COMMA:
+		//	// ;
+		//	tap_alt_code2(mods, 5, 9);
+		//break;
+		case PNC_SQTL:
+		case PNC_SQTR:
 			// '
 			tap_alt_code2(mods, 3, 9);
 		break;
@@ -1423,6 +1532,12 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 		case CB_LSPC_ESC:
 		case CB_RSPC_ESC:
 			tap_code16(C(KC_SPC));
+		break;
+		case CB_BS_ENT:
+			tap_code16(C(KC_BSPC));
+		break;
+		case CB_ENT_DEL:
+			tap_code(KC_ESC);
 		break;
 		}
 		
