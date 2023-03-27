@@ -60,7 +60,7 @@ void ctl_off(void) {
 }
 
 bool is_layer(void) {
-	return mods & (FLAG_LRL | FLAG_LRL);
+	return mods & (FLAG_LRL | FLAG_LRR);
 }
 
 bool is_alt(void) {
@@ -106,19 +106,22 @@ void phonetic_off(void) {
 	}
 }
 	
-void reset_mods(void) {
+void reset_mods(bool alt_hold) {
 	if (!is_shift()) {
 		shift_off();
 	}
 	if (!is_ctl()) {
 		ctl_off();
 	}
-	alt_off();
+	
+	if (!alt_hold) {
+		alt_off();
+	}
 
 	if (is_shift()) {
 		shift_on();
 	}
-	if (is_ctl()) {
+	if (is_ctl() && !alt_hold) {
 		ctl_on();
 	}
 }
@@ -179,7 +182,7 @@ bool process_mods(uint16_t keycode, bool pressed) {
 		}
 	}
 	
-	reset_mods();
+	reset_mods(false);
 	
 	return false;
 }

@@ -10,6 +10,7 @@ enum search_state {
 uint32_t chord = 0;
 uint8_t chord_counter = 0;
 bool is_chord_shift = false;
+bool is_chord_layer = false;
 
 void check_multitap(bool pressed) {
 	
@@ -49,6 +50,9 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 		if (is_shift()) {
 			is_chord_shift = true;
 		}
+		if (is_layer()) {
+			is_chord_layer = true;
+		}
 		
 	} else {
 		
@@ -65,7 +69,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 			
 			const uint8_t *dict = 0;
 			
-			if (is_layer()) {
+			if (is_layer() || is_chord_layer) {
 				dict = layer_dict;
 			} else {
 				is_short = (chord < 0x10000);
@@ -94,6 +98,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 			uint8_t dict_key = 0;
 			bool caps_first = is_short && is_chord_shift && (!is_shift());
 			bool is_first = true;
+			bool alt_hold = false;
 		
 			while (true) {
 				switch (state) {
@@ -160,6 +165,10 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 						alt_on();
 					} else if (dict_key == ALF) {
 						alt_off();
+					} else if (dict_key == ALH) {
+						if (is_layer()) {
+							alt_hold = true;
+						}
 					} else {
 						if (caps_first && is_first) {
 							shift_on();
@@ -181,10 +190,11 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 				
 			}
 			
-			reset_mods();
+			reset_mods(alt_hold);
 			
 			chord = 0;
 			is_chord_shift = false;
+			is_chord_layer = false;
 
 		}
 	}

@@ -84,6 +84,34 @@ enum keycodes {
 #define RU_YU KC_DOT
 #define RU_Q KC_Z
 
+
+
+// control codes in dictionaries
+// next chord
+#define NC KC_NO
+// shift on
+#define SFN KC_LSFT	
+// shift off
+#define SFF KC_RSFT
+// ctrl on
+#define CLN KC_LCTL
+// ctrl off
+#define CLF KC_RCTL
+// alt on
+#define ALN KC_LALT
+// alt off
+#define ALF KC_RALT
+// alt hold
+#define ALH KC_SCRL
+// shift guard
+#define SFG KC_CAPS
+// macros
+#define MCR KC_INS
+
+// alt codes
+#define AC2(c1, c2) ALN, KC_KP_ ## c1, KC_KP_ ## c2 
+#define AC3(c1, c2, c3) ALN, KC_KP_ ## c1, KC_KP_ ## c2, KC_KP_ ## c3 
+
 // STENO LETTERS (promokl)
 #define SL_V BM_AL(1)
 #define SL_S BM_AL(0)
@@ -102,28 +130,3 @@ enum keycodes {
 #define SR_A BM_AR(6)
 #define SR_I BM_AR(7)
 
-
-
-// control codes in dictionaries
-// next chord
-#define NC KC_NO
-// shift on
-#define SFN KC_LSFT	
-// shift off
-#define SFF KC_RSFT
-// ctrl on
-#define CLN KC_LCTL
-// ctrl off
-#define CLF KC_RCTL
-// alt on
-#define ALN KC_LALT
-// alt off
-#define ALF KC_RALT
-// shift guard
-#define SFG KC_CAPS
-// macros
-#define MCR KC_INS
-
-// alt codes
-#define AC2(c1, c2) ALN, KC_KP_ ## c1, KC_KP_ ## c2 
-#define AC3(c1, c2, c3) ALN, KC_KP_ ## c1, KC_KP_ ## c2, KC_KP_ ## c3 

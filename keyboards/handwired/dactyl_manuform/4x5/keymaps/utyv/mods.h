@@ -17,6 +17,6 @@ bool is_phonetic(void);
 void phonetic_on(void);
 void phonetic_off(void);
 
-void reset_mods(void);
+void reset_mods(bool alt_hold);
 
 bool process_mods(uint16_t keycode, bool pressed);

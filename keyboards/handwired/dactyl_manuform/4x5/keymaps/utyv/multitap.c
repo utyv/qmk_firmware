@@ -25,7 +25,7 @@ void process_multitap(void) {
 			ctl_off();
 			tap_code(key);
 			timer = timer_read();
-			reset_mods();
+			reset_mods(false);
 		}
 	}
 }
