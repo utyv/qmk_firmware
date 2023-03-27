@@ -375,6 +375,10 @@ const uint8_t PROGMEM phonetic_dict[] = {
 
 	, BM_AL(3) | BM_AL(4) | BM_AL(7), 0							, CLN, KC_V, NC
 	, 0, BM_AR(1) | BM_AR(2) | BM_AR(5)							, CLN, KC_V, NC
+	, BM_AL(0) | BM_AL(1) | BM_AL(2), 0							, CLN, KC_Z, NC
+	, 0, BM_AR(4) | BM_AR(6) | BM_AR(7)							, CLN, KC_Z, NC
+	, BM_AL(0) | BM_AL(2) | BM_AL(3), 0							, CLN, KC_X, NC
+	, 0, BM_AR(4) | BM_AR(5) | BM_AR(6)							, CLN, KC_X, NC
 
 	
 	, 0x00, 0x00 // end
@@ -462,8 +466,8 @@ const uint8_t PROGMEM layer_dict[] = {
 	, 0, BM_AR(7), 0, 0					, KC_END, NC // Ctl End
 	, BM_AL(0) | BM_AL(2), 0, 0, 0		, KC_LEFT, NC // Ctl Left
 	, 0, BM_AR(0) | BM_AR(2), 0, 0		, KC_LEFT, NC // Ctl Left
-	, BM_AL(4) | BM_AL(6), 0, 0, 0		, KC_LEFT, NC // Ctl Right
-	, 0, BM_AR(4) | BM_AR(6), 0, 0		, KC_LEFT, NC // Ctl Right
+	, BM_AL(4) | BM_AL(6), 0, 0, 0		, KC_RIGHT, NC // Ctl Right
+	, 0, BM_AR(4) | BM_AR(6), 0, 0		, KC_RIGHT, NC // Ctl Right
 	, BM_AL(1) | BM_AL(3), 0, 0, 0		, CLF, KC_PGUP, NC 
 	, 0, BM_AR(1) | BM_AR(3), 0, 0		, CLF, KC_PGUP, NC
 	, BM_AL(5) | BM_AL(7), 0, 0, 0		, CLF, KC_PGDN, NC
@@ -497,10 +501,10 @@ const uint8_t PROGMEM layer_dict[] = {
 
 	, BM_AL(0) | BM_AL(6), 0, 0, 0					, CLF, ALN, SFN, SFF, ALF, NC
 	, 0, BM_AR(0) | BM_AR(6), 0, 0					, CLF, ALN, SFN, SFF, ALF, NC
-	, BM_AL(3) | BM_AL(5), 0, 0, 0					, CLF, KC_MENU, NC
-	, 0, BM_AR(3) | BM_AR(5), 0, 0					, CLF, KC_MENU, NC
-	, BM_AL(2) | BM_AL(4), 0, 0, 0					, SFG, KC_MINS, NC
-	, 0, BM_AR(2) | BM_AR(4), 0, 0					, SFG, KC_MINS, NC
+	, BM_AL(3) | BM_AL(5), 0, 0, 0					, CLF, KC_APP, NC
+	, 0, BM_AR(3) | BM_AR(5), 0, 0					, CLF, KC_APP, NC
+	, BM_AL(2) | BM_AL(4), 0, 0, 0					, SFG, SFF, KC_MINS, NC
+	, 0, BM_AR(2) | BM_AR(4), 0, 0					, SFG, SFF, KC_MINS, NC
 	, BM_AL(2) | BM_AL(4), 0, 0, 0					, CLF, KC_F12, NC
 	, 0, BM_AR(2) | BM_AR(4), 0, 0					, CLF, KC_F12, NC
 	
