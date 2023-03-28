@@ -302,7 +302,7 @@ const uint8_t PROGMEM phonetic_dict[] = {
 	, 0, BM_AR(0) | BM_AR(6)			, KC_H, NC
 	, 0, BM_AR(1) | BM_AR(3)			, KC_D, NC
 	, 0, BM_AR(2) | BM_AR(4)			, KC_C, NC
-	, 0, BM_AR(1) | BM_AR(5)			, RU_G, NC
+	, 0, BM_AR(1) | BM_AR(5)			, KC_G, NC
 
 
 	, BM_AL(2) | BM_AL(4) | BM_AL(6), 0							, KC_SPC, NC
@@ -443,6 +443,8 @@ const uint8_t PROGMEM long_dict[] = {
 	, 0, 0, BM_BL(3) | BM_BL(5) | BM_BL(6), 0		, SFN, KC_8, NC // *
 	, 0, 0, 0, BM_BR(3) | BM_BR(5) | BM_BR(6)		, SFN, KC_8, NC // *
 	
+	, BM_AL(4) | BM_AL(7), 0, 0, BM_BR(3)		, RU_T, RU_O, NC // то
+
 	, 0x00, 0x00, 0x00, 0x00 // end
 	
 };
@@ -472,6 +474,10 @@ const uint8_t PROGMEM layer_dict[] = {
 	, 0, BM_AR(1) | BM_AR(3), 0, 0		, CLF, KC_PGUP, NC
 	, BM_AL(5) | BM_AL(7), 0, 0, 0		, CLF, KC_PGDN, NC
 	, 0, BM_AR(5) | BM_AR(7), 0, 0		, CLF, KC_PGDN, NC
+	, BM_AL(0) | BM_AL(4), 0, 0, 0		, KC_LBRC, NC // Ctl {
+	, 0, BM_AR(0) | BM_AR(4), 0, 0		, KC_LBRC, NC // Ctl {
+	, BM_AL(2) | BM_AL(6), 0, 0, 0		, KC_RBRC, NC // Ctl }
+	, 0, BM_AR(2) | BM_AR(6), 0, 0		, KC_RBRC, NC // Ctl }
 
 	, 0, 0, BM_BL(0), 0					, CLF, KC_TAB, NC
 	, 0, 0, 0, BM_BR(0)					, CLF, KC_TAB, NC

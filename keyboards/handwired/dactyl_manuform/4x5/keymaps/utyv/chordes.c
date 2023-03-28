@@ -26,9 +26,30 @@ void check_multitap(bool pressed) {
 				start_multitap(KC_DEL);
 			break;
 		}
-		
+
 	} else {
 		
+		if (is_layer()) {
+			switch (chord) {
+				case BM(AL_2):
+				case BM(AR_2):
+					start_multitap(KC_LEFT);
+				break;
+				case BM(AL_4):
+				case BM(AR_4):
+					start_multitap(KC_RIGHT);
+				break;
+				case BM(AL_3):
+				case BM(AR_3):
+					start_multitap(KC_UP);
+				break;
+				case BM(AL_5):
+				case BM(AR_5):
+					start_multitap(KC_DOWN);
+				break;
+			}
+			
+		}
 	}
 	
 }

@@ -3,7 +3,7 @@
 uint8_t key = 0;
 uint16_t timer = 0;
 
-#define MULTITAP_MS 300
+#define MULTITAP_MS 100
 
 bool is_multitap(void) {
 	return key;
