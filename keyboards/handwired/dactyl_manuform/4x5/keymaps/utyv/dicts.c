@@ -426,8 +426,8 @@ const uint8_t PROGMEM long_dict[] = {
 	, 0, 0, 0, BM_BR(4) | BM_BR(5)		, SFF, KC_6, NC 
 	, 0, 0, BM_BL(4) | BM_BL(5) | BM_BL(6), 0		, SFF, KC_7, NC
 	, 0, 0, 0, BM_BR(4) | BM_BR(5) | BM_BR(6)		, SFF, KC_7, NC 
-	, 0, 0, BM_BL(3), 0					, SFG, SFF, AC3(1, 2, 7), NC // ~
-	, 0, 0, 0, BM_BR(3)					, SFG, SFF, AC3(1, 2, 7), NC // ~ 
+	, 0, 0, BM_BL(3), 0					, SFG, SFF, AC3(1, 2, 6), NC // ~
+	, 0, 0, 0, BM_BR(3)					, SFG, SFF, AC3(1, 2, 6), NC // ~ 
 	, 0, 0, BM_BL(3), 0					, KC_8, NC
 	, 0, 0, 0, BM_BR(3)					, KC_8, NC 
 	, 0, 0, BM_BL(3) | BM_BL(6), 0		, SFF, KC_9, NC
@@ -494,6 +494,8 @@ const uint8_t PROGMEM long_dict[] = {
 	, 0, BM_AR(1) | BM_AR(3), BM_BL(3), 0		, RU_D, RU_U, NC // ду
 	, 0, BM_AR(1) | BM_AR(3), BM_BL(4), 0		, RU_D, RU_Q, NC // дя
 	, 0, BM_AR(1) | BM_AR(5), BM_BL(3), 0		, RU_G, RU_U, NC // гу
+	
+	
 	, 0, BM_AR(1) | BM_AR(7), BM_BL(3), 0		, RU_U, RU_J, NC // уй
 	, 0, BM_AR(1) | BM_AR(7), BM_BL(4), 0		, RU_YU, RU_J, NC // юй
 	, 0, BM_AR(1) | BM_AR(7), BM_BL(5), 0		, RU_U, RU_YU, NC // ую
@@ -502,6 +504,7 @@ const uint8_t PROGMEM long_dict[] = {
 	, BM_AL(2) | BM_AL(6), 0, 0, BM_BR(3)		, RU_N, RU_MZ, NC // нь
 	, BM_AL(2) | BM_AL(6), 0, 0, BM_BR(4)		, RU_S, RU_MZ, NC // сь
 	, BM_AL(2) | BM_AL(4) | BM_AL(6), 0, 0, BM_BR(3)		, RU_T, RU_MZ, NC // ть
+	, BM_AL(0) | BM_AL(2) | BM_AL(6), 0, 0, BM_BR(3)		, RU_R, RU_MZ, NC // рь
 
 	, 0x00, 0x00, 0x00, 0x00 // end
 	
