@@ -8,3 +8,4 @@
 
 
 bool process_chorde(uint16_t keycode, bool pressed);
+uint8_t get_char_counter(void);

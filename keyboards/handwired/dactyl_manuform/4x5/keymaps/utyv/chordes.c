@@ -11,6 +11,11 @@ uint32_t chord = 0;
 uint8_t chord_counter = 0;
 bool is_chord_shift = false;
 bool is_chord_layer = false;
+uint8_t char_counter = 0;
+
+uint8_t get_char_counter(void) {
+	return char_counter;
+}
 
 void check_multitap(bool pressed) {
 	
@@ -87,6 +92,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 			}
 	
 			bool is_short = false;
+			uint8_t new_char_counter = 0;
 			
 			const uint8_t *dict = 0;
 			
@@ -117,7 +123,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 			uint8_t dict_3 = 0;
 			
 			uint8_t dict_key = 0;
-			bool caps_first = is_short && is_chord_shift && (!is_shift());
+			bool caps_first = is_chord_shift && (!is_shift());
 			bool is_first = true;
 			bool alt_hold = false;
 		
@@ -168,7 +174,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 						process_macro(chord);
 					} else if (dict_key == SFG) {
 						// shift guard
-						if (!is_shift()) {
+						if (!(is_shift() || is_chord_shift)) {
 							// skip word
 							state = SKP_WRD_ST;
 						} else {
@@ -176,20 +182,27 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 						}
 					} else if (dict_key == SFN) {
 						shift_on();
+						caps_first = false;
 					} else if (dict_key == SFF) {
 						shift_off();
+						caps_first = false;
 					} else if (dict_key == CLN) {
 						ctl_on();
+						caps_first = false;
 					} else if (dict_key == CLF) {
 						ctl_off();
+						caps_first = false;
 					} else if (dict_key == ALN) {
 						alt_on();
+						caps_first = false;
 					} else if (dict_key == ALF) {
 						alt_off();
+						caps_first = false;
 					} else if (dict_key == ALH) {
 						if (is_layer()) {
 							alt_hold = true;
 						}
+						caps_first = false;
 					} else {
 						if (caps_first && is_first) {
 							shift_on();
@@ -199,6 +212,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 							tap_code(dict_key);
 						}
 						is_first = false;
+						++new_char_counter;
 					}
 					dict++;
 				break;
@@ -216,7 +230,8 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 			chord = 0;
 			is_chord_shift = false;
 			is_chord_layer = false;
-
+			char_counter = new_char_counter;
+			
 		}
 	}
 		

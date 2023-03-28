@@ -62,12 +62,12 @@ const uint8_t PROGMEM short_dict[] = {
 	, 0, BM_AR(2) | BM_AR(4) | BM_AR(6)							, KC_MINS, NC
 	, BM_AL(0) | BM_AL(2) | BM_AL(4) | BM_AL(7), 0				, KC_SPC, KC_MINS, KC_SPC, NC
 	, 0, BM_AR(1) | BM_AR(2) | BM_AR(4) | BM_AR(6)				, KC_SPC, KC_MINS, KC_SPC, NC
-	, BM_AL(4) | BM_AL(6) | BM_AL(7), 0							, SFG, KC_1, NC // !
-	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)							, SFG, KC_1, NC // !
+	, BM_AL(4) | BM_AL(6) | BM_AL(7), 0							, SFG, SFN, KC_1, NC // !
+	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)							, SFG, SFN, KC_1, NC // !
 	, BM_AL(4) | BM_AL(6) | BM_AL(7), 0							, AC2(4, 6), NC // .
 	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)							, AC2(4, 6), NC // .
-	, BM_AL(2) | BM_AL(4) | BM_AL(6) | BM_AL(7), 0				, SFG, KC_1, KC_SPC, NC // !
-	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)	| BM_AR(4)				, SFG, KC_1, KC_SPC, NC // !
+	, BM_AL(2) | BM_AL(4) | BM_AL(6) | BM_AL(7), 0				, SFG, SFN, KC_1, KC_SPC, NC // !
+	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)	| BM_AR(4)				, SFG, SFN, KC_1, KC_SPC, NC // !
 	, BM_AL(2) | BM_AL(4) | BM_AL(6) | BM_AL(7), 0				, AC2(4, 6), ALF, KC_SPC, NC // .
 	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)	| BM_AR(4)				, AC2(4, 6), ALF, KC_SPC, NC // .
 	, BM_AL(4) | BM_AL(5) | BM_AL(6), 0							, SFG, SFF, AC2(6, 3), NC // ?
@@ -313,12 +313,12 @@ const uint8_t PROGMEM phonetic_dict[] = {
 	, 0, BM_AR(2) | BM_AR(4) | BM_AR(6)							, KC_MINS, NC
 	, BM_AL(0) | BM_AL(2) | BM_AL(4) | BM_AL(7), 0				, KC_SPC, KC_MINS, KC_SPC, NC
 	, 0, BM_AR(1) | BM_AR(2) | BM_AR(4) | BM_AR(6)				, KC_SPC, KC_MINS, KC_SPC, NC
-	, BM_AL(4) | BM_AL(6) | BM_AL(7), 0							, SFG, KC_1, NC // !
-	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)							, SFG, KC_1, NC // !
+	, BM_AL(4) | BM_AL(6) | BM_AL(7), 0							, SFG, SFN, KC_1, NC // !
+	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)							, SFG, SFN, KC_1, NC // !
 	, BM_AL(4) | BM_AL(6) | BM_AL(7), 0							, AC2(4, 6), NC // .
 	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)							, AC2(4, 6), NC // .
-	, BM_AL(2) | BM_AL(4) | BM_AL(6) | BM_AL(7), 0				, SFG, KC_1, KC_SPC, NC // !
-	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)	| BM_AR(4)				, SFG, KC_1, KC_SPC, NC // !
+	, BM_AL(2) | BM_AL(4) | BM_AL(6) | BM_AL(7), 0				, SFG, SFN, KC_1, KC_SPC, NC // !
+	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)	| BM_AR(4)				, SFG, SFN, KC_1, KC_SPC, NC // !
 	, BM_AL(2) | BM_AL(4) | BM_AL(6) | BM_AL(7), 0				, AC2(4, 6), ALF, KC_SPC, NC // .
 	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)	| BM_AR(4)				, AC2(4, 6), ALF, KC_SPC, NC // .
 	, BM_AL(4) | BM_AL(5) | BM_AL(6), 0							, SFG, SFF, AC2(6, 3), NC // ?
@@ -401,6 +401,8 @@ const uint8_t PROGMEM long_dict[] = {
 	, 0, BM_AR(0), 0, BM_BR(1)			, CLN, KC_ENT, NC
 	, 0, 0, BM_BL(2) | BM_BL(3), 0		, CLN, KC_DEL, NC
 	, 0, 0, 0, BM_BR(1) | BM_BR(3)		, CLN, KC_DEL, NC
+	, 0, 0, BM_BL(0) | BM_BL(1), 0		, MCR, NC
+	, 0, 0, 0, BM_BR(0) | BM_BR(1)		, MCR, NC
 	, 0, 0, BM_BL(1) | BM_BL(2), 0		, KC_ESC, NC
 	, 0, 0, 0, BM_BR(1) | BM_BR(2)		, KC_ESC, NC
 	
@@ -443,7 +445,63 @@ const uint8_t PROGMEM long_dict[] = {
 	, 0, 0, BM_BL(3) | BM_BL(5) | BM_BL(6), 0		, SFN, KC_8, NC // *
 	, 0, 0, 0, BM_BR(3) | BM_BR(5) | BM_BR(6)		, SFN, KC_8, NC // *
 	
+	, BM_AL(6) | BM_AL(7), 0, 0, BM_BR(3)		, RU_N, RU_O, NC // но
+	, BM_AL(5) | BM_AL(6), 0, 0, BM_BR(3)		, RU_N, RU_E, NC // не
+	, BM_AL(3) | BM_AL(6), 0, 0, BM_BR(3)		, RU_N, RU_A, NC // на
+	, BM_AL(3) | BM_AL(6), 0, 0, BM_BR(4)		, RU_W, RU_A, NC // ша
+	, BM_AL(1) | BM_AL(6), 0, 0, BM_BR(3)		, RU_N, RU_I, NC // ни
+	
 	, BM_AL(4) | BM_AL(7), 0, 0, BM_BR(3)		, RU_T, RU_O, NC // то
+	, BM_AL(4) | BM_AL(5), 0, 0, BM_BR(3)		, RU_T, RU_E, NC // те
+	, BM_AL(3) | BM_AL(4), 0, 0, BM_BR(3)		, RU_T, RU_A, NC // та
+	, BM_AL(1) | BM_AL(4), 0, 0, BM_BR(3)		, RU_T, RU_I, NC // ти
+
+	, BM_AL(2) | BM_AL(7), 0, 0, BM_BR(3)		, RU_S, RU_O, NC // со
+	, BM_AL(2) | BM_AL(5), 0, 0, BM_BR(3)		, RU_S, RU_E, NC // се
+	, BM_AL(2) | BM_AL(3), 0, 0, BM_BR(3)		, RU_S, RU_A, NC // са
+	, BM_AL(1) | BM_AL(2), 0, 0, BM_BR(3)		, RU_S, RU_I, NC // си
+
+	, BM_AL(0) | BM_AL(7), 0, 0, BM_BR(3)		, RU_R, RU_O, NC // ро
+	, BM_AL(0) | BM_AL(5), 0, 0, BM_BR(3)		, RU_R, RU_E, NC // ре
+	, BM_AL(0) | BM_AL(3), 0, 0, BM_BR(3)		, RU_R, RU_A, NC // ра
+	, BM_AL(0) | BM_AL(1), 0, 0, BM_BR(3)		, RU_R, RU_I, NC // ри
+
+	, 0, BM_AR(0) | BM_AR(1), BM_BL(3), 0		, RU_K, RU_U, NC // ку
+	, 0, BM_AR(1) | BM_AR(2), BM_BL(3), 0		, RU_L, RU_U, NC // лу
+	, 0, BM_AR(2) | BM_AR(3), BM_BL(3), 0		, RU_L, RU_Q, NC // ля
+	, 0, BM_AR(2) | BM_AR(5), BM_BL(3), 0		, RU_L, RU_Y, NC // лы
+	, 0, BM_AR(2) | BM_AR(7), BM_BL(3), 0		, RU_L, RU_YU, NC // лю
+	, 0, BM_AR(1) | BM_AR(4), BM_BL(3), 0		, RU_B, RU_U, NC // бу
+	, 0, BM_AR(3) | BM_AR(4), BM_BL(3), 0		, RU_B, RU_Q, NC // бя
+	, 0, BM_AR(4) | BM_AR(5), BM_BL(3), 0		, RU_B, RU_Y, NC // бы
+	, 0, BM_AR(1) | BM_AR(6), BM_BL(3), 0		, RU_M, RU_U, NC // му
+	, 0, BM_AR(3) | BM_AR(6), BM_BL(3), 0		, RU_M, RU_Q, NC // мя
+	, 0, BM_AR(5) | BM_AR(6), BM_BL(3), 0		, RU_M, RU_Y, NC // мы
+
+	, BM_AL(5) | BM_AL(7), 0, 0, BM_BR(3)		, RU_P, RU_O, NC // по
+	, BM_AL(5) | BM_AL(7), 0, 0, BM_BR(4)		, RU_P, RU_E, NC // пе
+	, BM_AL(3) | BM_AL(7), 0, 0, BM_BR(3)		, RU_Z, RU_O, NC // зо
+	, BM_AL(3) | BM_AL(7), 0, 0, BM_BR(4)		, RU_Z, RU_A, NC // за
+	, BM_AL(1) | BM_AL(7), 0, 0, BM_BR(3)		, RU_V, RU_O, NC // во
+	, BM_AL(1) | BM_AL(7), 0, 0, BM_BR(4)		, RU_V, RU_I, NC // ви
+	, BM_AL(3) | BM_AL(5) | BM_AL(7), 0, 0, BM_BR(3)		, RU_P, RU_A, NC // па
+	, BM_AL(3) | BM_AL(5) | BM_AL(7), 0, 0, BM_BR(4)		, RU_Z, RU_E, NC // зе
+	, BM_AL(1) | BM_AL(5) | BM_AL(7), 0, 0, BM_BR(3)		, RU_P, RU_I, NC // пи
+	, BM_AL(1) | BM_AL(5) | BM_AL(7), 0, 0, BM_BR(4)		, RU_V, RU_E, NC // ве
+	, BM_AL(1) | BM_AL(3) | BM_AL(7), 0, 0, BM_BR(3)		, RU_Z, RU_I, NC // зи
+	, BM_AL(1) | BM_AL(3) | BM_AL(7), 0, 0, BM_BR(4)		, RU_V, RU_A, NC // ва
+	
+	, 0, BM_AR(1) | BM_AR(3), BM_BL(3), 0		, RU_D, RU_U, NC // ду
+	, 0, BM_AR(1) | BM_AR(3), BM_BL(4), 0		, RU_D, RU_Q, NC // дя
+	, 0, BM_AR(1) | BM_AR(5), BM_BL(3), 0		, RU_G, RU_U, NC // гу
+	, 0, BM_AR(1) | BM_AR(7), BM_BL(3), 0		, RU_U, RU_J, NC // уй
+	, 0, BM_AR(1) | BM_AR(7), BM_BL(4), 0		, RU_YU, RU_J, NC // юй
+	, 0, BM_AR(1) | BM_AR(7), BM_BL(5), 0		, RU_U, RU_YU, NC // ую
+	, 0, BM_AR(1) | BM_AR(5) | BM_AR(7), BM_BL(3), 0		, RU_Y, RU_J, NC // ый
+
+	, BM_AL(2) | BM_AL(6), 0, 0, BM_BR(3)		, RU_N, RU_MZ, NC // нь
+	, BM_AL(2) | BM_AL(6), 0, 0, BM_BR(4)		, RU_S, RU_MZ, NC // сь
+	, BM_AL(2) | BM_AL(4) | BM_AL(6), 0, 0, BM_BR(3)		, RU_T, RU_MZ, NC // ть
 
 	, 0x00, 0x00, 0x00, 0x00 // end
 	
@@ -452,8 +510,8 @@ const uint8_t PROGMEM long_dict[] = {
 const uint8_t PROGMEM layer_dict[] = {
 	BM_AL(0), 0, 0, 0					, CLF, KC_HOME, NC
 	, 0, BM_AR(0), 0, 0					, CLF, KC_HOME, NC
-	, BM_AL(1), 0, 0, 0					, KC_HOME, NC // Ctl Home
-	, 0, BM_AR(1), 0, 0					, KC_HOME, NC // Ctl Home
+	, BM_AL(1), 0, 0, 0					, CLN, KC_HOME, NC // Ctl Home
+	, 0, BM_AR(1), 0, 0					, CLN, KC_HOME, NC // Ctl Home
 	, BM_AL(2), 0, 0, 0					, CLF, KC_LEFT, NC
 	, 0, BM_AR(2), 0, 0					, CLF, KC_LEFT, NC
 	, BM_AL(3), 0, 0, 0					, CLF, KC_UP, NC
@@ -464,36 +522,36 @@ const uint8_t PROGMEM layer_dict[] = {
 	, 0, BM_AR(5), 0, 0					, CLF, KC_DOWN, NC
 	, BM_AL(6), 0, 0, 0					, CLF, KC_END, NC
 	, 0, BM_AR(6), 0, 0					, CLF, KC_END, NC
-	, BM_AL(7), 0, 0, 0					, KC_END, NC // Ctl End
-	, 0, BM_AR(7), 0, 0					, KC_END, NC // Ctl End
-	, BM_AL(0) | BM_AL(2), 0, 0, 0		, KC_LEFT, NC // Ctl Left
-	, 0, BM_AR(0) | BM_AR(2), 0, 0		, KC_LEFT, NC // Ctl Left
-	, BM_AL(4) | BM_AL(6), 0, 0, 0		, KC_RIGHT, NC // Ctl Right
-	, 0, BM_AR(4) | BM_AR(6), 0, 0		, KC_RIGHT, NC // Ctl Right
+	, BM_AL(7), 0, 0, 0					, CLN, KC_END, NC // Ctl End
+	, 0, BM_AR(7), 0, 0					, CLN, KC_END, NC // Ctl End
+	, BM_AL(0) | BM_AL(2), 0, 0, 0		, CLN, KC_LEFT, NC // Ctl Left
+	, 0, BM_AR(0) | BM_AR(2), 0, 0		, CLN, KC_LEFT, NC // Ctl Left
+	, BM_AL(4) | BM_AL(6), 0, 0, 0		, CLN, KC_RIGHT, NC // Ctl Right
+	, 0, BM_AR(4) | BM_AR(6), 0, 0		, CLN, KC_RIGHT, NC // Ctl Right
 	, BM_AL(1) | BM_AL(3), 0, 0, 0		, CLF, KC_PGUP, NC 
 	, 0, BM_AR(1) | BM_AR(3), 0, 0		, CLF, KC_PGUP, NC
 	, BM_AL(5) | BM_AL(7), 0, 0, 0		, CLF, KC_PGDN, NC
 	, 0, BM_AR(5) | BM_AR(7), 0, 0		, CLF, KC_PGDN, NC
-	, BM_AL(0) | BM_AL(4), 0, 0, 0		, KC_LBRC, NC // Ctl {
-	, 0, BM_AR(0) | BM_AR(4), 0, 0		, KC_LBRC, NC // Ctl {
-	, BM_AL(2) | BM_AL(6), 0, 0, 0		, KC_RBRC, NC // Ctl }
-	, 0, BM_AR(2) | BM_AR(6), 0, 0		, KC_RBRC, NC // Ctl }
+	, BM_AL(0) | BM_AL(4), 0, 0, 0		, CLN, KC_LBRC, NC // Ctl {
+	, 0, BM_AR(0) | BM_AR(4), 0, 0		, CLN, KC_LBRC, NC // Ctl {
+	, BM_AL(2) | BM_AL(6), 0, 0, 0		, CLN, KC_RBRC, NC // Ctl }
+	, 0, BM_AR(2) | BM_AR(6), 0, 0		, CLN, KC_RBRC, NC // Ctl }
 
 	, 0, 0, BM_BL(0), 0					, CLF, KC_TAB, NC
 	, 0, 0, 0, BM_BR(0)					, CLF, KC_TAB, NC
 	, 0, 0, BM_BL(1), 0					, CLF, ALN, KC_TAB, ALH, NC
 	, 0, 0, 0, BM_BR(1)					, CLF, ALN, KC_TAB, ALH, NC
-	, 0, 0, BM_BL(2), 0					, KC_TAB, NC
-	, 0, 0, 0, BM_BR(2)					, KC_TAB, NC
+	, 0, 0, BM_BL(2), 0					, CLN, KC_TAB, NC
+	, 0, 0, 0, BM_BR(2)					, CLN, KC_TAB, NC
 	
-	, 0, 0, BM_BL(3), 0					, KC_F, NC
-	, 0, 0, 0, BM_BR(3)					, KC_F, NC
-	, 0, 0, BM_BL(4), 0					, KC_C, NC
-	, 0, 0, 0, BM_BR(4)					, KC_C, NC
-	, 0, 0, BM_BL(5), 0					, KC_S, NC
-	, 0, 0, 0, BM_BR(5)					, KC_S, NC
-	, 0, 0, BM_BL(6), 0					, KC_A, NC
-	, 0, 0, 0, BM_BR(6)					, KC_A, NC
+	, 0, 0, BM_BL(3), 0					, CLN, KC_F, NC
+	, 0, 0, 0, BM_BR(3)					, CLN, KC_F, NC
+	, 0, 0, BM_BL(4), 0					, CLN, KC_C, NC
+	, 0, 0, 0, BM_BR(4)					, CLN, KC_C, NC
+	, 0, 0, BM_BL(5), 0					, CLN, KC_S, NC
+	, 0, 0, 0, BM_BR(5)					, CLN, KC_S, NC
+	, 0, 0, BM_BL(6), 0					, CLN, KC_A, NC
+	, 0, 0, 0, BM_BR(6)					, CLN, KC_A, NC
 	
 
 	, BM_AL(0) | BM_AL(1), 0, 0, 0					, CLF, KC_F2, NC
@@ -509,15 +567,15 @@ const uint8_t PROGMEM layer_dict[] = {
 	, 0, BM_AR(0) | BM_AR(6), 0, 0					, CLF, ALN, SFN, SFF, ALF, NC
 	, BM_AL(3) | BM_AL(5), 0, 0, 0					, CLF, KC_APP, NC
 	, 0, BM_AR(3) | BM_AR(5), 0, 0					, CLF, KC_APP, NC
-	, BM_AL(2) | BM_AL(4), 0, 0, 0					, SFG, SFF, KC_MINS, NC
-	, 0, BM_AR(2) | BM_AR(4), 0, 0					, SFG, SFF, KC_MINS, NC
+	, BM_AL(2) | BM_AL(4), 0, 0, 0					, SFG, SFF, CLN, KC_MINS, NC
+	, 0, BM_AR(2) | BM_AR(4), 0, 0					, SFG, SFF, CLN, KC_MINS, NC
 	, BM_AL(2) | BM_AL(4), 0, 0, 0					, CLF, KC_F12, NC
 	, 0, BM_AR(2) | BM_AR(4), 0, 0					, CLF, KC_F12, NC
 	
 	, BM_AL(4), 0, BM_BL(4), 0					, CLF, KC_PSCR, NC
 	, 0, BM_AR(4), 0, BM_BR(4)					, CLF, KC_PSCR, NC
-	, BM_AL(6), 0, BM_BL(3), 0					, KC_PAUS, NC
-	, 0, BM_AR(6), 0, BM_BR(3)					, KC_PAUS, NC
+	, BM_AL(6), 0, BM_BL(3), 0					, CLN, KC_PAUS, NC
+	, 0, BM_AR(6), 0, BM_BR(3)					, CLN, KC_PAUS, NC
 
 	
 	, 0x00, 0x00, 0x00, 0x00 // end
