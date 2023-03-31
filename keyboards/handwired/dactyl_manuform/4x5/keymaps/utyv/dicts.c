@@ -133,128 +133,149 @@ const uint8_t PROGMEM short_dict[] = {
 	// promokl
 	, SL_T | SL_P | SL_R
 	, SR_T | SR_R
-	, KC_L, KC_J, KC_COMM, KC_H, KC_J, KC_T, KC_SPACE, KC_E, KC_N, KC_H, KC_J, NC // доброе^утро
+	, RU_D, RU_O, RU_B, RU_R, RU_O, RU_E, KC_SPACE, RU_U, RU_T, RU_R, RU_O, NC // доброе^утро
 	, SL_T | SL_P | SL_R
 	, SR_T | SR_N
-	, KC_L, KC_J, KC_COMM, KC_H, KC_S, KC_Q, KC_SPACE, KC_L, KC_T, KC_Y, KC_M, NC // добрый^день
+	, RU_D, RU_O, RU_B, RU_R, RU_Y, RU_J, KC_SPACE, RU_D, RU_E, RU_N, RU_MZ, NC // добрый^день
 	, SL_T | SL_P | SL_R
 	, SR_V | SR_S | SR_R
-	, KC_L, KC_J, KC_COMM, KC_H, KC_S, KC_Q, KC_SPACE, KC_D, KC_T, KC_X, KC_T, KC_H, NC // добрый^вечер
+	, RU_D, RU_O, RU_B, RU_R, RU_Y, RU_J, KC_SPACE, RU_V, RU_E, RU_X, RU_E, RU_R, NC // добрый^вечер
 	, SL_S | SL_T
 	, SR_R | SR_K
-	, KC_C, KC_N, KC_H, KC_J, KC_R, NC // строк
+	, RU_S, RU_T, RU_R, RU_O, RU_K, NC // строк
 	, SL_S | SL_T
 	, SR_R | SR_K | SR_A
-	, KC_C, KC_N, KC_H, KC_J, KC_R, KC_F, NC // строка
+	, RU_S, RU_T, RU_R, RU_O, RU_K, RU_A, NC // строка
 	, SL_S | SL_T
 	, SR_R | SR_K | SR_I
-	, KC_C, KC_N, KC_H, KC_J, KC_R, KC_B, NC // строки
+	, RU_S, RU_T, RU_R, RU_O, RU_K, RU_I, NC // строки
 	, SL_K
 	, SR_N | SR_K
-	, KC_R, KC_J, KC_Y, KC_T, KC_W, NC // конец
+	, RU_K, RU_O, RU_N, RU_E, RU_C, NC // конец
 	, SL_S | SL_L
 	, SR_I
-	, KC_T, KC_C, KC_K, KC_B, NC // если
+	, RU_E, RU_S, RU_L, RU_I, NC // если
 	, SL_T | SL_K
 	, SR_T
-	, KC_N, KC_J, KC_U, KC_L, KC_F, NC // тогда
+	, RU_T, RU_O, RU_G, RU_D, RU_A, NC // тогда
 	, SL_M
 	, SR_K
-	, KC_B, KC_Y, KC_F, KC_X, KC_T, NC // иначе
+	, RU_I, RU_N, RU_A, RU_X, RU_E, NC // иначе
 	, SL_S | SL_P | SL_R
 	, SR_S
-	, KC_P, KC_F, KC_G, KC_H, KC_J, KC_C, NC // запрос
+	, RU_Z, RU_A, RU_P, RU_R, RU_O, RU_S, NC // запрос
 	, SL_M
 	, SR_V
-	, KC_Y, KC_J, KC_D, KC_S, KC_Q, NC // новый
+	, RU_N, RU_O, RU_V, RU_Y, RU_J, NC // новый
 	, SL_M
 	, SR_V | SR_A
-	, KC_Y, KC_J, KC_D, KC_F, KC_Z, NC // новая
+	, RU_N, RU_O, RU_V, RU_A, RU_Q, NC // новая
 	, SL_K
 	, SR_K
-	, KC_W, KC_B, KC_R, KC_K, NC // цикл
+	, RU_C, RU_I, RU_K, RU_L, NC // цикл
 	, SL_K
 	, SR_K | SR_A
-	, KC_W, KC_B, KC_R, KC_K, KC_F, NC // цикла
+	, RU_C, RU_I, RU_K, RU_L, RU_A, NC // цикла
 	, SL_K
 	, SR_S | SR_T | SR_K
-	, KC_R, KC_F, KC_SCLN, KC_L, KC_J, KC_U, KC_J, NC // каждого
+	, RU_K, RU_A, RU_ZH, RU_D, RU_O, RU_G, RU_O, NC // каждого
 	, SL_P
 	, SR_K
-	, KC_G, KC_J, KC_R, KC_F, NC // пока
+	, RU_P, RU_O, RU_K, RU_A, NC // пока
 	, SL_M
 	, SR_V | SR_S
-	, KC_V, KC_F, KC_C, KC_C, KC_B, KC_D, NC // массив
+	, RU_M, RU_A, RU_S, RU_S, RU_I, RU_V, NC // массив
 	, SL_M | SL_K
 	, SR_T | SR_R
-	, KC_Y, KC_J, KC_V, KC_T, KC_Y, KC_R, KC_K, KC_F, KC_N, KC_E, KC_H, NC // номенклатур
+	, RU_N, RU_O, RU_M, RU_E, RU_N, RU_K, RU_L, RU_A, RU_T, RU_U, RU_R, NC // номенклатур
 	, SL_M | SL_K
 	, SR_T | SR_R | SR_A
-	, KC_Y, KC_J, KC_V, KC_T, KC_Y, KC_R, KC_K, KC_F, KC_N, KC_E, KC_H, KC_F, NC // номенклатура
+	, RU_N, RU_O, RU_M, RU_E, RU_N, RU_K, RU_L, RU_A, RU_T, RU_U, RU_R, RU_A, NC // номенклатура
 	, SL_M | SL_K
 	, SR_T | SR_R | SR_I
-	, KC_Y, KC_J, KC_V, KC_T, KC_Y, KC_R, KC_K, KC_F, KC_N, KC_E, KC_H, KC_S, NC // номенклатуры
+	, RU_N, RU_O, RU_M, RU_E, RU_N, RU_K, RU_L, RU_A, RU_T, RU_U, RU_R, RU_Y, NC // номенклатуры
 	, SL_K | SL_L
 	, SR_S | SR_T
-	, KC_R, KC_J, KC_K, KC_B, KC_X, KC_T, KC_C, KC_N, KC_D, KC_J, NC // количество
+	, RU_K, RU_O, RU_L, RU_I, RU_X, RU_E, RU_S, RU_T, RU_V, RU_O, NC // количество
 	, SL_P | SL_R | SL_M
 	, SR_T | SR_R | SR_I
-	, KC_G, KC_F, KC_H, KC_F, KC_V, KC_T, KC_N, KC_H, KC_S, NC // параметры
+	, RU_P, RU_A, RU_R, RU_A, RU_M, RU_E, RU_T, RU_R, RU_Y, NC // параметры
 	, SL_P | SL_R | SL_M
 	, SR_T | SR_R
-	, KC_G, KC_F, KC_H, KC_F, KC_V, KC_T, KC_N, KC_H, NC // параметр
+	, RU_P, RU_A, RU_R, RU_A, RU_M, RU_E, RU_T, RU_R, NC // параметр
 	, SL_T | SL_P
 	, SR_V | SR_T
-	, KC_L, KC_J, KC_COMM, KC_F, KC_D, KC_B, KC_N, KC_M, NC // добавить
+	, RU_D, RU_O, RU_B, RU_A, RU_V, RU_I, RU_T, RU_MZ, NC // добавить
 	, SL_V | SL_S | SL_T
 	, SR_V | SR_T
-	, KC_D, KC_C, KC_N, KC_F, KC_D, KC_B, KC_N, KC_M, NC // вставить
+	, RU_V, RU_S, RU_T, RU_A, RU_V, RU_I, RU_T, RU_MZ, NC // вставить
 	, SL_K | SL_L
 	, SR_N | SR_K
-	, KC_R, KC_J, KC_K, KC_J, KC_Y, KC_R, NC // колонк
+	, RU_K, RU_O, RU_L, RU_O, RU_N, RU_K, NC // колонк
 	, SL_K | SL_L
 	, SR_N | SR_K | SR_A
-	, KC_R, KC_J, KC_K, KC_J, KC_Y, KC_R, KC_F, NC // колонка
+	, RU_K, RU_O, RU_L, RU_O, RU_N, RU_K, RU_A, NC // колонка
 	, SL_K | SL_L
 	, SR_N | SR_K | SR_I
-	, KC_R, KC_J, KC_K, KC_J, KC_Y, KC_R, KC_B, NC // колонки
+	, RU_K, RU_O, RU_L, RU_O, RU_N, RU_K, RU_I, NC // колонки
 	, SL_T | SL_P | SL_R
 	, SR_S | SR_T | SR_N
-	, KC_G, KC_J, KC_L, KC_H, KC_F, KC_P, KC_L, KC_T, KC_K, KC_T, KC_Y, KC_B, KC_T, NC // подразделение
+	, RU_P, RU_O, RU_D, RU_R, RU_A, RU_Z, RU_D, RU_E, RU_L, RU_E, RU_N, RU_I, RU_E, NC // подразделение
 	, SL_P
 	, SR_T | SR_K
-	, KC_J, KC_COMM, KC_RBRC, KC_T, KC_R, KC_N, NC // объект
+	, RU_O, RU_B, RU_TZ, RU_E, RU_K, RU_T, NC // объект
 	, SL_P | SL_L
 	, SR_S | SR_T
-	, KC_J, KC_COMM, KC_K, KC_F, KC_C, KC_N, KC_M, NC // область
+	, RU_O, RU_B, RU_L, RU_A, RU_S, RU_T, RU_MZ, NC // область
 	, SL_T
 	, SR_N
-	, KC_L, KC_F, KC_Y, KC_Y, KC_S, KC_T, NC // данные
+	, RU_D, RU_A, RU_N, RU_N, RU_Y, RU_E, NC // данные
+	, SL_S | SL_L
+	, SR_K
+	, RU_S, RU_S, RU_Y, RU_L, RU_K, NC // ссылк
 	, SL_S | SL_L
 	, SR_K | SR_A
-	, KC_C, KC_C, KC_S, KC_K, KC_R, KC_F, NC // ссылка
+	, RU_S, RU_S, RU_Y, RU_L, RU_K, RU_A, NC // ссылка
 	, SL_P | SL_L
 	, SR_T
-	, KC_G, KC_J, KC_K, KC_E, KC_X, KC_B, KC_N, KC_M, NC // получить
+	, RU_P, RU_O, RU_L, RU_U, RU_X, RU_I, RU_T, RU_MZ, NC // получить
+	, SL_S | SL_T | SL_R | SL_K
+	, SR_T | SR_R
+	, RU_S, RU_T, RU_R, RU_U, RU_K, RU_T, RU_U, RU_R, NC // структур
 	, SL_S | SL_T | SL_R | SL_K
 	, SR_T | SR_R | SR_A
-	, KC_C, KC_N, KC_H, KC_E, KC_R, KC_N, KC_E, KC_H, KC_F, NC // структура
+	, RU_S, RU_T, RU_R, RU_U, RU_K, RU_T, RU_U, RU_R, RU_A, NC // структура
 	, SL_P | SL_R
 	, SR_T | SR_N
-	, KC_Y, KC_T, KC_J, KC_G, KC_H, KC_T, KC_L, KC_T, KC_K, KC_T, KC_Y, KC_J, NC // неопределено
+	, RU_N, RU_E, RU_O, RU_P, RU_R, RU_E, RU_D, RU_E, RU_L, RU_E, RU_N, RU_O, NC // неопределено
 	, SL_T | SL_M | SL_K
 	, SR_T
-	, KC_L, KC_J, KC_R, KC_E, KC_V, KC_T, KC_Y, KC_N, NC // документ
+	, RU_D, RU_O, RU_K, RU_U, RU_M, RU_E, RU_N, RU_T, NC // документ
 	, SL_T | SL_M | SL_K
 	, SR_T | SR_I
-	, KC_L, KC_J, KC_R, KC_E, KC_V, KC_T, KC_Y, KC_N, KC_S, NC // документы
+	, RU_D, RU_O, RU_K, RU_U, RU_M, RU_E, RU_N, RU_T, RU_Y, NC // документы
 	, SL_S | SL_P | SL_R
 	, SR_V | SR_N | SR_K
-	, KC_C, KC_G, KC_H, KC_F, KC_D, KC_J, KC_X, KC_Y, KC_B, KC_R, NC // справочник
+	, RU_S, RU_P, RU_R, RU_A, RU_V, RU_O, RU_X, RU_N, RU_I, RU_K, NC // справочник
 	, SL_S | SL_P | SL_R
 	, SR_V | SR_N | SR_K | SR_I
-	, KC_C, KC_G, KC_H, KC_F, KC_D, KC_J, KC_X, KC_Y, KC_B, KC_R, KC_B, NC // справочники
-	
+	, RU_S, RU_P, RU_R, RU_A, RU_V, RU_O, RU_X, RU_N, RU_I, RU_K, RU_I, NC // справочники
+	, SL_S | SL_P | SL_L
+	, SR_T | SR_N
+	, RU_Z, RU_A, RU_P, RU_O, RU_L, RU_N, RU_I, RU_T, RU_MZ, NC // заполнить
+	, SL_M
+	, SR_T
+	, RU_N, RU_A, RU_J, RU_T, RU_I, NC // найти
+	, SL_T
+	, SR_T | SR_K
+	, RU_O, RU_T, RU_X, RU_E, RU_T, NC // отчет
+	, SL_T
+	, SR_T | SR_K | SR_A
+	, RU_O, RU_T, RU_X, RU_E, RU_T, RU_A, NC // отчета
+	, SL_T
+	, SR_T | SR_K | SR_I
+	, RU_O, RU_T, RU_X, RU_E, RU_T, RU_Y, NC // отчеты
+		
 	, 0x00, 0x00 // end
 	
 };
