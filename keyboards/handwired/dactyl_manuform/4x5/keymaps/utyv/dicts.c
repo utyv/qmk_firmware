@@ -110,26 +110,22 @@ const uint8_t PROGMEM short_dict[] = {
 	, 0, BM_AR(0) | BM_AR(1) | BM_AR(6)							, SFG, SFF, AC2(3, 9), NC // '
 	, BM_AL(0) | BM_AL(6) | BM_AL(7), 0							, AC2(3, 4), NC // "
 	, 0, BM_AR(0) | BM_AR(1) | BM_AR(6)							, AC2(3, 4), NC // "
-	, BM_AL(2) | BM_AL(3) | BM_AL(5), 0							, SFG, AC2(9, 2), NC // \*
-	, 0, BM_AR(3) | BM_AR(4) | BM_AR(5)							, SFG, AC2(9, 2), NC // \*
-	, BM_AL(2) | BM_AL(3) | BM_AL(5), 0							, SFF, AC2(4, 7), NC // /
-	, 0, BM_AR(3) | BM_AR(4) | BM_AR(5)							, SFF, AC2(4, 7), NC // /
+	, BM_AL(3) | BM_AL(5) | BM_AL(7), 0							, SFG, SFF, AC2(9, 2), NC // \*
+	, 0, BM_AR(1) | BM_AR(3) | BM_AR(5)							, SFG, SFF, AC2(9, 2), NC // \*
+	, BM_AL(3) | BM_AL(5) | BM_AL(7), 0							, SFF, AC2(4, 7), NC // /
+	, 0, BM_AR(1) | BM_AR(3) | BM_AR(5)							, SFF, AC2(4, 7), NC // /
+	, BM_AL(3) | BM_AL(5) | BM_AL(6) | BM_AL(7), 0				, SFF, AC2(4, 7), ALF, AC2(4, 7), ALF, KC_SPC, NC // //
+	, 0, BM_AR(0) | BM_AR(1) | BM_AR(3) | BM_AR(5)				, SFF, AC2(4, 7), ALF, AC2(4, 7), ALF, KC_SPC, NC // //
 	, BM_AL(2) | BM_AL(3) | BM_AL(4) | BM_AL(5), 0				, CLN, KC_PSLS, NC // /
 	, 0, BM_AR(2) | BM_AR(3) | BM_AR(4) | BM_AR(5)				, CLN, KC_PSLS, NC // /
-	, BM_AL(3) | BM_AL(5) | BM_AL(7), 0							, SFG, SFF, AC2(3, 8), NC // &
-	, 0, BM_AR(1) | BM_AR(3) | BM_AR(5)							, SFG, SFF, AC2(3, 8), NC // &
-	, BM_AL(3) | BM_AL(5) | BM_AL(7), 0							, AC3(1, 2, 4), NC // |
-	, 0, BM_AR(1) | BM_AR(3) | BM_AR(5)							, AC3(1, 2, 4), NC // |
+	, BM_AL(1) | BM_AL(3) | BM_AL(5), 0							, SFG, SFF, AC2(3, 8), NC // &
+	, 0, BM_AR(3) | BM_AR(5) | BM_AR(7)							, SFG, SFF, AC2(3, 8), NC // &
+	, BM_AL(1) | BM_AL(3) | BM_AL(5), 0							, AC3(1, 2, 4), NC // |
+	, 0, BM_AR(3) | BM_AR(5) | BM_AR(7)							, AC3(1, 2, 4), NC // |
 
 
 	, BM_AL(3) | BM_AL(4) | BM_AL(7), 0							, CLN, KC_V, NC
 	, 0, BM_AR(1) | BM_AR(2) | BM_AR(5)							, CLN, KC_V, NC
-	, BM_AL(0) | BM_AL(1) | BM_AL(2), 0							, CLN, KC_Z, NC
-	, 0, BM_AR(4) | BM_AR(6) | BM_AR(7)							, CLN, KC_Z, NC
-	, BM_AL(0) | BM_AL(2) | BM_AL(3), 0							, CLN, KC_X, NC
-	, 0, BM_AR(4) | BM_AR(5) | BM_AR(6)							, CLN, KC_X, NC
-
-
 
 	
 	// promokl
@@ -361,25 +357,22 @@ const uint8_t PROGMEM phonetic_dict[] = {
 	, 0, BM_AR(0) | BM_AR(1) | BM_AR(6)							, SFG, SFF, AC2(3, 9), NC // '
 	, BM_AL(0) | BM_AL(6) | BM_AL(7), 0							, AC2(3, 4), NC // "
 	, 0, BM_AR(0) | BM_AR(1) | BM_AR(6)							, AC2(3, 4), NC // "
-	, BM_AL(2) | BM_AL(4) | BM_AL(5) | BM_AL(7), 0				, SFF, AC2(4, 7), NC // /
-	, 0, BM_AR(0) | BM_AR(2) | BM_AR(3) | BM_AR(5)				, SFF, AC2(4, 7), NC // /
-	, BM_AL(0) | BM_AL(2) | BM_AL(3) | BM_AL(4) | BM_AL(5) | BM_AL(7), 0				, CLN, KC_PSLS, NC // /
-	, 0, BM_AR(0) | BM_AR(2) | BM_AR(3) | BM_AR(4) | BM_AR(5) | BM_AR(7)				, CLN, KC_PSLS, NC // /
-	, BM_AL(3) | BM_AL(4) | BM_AL(5) | BM_AL(6), 0				, SFF, AC2(9, 2), NC // \*
-	, 0, BM_AR(1) | BM_AR(2) | BM_AR(3) | BM_AR(4)				, SFF, AC2(9, 2), NC // \*
-	, BM_AL(3) | BM_AL(5) | BM_AL(7), 0							, SFG, SFF, AC2(3, 8), NC // &
-	, 0, BM_AR(1) | BM_AR(3) | BM_AR(5)							, SFG, SFF, AC2(3, 8), NC // &
-	, BM_AL(3) | BM_AL(5) | BM_AL(7), 0							, AC3(1, 2, 4), NC // |
-	, 0, BM_AR(1) | BM_AR(3) | BM_AR(5)							, AC3(1, 2, 4), NC // |
+	, BM_AL(3) | BM_AL(5) | BM_AL(7), 0							, SFG, SFF, AC2(9, 2), NC // \*
+	, 0, BM_AR(1) | BM_AR(3) | BM_AR(5)							, SFG, SFF, AC2(9, 2), NC // \*
+	, BM_AL(3) | BM_AL(5) | BM_AL(7), 0							, SFF, AC2(4, 7), NC // /
+	, 0, BM_AR(1) | BM_AR(3) | BM_AR(5)							, SFF, AC2(4, 7), NC // /
+	, BM_AL(3) | BM_AL(5) | BM_AL(6) | BM_AL(7), 0				, SFF, AC2(4, 7), ALF, AC2(4, 7), ALF, KC_SPC, NC // //
+	, 0, BM_AR(0) | BM_AR(1) | BM_AR(3) | BM_AR(5)				, SFF, AC2(4, 7), ALF, AC2(4, 7), ALF, KC_SPC, NC // //
+	, BM_AL(2) | BM_AL(3) | BM_AL(4) | BM_AL(5), 0				, CLN, KC_PSLS, NC // /
+	, 0, BM_AR(2) | BM_AR(3) | BM_AR(4) | BM_AR(5)				, CLN, KC_PSLS, NC // /
+	, BM_AL(1) | BM_AL(3) | BM_AL(5), 0							, SFG, SFF, AC2(3, 8), NC // &
+	, 0, BM_AR(3) | BM_AR(5) | BM_AR(7)							, SFG, SFF, AC2(3, 8), NC // &
+	, BM_AL(1) | BM_AL(3) | BM_AL(5), 0							, AC3(1, 2, 4), NC // |
+	, 0, BM_AR(3) | BM_AR(5) | BM_AR(7)							, AC3(1, 2, 4), NC // |
 
 
 	, BM_AL(3) | BM_AL(4) | BM_AL(7), 0							, CLN, KC_V, NC
 	, 0, BM_AR(1) | BM_AR(2) | BM_AR(5)							, CLN, KC_V, NC
-	, BM_AL(0) | BM_AL(1) | BM_AL(2), 0							, CLN, KC_Z, NC
-	, 0, BM_AR(4) | BM_AR(6) | BM_AR(7)							, CLN, KC_Z, NC
-	, BM_AL(0) | BM_AL(2) | BM_AL(3), 0							, CLN, KC_X, NC
-	, 0, BM_AR(4) | BM_AR(5) | BM_AR(6)							, CLN, KC_X, NC
-
 	
 	, 0x00, 0x00 // end
 	
@@ -445,6 +438,10 @@ const uint8_t PROGMEM long_dict[] = {
 	, 0, 0, BM_BL(3) | BM_BL(5) | BM_BL(6), 0		, SFN, KC_8, NC // *
 	, 0, 0, 0, BM_BR(3) | BM_BR(5) | BM_BR(6)		, SFN, KC_8, NC // *
 	
+	, BM_AL(6), 0, BM_BL(3), 0							, CLN, KC_Z, NC
+	, 0, BM_AR(0), 0, BM_BR(3)							, CLN, KC_Z, NC
+	, BM_AL(4), 0, BM_BL(4), 0							, CLN, KC_X, NC
+	, 0, BM_AR(2), 0, BM_BR(4)							, CLN, KC_X, NC
 
 	, 0x00, 0x00, 0x00, 0x00 // end
 	
