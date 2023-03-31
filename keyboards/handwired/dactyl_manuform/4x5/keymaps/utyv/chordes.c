@@ -87,6 +87,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 		if (!chord_counter) {
 			
 			if (is_multitap()) {
+				chord = 0;
 				stop_multitap();
 				return false;
 			}
