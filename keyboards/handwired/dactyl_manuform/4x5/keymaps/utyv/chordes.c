@@ -127,19 +127,6 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 			bool is_first = true;
 			bool alt_hold = false;
 		
-			bool is_l_syllable = chord_0 && !chord_1 && !chord_2 && chord_3;
-			bool is_r_syllable = !chord_0 && chord_1 && chord_2 && !chord_3;
-
-			if (is_l_syllable && (chord_3 & BM_BR(6))) {
-				chord_3 &= (~BM_BR(6));
-				caps_first = true;
-			}
-			
-			if (is_r_syllable && (chord_2 & BM_BL(6))) {
-				chord_2 &= (~BM_BL(6));
-				caps_first = true;
-			}
-			
 			while (true) {
 				switch (state) {
 				case CHK_CHORD_ST:
