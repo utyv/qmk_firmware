@@ -123,7 +123,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 			uint8_t dict_3 = 0;
 			
 			uint8_t dict_key = 0;
-			bool caps_first = is_chord_shift && (!is_shift());
+			bool caps_first = is_chord_shift || is_shift();
 			bool is_first = true;
 			bool alt_hold = false;
 		
