@@ -124,6 +124,8 @@ const uint8_t PROGMEM short_dict[] = {
 	, 0, BM_AR(3) | BM_AR(5) | BM_AR(7)							, SFG, SFF, AC2(3, 8), NC // &
 	, BM_AL(1) | BM_AL(3) | BM_AL(5), 0							, AC3(1, 2, 4), NC // |
 	, 0, BM_AR(3) | BM_AR(5) | BM_AR(7)							, AC3(1, 2, 4), NC // |
+	, BM_AL(0) | BM_AL(2) | BM_AL(6), 0							, SFN, KC_8, NC // *
+	, 0, BM_AR(0) | BM_AR(4) | BM_AR(6)							, SFN, KC_8, NC // *
 
 
 	, BM_AL(3) | BM_AL(4) | BM_AL(7), 0							, CLN, KC_V, NC
@@ -394,6 +396,8 @@ const uint8_t PROGMEM phonetic_dict[] = {
 	, 0, BM_AR(3) | BM_AR(5) | BM_AR(7)							, SFG, SFF, AC2(3, 8), NC // &
 	, BM_AL(1) | BM_AL(3) | BM_AL(5), 0							, AC3(1, 2, 4), NC // |
 	, 0, BM_AR(3) | BM_AR(5) | BM_AR(7)							, AC3(1, 2, 4), NC // |
+	, BM_AL(0) | BM_AL(2) | BM_AL(6), 0							, SFN, KC_8, NC // *
+	, 0, BM_AR(0) | BM_AR(4) | BM_AR(6)							, SFN, KC_8, NC // *
 
 
 	, BM_AL(3) | BM_AL(4) | BM_AL(7), 0							, CLN, KC_V, NC
@@ -452,17 +456,21 @@ const uint8_t PROGMEM long_dict[] = {
 	, 0, 0, 0, BM_BR(3) | BM_BR(6)		, SFF, KC_9, NC 
 	, 0, 0, BM_BL(3) | BM_BL(5), 0		, SFF, KC_0, NC
 	, 0, 0, 0, BM_BR(3) | BM_BR(5)		, SFF, KC_0, NC 
-	, 0, 0, BM_BL(3) | BM_BL(4), 0		, SFF, KC_EQL, NC
-	, 0, 0, 0, BM_BR(3) | BM_BR(4)		, SFF, KC_EQL, NC 
-	, BM_AL(6), 0, BM_BL(3) | BM_BL(4), 0		, SFF, KC_SPC, KC_EQL, KC_SPC, NC
-	, 0, BM_AR(0), 0, BM_BR(3) | BM_BR(4)		, SFF, KC_SPC, KC_EQL, KC_SPC, NC 
-	, 0, 0, BM_BL(3) | BM_BL(4) | BM_BL(5), 0		, SFN, KC_EQL, NC // +
-	, 0, 0, 0, BM_BR(3) | BM_BR(4) | BM_BR(5)		, SFN, KC_EQL, NC // +
-	, BM_AL(6), 0, BM_BL(3) | BM_BL(4) | BM_BL(5), 0		, SFF, KC_SPC, SFN, KC_EQL, SFF, KC_SPC, NC // +
-	, 0, BM_AR(0), 0, BM_BR(3) | BM_BR(4) | BM_BR(5)		, SFF, KC_SPC, SFN, KC_EQL, SFF, KC_SPC, NC // +
-	, 0, 0, BM_BL(3) | BM_BL(5) | BM_BL(6), 0		, SFN, KC_8, NC // *
-	, 0, 0, 0, BM_BR(3) | BM_BR(5) | BM_BR(6)		, SFN, KC_8, NC // *
-	
+	, BM_AL(4) | BM_AL(6), 0, BM_BL(3), 0		, SFF, KC_EQL, NC
+	, 0, BM_AR(0) | BM_AR(2), 0, BM_BR(3)		, SFF, KC_EQL, NC 
+	, BM_AL(2) | BM_AL(4) | BM_AL(6), 0, BM_BL(3), 0		, SFF, KC_SPC, KC_EQL, KC_SPC, NC
+	, 0, BM_AR(0) | BM_AR(2) | BM_AR(4), 0, BM_BR(3)		, SFF, KC_SPC, KC_EQL, KC_SPC, NC 
+	, BM_AL(4) | BM_AL(6), 0, BM_BL(4), 0		, SFN, KC_EQL, NC // +
+	, 0, BM_AR(0) | BM_AR(2), 0, BM_BR(4)		, SFN, KC_EQL, NC // +
+	, BM_AL(2) | BM_AL(4) | BM_AL(6), 0, BM_BL(4), 0		, SFF, KC_SPC, SFN, KC_EQL, SFF, KC_SPC, NC // +
+	, 0, BM_AR(0) | BM_AR(2) | BM_AR(4), 0, BM_BR(4)		, SFF, KC_SPC, SFN, KC_EQL, SFF, KC_SPC, NC // +
+	, 0, 0, BM_BL(3) | BM_BL(4), 0		, SFF, AC2(4, 6), NC // .
+	, 0, 0, 0, BM_BR(3) | BM_BR(4)		, SFF, AC2(4, 6), NC // .
+	, 0, 0, BM_BL(3) | BM_BL(4) | BM_BL(5), 0		, SFF, AC2(4, 4), NC // ,
+	, 0, 0, 0, BM_BR(3) | BM_BR(4) | BM_BR(5)		, SFF, AC2(4, 4), NC // ,
+	, 0, 0, BM_BL(3) | BM_BL(4) | BM_BL(5) | BM_BL(6), 0		, SFF, KC_MINS, NC // -
+	, 0, 0, 0, BM_BR(3) | BM_BR(4) | BM_BR(5) | BM_BR(6)		, SFF, KC_MINS, NC // -
+
 	, BM_AL(6), 0, BM_BL(3), 0							, CLN, KC_Z, NC
 	, 0, BM_AR(0), 0, BM_BR(3)							, CLN, KC_Z, NC
 	, BM_AL(4), 0, BM_BL(4), 0							, CLN, KC_X, NC
