@@ -65,6 +65,17 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 		check_multitap(pressed);
 	}
 		
+	if (
+		chord_counter &&
+		//pressed && 
+		(
+			keycode == SFL 
+			|| keycode == SFR
+		) 
+	) {
+		is_chord_shift = true;
+	}
+
 	if (!(keycode >= AL_0 && keycode <= BR_7)) {
 		return true;
 	}
@@ -73,9 +84,9 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 		++chord_counter;
 		chord |= (1ul << (keycode - AL_0));
 			
-		if (is_shift()) {
-			is_chord_shift = true;
-		}
+		//if (is_shift()) {
+		//	is_chord_shift = true;
+		//}
 		if (is_layer()) {
 			is_chord_layer = true;
 		}
