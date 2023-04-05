@@ -23,7 +23,14 @@ void process_multitap(void) {
 	if (key) {
 		if (timer_elapsed(timer) > MULTITAP_MS) {
 			ctl_off();
-			tap_code(key);
+			if (key == KC_SLSH) {
+				shift_off();
+				alt_on();
+				tap_code(KC_KP_4);
+				tap_code(KC_KP_7);
+			} else {
+				tap_code(key);
+			}
 			timer = timer_read();
 			reset_mods(false);
 		}

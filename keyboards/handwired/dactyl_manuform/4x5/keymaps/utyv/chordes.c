@@ -30,6 +30,10 @@ void check_multitap(bool pressed) {
 			case BM(BR_2):
 				start_multitap(KC_DEL);
 			break;
+			case BM(AL_3) | BM(AL_5) | BM(AL_7):
+			case BM(AR_1) | BM(AR_3) | BM(AR_5):
+				start_multitap(KC_SLSH);
+			break;
 		}
 
 	} else {
