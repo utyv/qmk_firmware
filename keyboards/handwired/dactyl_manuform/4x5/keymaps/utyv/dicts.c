@@ -277,7 +277,19 @@ const uint8_t PROGMEM short_dict[] = {
 	, SL_T
 	, SR_T | SR_K | SR_I
 	, RU_O, RU_T, RU_X, RU_E, RU_T, RU_Y, NC // отчеты
-		
+	, SL_T | SL_M | SL_L
+	, SR_K | SR_A
+	, RU_T, RU_E, RU_H, RU_N, RU_O, RU_L, RU_O, RU_G, RU_I, RU_X, RU_E, RU_S, RU_K, RU_A, RU_Q, NC // технологическая
+	, SL_V | SL_P
+	, SR_S | SR_K
+	, RU_V,  RU_Y, RU_P, RU_U, RU_S, RU_K, NC // выпуск
+	, SL_S | SL_T
+	, SR_N
+	, RU_Z, RU_A, RU_D, RU_A, RU_N, RU_I, RU_E, NC // задание
+	, SL_P | SL_R
+	, SR_V | SR_S | SR_T
+	, RU_P, RU_R, RU_O, RU_I, RU_Z, RU_V, RU_O, RU_D, RU_S, RU_T, RU_V, RU_O, NC // производство
+	
 	, 0x00, 0x00 // end
 	
 };
