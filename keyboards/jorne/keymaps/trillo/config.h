@@ -24,15 +24,16 @@
 #undef LOCKING_SUPPORT_ENABLE
 #undef LOCKING_RESYNC_ENABLE
 #define NO_ACTION_ONESHOT
-//#define NO_ACTION_TAPPING // disables layers
+#define NO_ACTION_TAPPING // disables layers
 #define NO_MUSIC_MODE
-#define LAYER_STATE_8BIT
+#define FORCE_NKRO
+// #define LAYER_STATE_8BIT
 
 
 
 //#define ONESHOT_TAP_TOGGLE 3
 //#define ONESHOT_TIMEOUT 5000
-#define COMBO_TERM 80
+//#define COMBO_TERM 80
 //#define EXTRA_SHORT_COMBOS
 
 // If you are using an Elite C rev3 on the slave side, uncomment the lines below:
