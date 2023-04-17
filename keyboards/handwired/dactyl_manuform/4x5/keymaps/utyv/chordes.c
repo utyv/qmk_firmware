@@ -34,6 +34,14 @@ void check_multitap(bool pressed) {
 			case BM(AR_1) | BM(AR_3) | BM(AR_5):
 				start_multitap(KC_SLSH);
 			break;
+			case BM(AL_4) | BM(AL_6) | BM(BL_3):
+			case BM(AR_0) | BM(AR_2) | BM(BR_3):
+				start_multitap(KC_EQL);
+			break;
+			case BM(AL_0) | BM(AL_2) | BM(AL_4):
+			case BM(AR_2) | BM(AR_4) | BM(AR_6):
+				start_multitap(KC_MINS);
+			break;
 		}
 
 	} else {
@@ -104,6 +112,8 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 			if (is_multitap()) {
 				chord = 0;
 				stop_multitap();
+				is_chord_shift = false;
+				is_chord_layer = false;
 				return false;
 			}
 	

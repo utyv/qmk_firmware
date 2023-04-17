@@ -128,7 +128,7 @@ void reset_mods(bool alt_hold) {
 
 bool process_mods(uint16_t keycode, bool pressed) {
 
-	if (!(keycode >= CLL && keycode <= CLR)) {
+	if (!(keycode >= CLL && keycode <= LNG)) {
 		return true;
 	}	
 	
@@ -155,6 +155,19 @@ bool process_mods(uint16_t keycode, bool pressed) {
 				mods |= FLAG_LRR;
 				mods |= FLAG_CLR;
 			break;
+			case PHN:
+				phonetic_on();
+			break;
+			case PHF:
+				phonetic_off();
+			break;
+			case LNG:
+				alt_on();
+				shift_on();
+				shift_off();
+				alt_off();
+			break;
+			
 		}
 	} else {
 		switch (keycode) {

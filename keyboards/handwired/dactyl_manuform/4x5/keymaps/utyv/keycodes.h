@@ -40,6 +40,9 @@ enum keycodes {
 	, LRR
 	, SFR
 	, CLR
+	, PHN
+	, PHF
+	, LNG
 };
 
 // bit maps
