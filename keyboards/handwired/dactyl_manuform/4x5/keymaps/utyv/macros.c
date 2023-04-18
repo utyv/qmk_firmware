@@ -22,6 +22,7 @@ void process_macro(uint32_t chord) {
 					--n;
 				}
 			} else {
+				ctl_on();
 				tap_code(KC_BSPC);
 			}
 		break;
