@@ -159,6 +159,7 @@ bool process_mods(uint16_t keycode, bool pressed) {
 				phonetic_on();
 			break;
 			case PHF:
+				//tap_code(KC_B);
 				phonetic_off();
 			break;
 			case LNG:

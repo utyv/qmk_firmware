@@ -26,6 +26,10 @@ void check_multitap(bool pressed) {
 	if (pressed) {
 		
 		switch (chord) {
+			case BM(BL_0):
+			case BM(BR_0):
+				start_multitap(KC_BSPC);
+			break;
 			case BM(BL_2):
 			case BM(BR_2):
 				start_multitap(KC_DEL);
@@ -128,12 +132,17 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 				is_short = (chord < 0x10000);
 				if (is_short) {
 					if (is_phonetic()) {
+						//tap_code(KC_A);
 						dict = phonetic_dict;
 					} else {
 						dict = short_dict;
 					}
 				} else {
-					dict = long_dict;
+					if (is_phonetic()) {
+						dict = long_phonetic_dict;
+					} else {
+						dict = long_dict;
+					}
 				}
 			}
 			

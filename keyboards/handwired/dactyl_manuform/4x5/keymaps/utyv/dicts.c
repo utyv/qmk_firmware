@@ -313,7 +313,25 @@ const uint8_t PROGMEM short_dict[] = {
 	, SL_V | SL_P | SL_R
 	, SR_K | SR_A
 	, RU_V, RU_Y, RU_B, RU_O, RU_R, RU_K, RU_A, NC // 60. выборка
-
+	, SL_P | SL_R
+	, SR_K
+	, RU_G, RU_R, RU_U, RU_P, RU_P, NC // 61. групп
+	, SL_P | SL_R
+	, SR_K | SR_A
+	, RU_G, RU_R, RU_U, RU_P, RU_P, RU_A, NC // 62. группа
+	, SL_K
+	, SR_S | SR_T | SR_N
+	, RU_K, RU_O, RU_N, RU_S, RU_T, RU_A, RU_N, RU_T, NC // 63. констант
+	, SL_K
+	, SR_S | SR_T | SR_N | SR_A
+	, RU_K, RU_O, RU_N, RU_S, RU_T, RU_A, RU_N, RU_T, RU_A, NC // 64. константа
+	, SL_K
+	, SR_S | SR_T | SR_N | SR_I
+	, RU_K, RU_O, RU_N, RU_S, RU_T, RU_A, RU_N, RU_T, RU_Y, NC // 65. константы
+	, SL_P | SL_K
+	, SR_S | SR_T
+	, RU_P, RU_O, RU_ZH, RU_A, RU_L, RU_U, RU_J, RU_S, RU_T, RU_A, NC // 66. пожалуйста
+	
 	, 0x00, 0x00 // end
 	
 };
@@ -374,64 +392,60 @@ const uint8_t PROGMEM phonetic_dict[] = {
 	, 0, BM_AR(1) | BM_AR(2) | BM_AR(4) | BM_AR(6)				, SFF, KC_SPC, KC_MINS, KC_SPC, NC
 	, BM_AL(4) | BM_AL(6) | BM_AL(7), 0							, SFG, SFN, KC_1, NC // !
 	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)							, SFG, SFN, KC_1, NC // !
-	, BM_AL(4) | BM_AL(6) | BM_AL(7), 0							, AC2(4, 6), NC // .
-	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)							, AC2(4, 6), NC // .
+	, BM_AL(4) | BM_AL(6) | BM_AL(7), 0							, KC_DOT, NC // .
+	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)							, KC_DOT, NC // .
 	, BM_AL(2) | BM_AL(4) | BM_AL(6) | BM_AL(7), 0				, SFG, SFN, KC_1, KC_SPC, NC // !
 	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)	| BM_AR(4)				, SFG, SFN, KC_1, KC_SPC, NC // !
-	, BM_AL(2) | BM_AL(4) | BM_AL(6) | BM_AL(7), 0				, AC2(4, 6), ALF, KC_SPC, NC // .
-	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)	| BM_AR(4)				, AC2(4, 6), ALF, KC_SPC, NC // .
-	, BM_AL(4) | BM_AL(5) | BM_AL(6), 0							, SFG, SFF, AC2(6, 3), NC // ?
-	, 0, BM_AR(0) | BM_AR(2) | BM_AR(3)							, SFG, SFF, AC2(6, 3), NC // ?
-	, BM_AL(4) | BM_AL(5) | BM_AL(6), 0							, AC2(4, 4), NC // ,
-	, 0, BM_AR(0) | BM_AR(2) | BM_AR(3)							, AC2(4, 4), NC // ,
-	, BM_AL(2) | BM_AL(4) | BM_AL(5) | BM_AL(6), 0				, SFG, SFF, AC2(6, 3), ALF, KC_SPC, NC // ?
-	, 0, BM_AR(0) | BM_AR(2) | BM_AR(3) | BM_AR(4)				, SFG, SFF, AC2(6, 3), ALF, KC_SPC, NC // ?
-	, BM_AL(2) | BM_AL(4) | BM_AL(5) | BM_AL(6), 0				, AC2(4, 4), ALF, KC_SPC, NC // ,
-	, 0, BM_AR(0) | BM_AR(2) | BM_AR(3) | BM_AR(4)				, AC2(4, 4), ALF, KC_SPC, NC // ,
-	, BM_AL(2) | BM_AL(5) | BM_AL(6), 0							, SFG, SFF, AC2(6, 4), NC // @
-	, 0, BM_AR(0) | BM_AR(3) | BM_AR(4)							, SFG, SFF, AC2(6, 4), NC // @
-	, BM_AL(2) | BM_AL(5) | BM_AL(6), 0							, AC2(5, 9), NC // ;
-	, 0, BM_AR(0) | BM_AR(3) | BM_AR(4)							, AC2(5, 9), NC // ;
-	, BM_AL(4) | BM_AL(5) | BM_AL(6) | BM_AL(7), 0				, SFG, SFF, AC2(3, 5), NC // #
-	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2) | BM_AR(3)				, SFG, SFF, AC2(3, 5), NC // #
-	, BM_AL(4) | BM_AL(5) | BM_AL(6) | BM_AL(7), 0				, AC2(5, 8), NC // :
-	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2) | BM_AR(3)				, AC2(5, 8), NC // :
-	, BM_AL(2) | BM_AL(4) | BM_AL(5) | BM_AL(6) | BM_AL(7), 0	, SFG, SFF, AC3(2, 5, 2), NC // №
-	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2) | BM_AR(3) | BM_AR(4)	, SFG, SFF, AC3(2, 5, 2), NC // №
-	, BM_AL(2) | BM_AL(4) | BM_AL(5) | BM_AL(6) | BM_AL(7), 0	, AC2(5, 8), ALF, KC_SPC, NC // :
-	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2) | BM_AR(3) | BM_AR(4)	, AC2(5, 8), ALF, KC_SPC, NC // :
-	, BM_AL(2) | BM_AL(3), 0									, SFG, SFF, AC2(6, 0), NC // <
-	, 0, BM_AR(2) | BM_AR(3)									, SFG, SFF, AC2(6, 0), NC // <
+	, BM_AL(2) | BM_AL(4) | BM_AL(6) | BM_AL(7), 0				, KC_DOT, KC_SPC, NC // .
+	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2)	| BM_AR(4)				, KC_DOT, KC_SPC, NC // .
+	, BM_AL(4) | BM_AL(5) | BM_AL(6), 0							, SFG, SFN, KC_SLASH, NC // ?
+	, 0, BM_AR(0) | BM_AR(2) | BM_AR(3)							, SFG, SFN, KC_SLASH, NC // ?
+	, BM_AL(4) | BM_AL(5) | BM_AL(6), 0							, KC_COMM, NC // ,
+	, 0, BM_AR(0) | BM_AR(2) | BM_AR(3)							, KC_COMM, NC // ,
+	, BM_AL(2) | BM_AL(4) | BM_AL(5) | BM_AL(6), 0				, SFG, SFN, KC_SLASH, KC_SPC, NC // ?
+	, 0, BM_AR(0) | BM_AR(2) | BM_AR(3) | BM_AR(4)				, SFG, SFN, KC_SLASH, KC_SPC, NC // ?
+	, BM_AL(2) | BM_AL(4) | BM_AL(5) | BM_AL(6), 0				, KC_COMM, KC_SPC, NC // ,
+	, 0, BM_AR(0) | BM_AR(2) | BM_AR(3) | BM_AR(4)				, KC_COMM, KC_SPC, NC // ,
+	, BM_AL(2) | BM_AL(5) | BM_AL(6), 0							, SFG, SFN, KC_2, NC // @
+	, 0, BM_AR(0) | BM_AR(3) | BM_AR(4)							, SFG, SFN, KC_2, NC // @
+	, BM_AL(2) | BM_AL(5) | BM_AL(6), 0							, KC_SCLN, NC // ;
+	, 0, BM_AR(0) | BM_AR(3) | BM_AR(4)							, KC_SCLN, NC // ;
+	, BM_AL(4) | BM_AL(5) | BM_AL(6) | BM_AL(7), 0				, SFG, SFN, KC_3, NC // #
+	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2) | BM_AR(3)				, SFG, SFN, KC_3, NC // #
+	, BM_AL(4) | BM_AL(5) | BM_AL(6) | BM_AL(7), 0				, SFN, KC_SCLN, NC // :
+	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2) | BM_AR(3)				, SFN, KC_SCLN, NC // :
+	, BM_AL(2) | BM_AL(4) | BM_AL(5) | BM_AL(6) | BM_AL(7), 0	, SFN, KC_SCLN, KC_SPC, NC // :
+	, 0, BM_AR(0) | BM_AR(1) | BM_AR(2) | BM_AR(3) | BM_AR(4)	, SFN, KC_SCLN, KC_SPC, NC // :
+	, BM_AL(2) | BM_AL(3), 0									, SFG, SFN, KC_COMM, NC // <
+	, 0, BM_AR(2) | BM_AR(3)									, SFG, SFN, KC_COMM, NC // <
 	, BM_AL(2) | BM_AL(3), 0									, SFN, KC_9, NC // (
 	, 0, BM_AR(2) | BM_AR(3)									, SFN, KC_9, NC // (
-	, BM_AL(4) | BM_AL(5), 0									, SFG, SFF, AC2(6, 2), NC // >
-	, 0, BM_AR(4) | BM_AR(5)									, SFG, SFF, AC2(6, 2), NC // >
+	, BM_AL(4) | BM_AL(5), 0									, SFG, SFN, KC_DOT, NC // >
+	, 0, BM_AR(4) | BM_AR(5)									, SFG, SFN, KC_DOT, NC // >
 	, BM_AL(4) | BM_AL(5), 0									, SFN, KC_0, NC // )
 	, 0, BM_AR(4) | BM_AR(5)									, SFN, KC_0, NC // )
-	, BM_AL(0) | BM_AL(1), 0									, SFG, SFF, AC3(1, 2, 3), NC // {
-	, 0, BM_AR(0) | BM_AR(1)									, SFG, SFF, AC3(1, 2, 3), NC // {
-	, BM_AL(0) | BM_AL(1), 0									, AC2(9, 1), NC // [
-	, 0, BM_AR(0) | BM_AR(1)									, AC2(9, 1), NC // [
-	, BM_AL(6) | BM_AL(7), 0									, SFG, SFF, AC3(1, 2, 5), NC // }
-	, 0, BM_AR(6) | BM_AR(7)									, SFG, SFF, AC3(1, 2, 5), NC // }
-	, BM_AL(6) | BM_AL(7), 0									, AC2(9, 3), NC // ]
-	, 0, BM_AR(6) | BM_AR(7)									, AC2(9, 3), NC // ]
-	, BM_AL(0) | BM_AL(6) | BM_AL(7), 0							, SFG, SFF, AC2(3, 9), NC // '
-	, 0, BM_AR(0) | BM_AR(1) | BM_AR(6)							, SFG, SFF, AC2(3, 9), NC // '
-	, BM_AL(0) | BM_AL(6) | BM_AL(7), 0							, AC2(3, 4), NC // "
-	, 0, BM_AR(0) | BM_AR(1) | BM_AR(6)							, AC2(3, 4), NC // "
-	, BM_AL(3) | BM_AL(5) | BM_AL(7), 0							, SFG, SFF, AC2(9, 2), NC // \*
-	, 0, BM_AR(1) | BM_AR(3) | BM_AR(5)							, SFG, SFF, AC2(9, 2), NC // \*
-	, BM_AL(3) | BM_AL(5) | BM_AL(7), 0							, SFF, AC2(4, 7), NC // /
-	, 0, BM_AR(1) | BM_AR(3) | BM_AR(5)							, SFF, AC2(4, 7), NC // /
-	, BM_AL(3) | BM_AL(5) | BM_AL(6) | BM_AL(7), 0				, SFF, AC2(4, 7), ALF, AC2(4, 7), ALF, KC_SPC, NC // //
-	, 0, BM_AR(0) | BM_AR(1) | BM_AR(3) | BM_AR(5)				, SFF, AC2(4, 7), ALF, AC2(4, 7), ALF, KC_SPC, NC // //
-	, BM_AL(2) | BM_AL(3) | BM_AL(4) | BM_AL(5), 0				, CLN, KC_PSLS, NC // /
-	, 0, BM_AR(2) | BM_AR(3) | BM_AR(4) | BM_AR(5)				, CLN, KC_PSLS, NC // /
-	, BM_AL(1) | BM_AL(3) | BM_AL(5), 0							, SFG, SFF, AC2(3, 8), NC // &
-	, 0, BM_AR(3) | BM_AR(5) | BM_AR(7)							, SFG, SFF, AC2(3, 8), NC // &
-	, BM_AL(1) | BM_AL(3) | BM_AL(5), 0							, AC3(1, 2, 4), NC // |
-	, 0, BM_AR(3) | BM_AR(5) | BM_AR(7)							, AC3(1, 2, 4), NC // |
+	, BM_AL(0) | BM_AL(1), 0									, SFG, SFN, KC_LBRC, NC // {
+	, 0, BM_AR(0) | BM_AR(1)									, SFG, SFN, KC_LBRC, NC // {
+	, BM_AL(0) | BM_AL(1), 0									, KC_LBRC, NC // [
+	, 0, BM_AR(0) | BM_AR(1)									, KC_LBRC, NC // [
+	, BM_AL(6) | BM_AL(7), 0									, SFG, SFN, KC_RBRC, NC // }
+	, 0, BM_AR(6) | BM_AR(7)									, SFG, SFN, KC_RBRC, NC // }
+	, BM_AL(6) | BM_AL(7), 0									, KC_RBRC, NC // ]
+	, 0, BM_AR(6) | BM_AR(7)									, KC_RBRC, NC // ]
+	, BM_AL(0) | BM_AL(6) | BM_AL(7), 0							, SFG, SFF, KC_QUOT, NC // '
+	, 0, BM_AR(0) | BM_AR(1) | BM_AR(6)							, SFG, SFF, KC_QUOT, NC // '
+	, BM_AL(0) | BM_AL(6) | BM_AL(7), 0							, SFN, KC_QUOT, NC // "
+	, 0, BM_AR(0) | BM_AR(1) | BM_AR(6)							, SFN, KC_QUOT, NC // "
+	, BM_AL(3) | BM_AL(5) | BM_AL(7), 0							, SFG, SFF, KC_BSLS, NC // \*
+	, 0, BM_AR(1) | BM_AR(3) | BM_AR(5)							, SFG, SFF, KC_BSLS, NC // \*
+	, BM_AL(3) | BM_AL(5) | BM_AL(7), 0							, KC_SLSH, NC // /
+	, 0, BM_AR(1) | BM_AR(3) | BM_AR(5)							, KC_SLSH, NC // /
+	, BM_AL(3) | BM_AL(5) | BM_AL(6) | BM_AL(7), 0				, KC_SLSH, KC_SLSH, KC_SPC, NC // //
+	, 0, BM_AR(0) | BM_AR(1) | BM_AR(3) | BM_AR(5)				, KC_SLSH, KC_SLSH, KC_SPC, NC // //
+	, BM_AL(1) | BM_AL(3) | BM_AL(5), 0							, SFG, SFN, KC_7, NC // &
+	, 0, BM_AR(3) | BM_AR(5) | BM_AR(7)							, SFG, SFN, KC_7, NC // &
+	, BM_AL(1) | BM_AL(3) | BM_AL(5), 0							, SFN, KC_BSLS, NC // |
+	, 0, BM_AR(3) | BM_AR(5) | BM_AR(7)							, SFN, KC_BSLS, NC // |
 	, BM_AL(0) | BM_AL(2) | BM_AL(6), 0							, SFN, KC_8, NC // *
 	, 0, BM_AR(0) | BM_AR(4) | BM_AR(6)							, SFN, KC_8, NC // *
 
@@ -505,6 +519,80 @@ const uint8_t PROGMEM long_dict[] = {
 	, 0, 0, 0, BM_BR(3) | BM_BR(4)		, SFF, AC2(4, 6), NC // .
 	, 0, 0, BM_BL(3) | BM_BL(4) | BM_BL(5), 0		, SFF, AC2(4, 4), NC // ,
 	, 0, 0, 0, BM_BR(3) | BM_BR(4) | BM_BR(5)		, SFF, AC2(4, 4), NC // ,
+	, 0, 0, BM_BL(3) | BM_BL(4) | BM_BL(5) | BM_BL(6), 0		, SFF, KC_MINS, NC // -
+	, 0, 0, 0, BM_BR(3) | BM_BR(4) | BM_BR(5) | BM_BR(6)		, SFF, KC_MINS, NC // -
+
+	, BM_AL(6), 0, BM_BL(3), 0							, CLN, KC_Z, NC
+	, 0, BM_AR(0), 0, BM_BR(3)							, CLN, KC_Z, NC
+	, BM_AL(4), 0, BM_BL(4), 0							, CLN, KC_X, NC
+	, 0, BM_AR(2), 0, BM_BR(4)							, CLN, KC_X, NC
+
+	, 0x00, 0x00, 0x00, 0x00 // end
+	
+};
+
+const uint8_t PROGMEM long_phonetic_dict[] = {
+	// BM_AL(1), 0, BM_BL(6), 0			, MCR, NC
+	// , BM_AL(3), 0, BM_BL(7), 0			, MCR, NC
+	
+	0, 0, 0, BM_BR(7)                 , KC_SPC, NC
+	, 0, 0, BM_BL(0), 0					, KC_BSPC, NC
+	, 0, 0, 0, BM_BR(0)					, KC_BSPC, NC
+	, 0, 0, BM_BL(1), 0					, KC_ENT, NC
+	, 0, 0, 0, BM_BR(1)					, KC_ENT, NC
+	, 0, 0, BM_BL(2), 0					, KC_DEL, NC
+	, 0, 0, 0, BM_BR(2)					, KC_DEL, NC
+	, BM_AL(7), 0, BM_BL(0), 0			, CLN, KC_BSPC, NC
+	, 0, BM_AR(1), 0, BM_BR(0)			, CLN, KC_BSPC, NC
+	, BM_AL(6), 0, BM_BL(1), 0			, CLN, KC_ENT, NC
+	, 0, BM_AR(0), 0, BM_BR(1)			, CLN, KC_ENT, NC
+	, 0, 0, BM_BL(2) | BM_BL(3), 0		, CLN, KC_DEL, NC
+	, 0, 0, 0, BM_BR(1) | BM_BR(3)		, CLN, KC_DEL, NC
+	, 0, 0, BM_BL(0) | BM_BL(1), 0		, MCR, NC
+	, 0, 0, 0, BM_BR(0) | BM_BR(1)		, MCR, NC
+	, 0, 0, BM_BL(1) | BM_BL(2), 0		, KC_ESC, NC
+	, 0, 0, 0, BM_BR(1) | BM_BR(2)		, KC_ESC, NC
+	
+	, 0, 0, BM_BL(6), 0					, SFG, SFN, KC_5, NC // %
+	, 0, 0, 0, BM_BR(6)					, SFG, SFN, KC_5, NC // % 
+	, 0, 0, BM_BL(6), 0					, KC_1, NC
+	, 0, 0, 0, BM_BR(6)					, KC_1, NC 
+	, 0, 0, BM_BL(5), 0					, SFG, SFN, KC_4, NC // $
+	, 0, 0, 0, BM_BR(5)					, SFG, SFN, KC_4, NC // $ 
+	, 0, 0, BM_BL(5), 0					, KC_2, NC
+	, 0, 0, 0, BM_BR(5)					, KC_2, NC 
+	, 0, 0, BM_BL(5) | BM_BL(6), 0		, SFF, KC_3, NC
+	, 0, 0, 0, BM_BR(5) | BM_BR(6)		, SFF, KC_3, NC 
+	, 0, 0, BM_BL(4), 0					, SFG, SFN, KC_6, NC // ^
+	, 0, 0, 0, BM_BR(4)					, SFG, SFN, KC_6, NC // ^ 
+	, 0, 0, BM_BL(4), 0					, KC_4, NC
+	, 0, 0, 0, BM_BR(4)					, KC_4, NC 
+	, 0, 0, BM_BL(4) | BM_BL(6), 0		, SFF, KC_5, NC
+	, 0, 0, 0, BM_BR(4) | BM_BR(6)		, SFF, KC_5, NC 
+	, 0, 0, BM_BL(4) | BM_BL(5), 0		, SFF, KC_6, NC
+	, 0, 0, 0, BM_BR(4) | BM_BR(5)		, SFF, KC_6, NC 
+	, 0, 0, BM_BL(4) | BM_BL(5) | BM_BL(6), 0		, SFF, KC_7, NC
+	, 0, 0, 0, BM_BR(4) | BM_BR(5) | BM_BR(6)		, SFF, KC_7, NC 
+	, 0, 0, BM_BL(3), 0					, SFG, SFN, KC_GRV, NC // ~
+	, 0, 0, 0, BM_BR(3)					, SFG, SFN, KC_GRV, NC // ~ 
+	, 0, 0, BM_BL(3), 0					, KC_8, NC
+	, 0, 0, 0, BM_BR(3)					, KC_8, NC 
+	, 0, 0, BM_BL(3) | BM_BL(6), 0		, SFF, KC_9, NC
+	, 0, 0, 0, BM_BR(3) | BM_BR(6)		, SFF, KC_9, NC 
+	, 0, 0, BM_BL(3) | BM_BL(5), 0		, SFF, KC_0, NC
+	, 0, 0, 0, BM_BR(3) | BM_BR(5)		, SFF, KC_0, NC 
+	, BM_AL(4) | BM_AL(6), 0, BM_BL(3), 0		, SFF, KC_EQL, NC
+	, 0, BM_AR(0) | BM_AR(2), 0, BM_BR(3)		, SFF, KC_EQL, NC 
+	, BM_AL(2) | BM_AL(4) | BM_AL(6), 0, BM_BL(3), 0		, SFF, KC_SPC, KC_EQL, KC_SPC, NC
+	, 0, BM_AR(0) | BM_AR(2) | BM_AR(4), 0, BM_BR(3)		, SFF, KC_SPC, KC_EQL, KC_SPC, NC 
+	, BM_AL(4) | BM_AL(6), 0, BM_BL(4), 0		, SFN, KC_EQL, NC // +
+	, 0, BM_AR(0) | BM_AR(2), 0, BM_BR(4)		, SFN, KC_EQL, NC // +
+	, BM_AL(2) | BM_AL(4) | BM_AL(6), 0, BM_BL(4), 0		, SFF, KC_SPC, SFN, KC_EQL, SFF, KC_SPC, NC // +
+	, 0, BM_AR(0) | BM_AR(2) | BM_AR(4), 0, BM_BR(4)		, SFF, KC_SPC, SFN, KC_EQL, SFF, KC_SPC, NC // +
+	, 0, 0, BM_BL(3) | BM_BL(4), 0		, SFF, KC_DOT, NC // .
+	, 0, 0, 0, BM_BR(3) | BM_BR(4)		, SFF, KC_DOT, NC // .
+	, 0, 0, BM_BL(3) | BM_BL(4) | BM_BL(5), 0		, SFF, KC_COMM, NC // ,
+	, 0, 0, 0, BM_BR(3) | BM_BR(4) | BM_BR(5)		, SFF, KC_COMM, NC // ,
 	, 0, 0, BM_BL(3) | BM_BL(4) | BM_BL(5) | BM_BL(6), 0		, SFF, KC_MINS, NC // -
 	, 0, 0, 0, BM_BR(3) | BM_BR(4) | BM_BR(5) | BM_BR(6)		, SFF, KC_MINS, NC // -
 

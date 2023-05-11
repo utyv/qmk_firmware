@@ -16,7 +16,7 @@ void process_macro(uint32_t chord) {
 			
 			n = get_char_counter();
 		
-			if (n) {
+			if (n > 1) {
 				while (n) {
 					tap_code(KC_BSPC);
 					--n;
