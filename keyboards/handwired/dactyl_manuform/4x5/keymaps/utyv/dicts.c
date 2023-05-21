@@ -340,7 +340,7 @@ const uint8_t PROGMEM short_dict[] = {
 	, SR_S | SR_T
 	, RU_P, RU_O, RU_ZH, RU_A, RU_L, RU_U, RU_J, RU_S, RU_T, RU_A, NC // 66. пожалуйста
 	, SL_K | SL_L
-	, SR_T | SR_K
+	, SR_T | SR_K | SR_A
 	, RU_K, RU_O, RU_N, RU_S, RU_U, RU_L, RU_MZ, RU_T, RU_A, RU_C, RU_I, RU_Q, NC // 67. консультация
 	, SL_T
 	, SR_T | SR_A
