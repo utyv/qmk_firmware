@@ -351,6 +351,39 @@ const uint8_t PROGMEM short_dict[] = {
 	, SL_S | SL_T
 	, SR_N | SR_A
 	, RU_I, RU_S, RU_T, RU_I, RU_N, RU_A, NC // 70. истина
+	, SL_P | SL_R
+	, SR_T | SR_K | SR_A
+	, RU_O, RU_B, RU_R, RU_A, RU_B, RU_O, RU_T, RU_K, RU_A, NC // 71. обработка
+	, SL_P | SL_R
+	, SR_T | SR_K | SR_I
+	, RU_O, RU_B, RU_R, RU_A, RU_B, RU_O, RU_T, RU_K, RU_I, NC // 72. обработки
+	, SL_P | SL_R
+	, SR_T | SR_K
+	, RU_O, RU_B, RU_R, RU_A, RU_B, RU_O, RU_T, RU_K, NC // 73. обработк
+	, SL_V | SL_S | SL_T
+	, SR_V | SR_S | SR_T
+	, RU_S, RU_O, RU_O, RU_T, RU_V, RU_E, RU_T, RU_S, RU_T, RU_V, RU_I, RU_E, NC // 74. соответствие
+	, SL_S
+	, SR_N | SR_K
+	, RU_Z, RU_N, RU_A, RU_X, RU_E, RU_N, RU_I, RU_E, NC // 75. значение
+	, SL_S
+	, SR_N | SR_K | SR_A
+	, RU_Z, RU_N, RU_A, RU_X, RU_E, RU_N, RU_I, RU_Q, NC // 76. значения
+	, SL_S | SL_P | SL_L
+	, SR_N
+	, RU_Z, RU_A, RU_P, RU_O, RU_L, RU_N, RU_E, RU_N, RU_O, NC // 77. заполнено
+	, SL_L
+	, SR_K
+	, RU_L, RU_O, RU_ZH, RU_MZ, NC // 78. ложь
+	, SL_V | SL_S
+	, SR_V | SR_S | SR_T
+	, RU_S, RU_V, RU_O, RU_J, RU_S, RU_T, RU_V, RU_O, NC // 79. свойство
+	, SL_R | SL_M | SL_K
+	, SR_S | SR_K | SR_A
+	, RU_O, RU_R, RU_G, RU_A, RU_N, RU_I, RU_Z, RU_A, RU_C, RU_I, RU_Q, NC // 80. организация
+	, SL_T | SL_L
+	, SR_T
+	, RU_U, RU_D, RU_A, RU_L, RU_I, RU_T, RU_MZ, NC // 81. удалить
 	
 	, 0x00, 0x00 // end
 	
