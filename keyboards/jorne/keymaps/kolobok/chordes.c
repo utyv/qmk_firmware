@@ -116,7 +116,10 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 	} else {
 		--chorde_counter;
 		if (!chorde_counter) {
-			if (is_kolobok(chorde)) {
+			if (is_ctl()) {
+				uint16_t left_chorde = (uint16_t) chorde;
+				type_chorde16(left_chorde, nav_dict, false);
+			} else if (is_kolobok(chorde)) {
 				type_kolobok(chorde);
 			} else {
 				bool is_spc = (chorde & B_SPC) > 0;

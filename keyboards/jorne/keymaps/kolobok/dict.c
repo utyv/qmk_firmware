@@ -10,6 +10,8 @@ const uint8_t PROGMEM kolobok_left_dict[] = {
 	, K_B, 0,      RU_B, NC
 	, K_P, 0,      RU_P, NC
 	, K_N, 0,      RU_N, NC
+	, K_B | K_P, 0, RU_L, NC
+	, K_B | K_N, 0, RU_R, NC
 	, 0, 0 // end
 };
 
@@ -21,7 +23,9 @@ const uint8_t PROGMEM kolobok_rght_dict[] = {
 	, K_Y, 0,      RU_Y, NC
 	, K_U, 0,      RU_U, NC
 	, K_Q, 0,      RU_Q, NC
-	, K_MZ, 0,      RU_MZ, NC
+	, K_MZ, 0,     RU_MZ, NC
+	, K_O | K_I, 0, RU_O, RU_J, NC // ой
+	, K_A | K_I, 0, RU_A, RU_L, NC // ал
 	, 0, 0 // end
 };
 
@@ -34,5 +38,15 @@ const uint8_t PROGMEM left_dict[] = {
 	, L_B, 0,      RU_B, NC
 	, L_P, 0,      RU_P, NC
 	, L_N, 0,      RU_N, NC
+	, L_B | L_P, 0, RU_L, NC
+	, L_B | L_N, 0, RU_R, NC
+	, 0, 0 // end
+};
+
+const uint8_t PROGMEM nav_dict[] = {
+	L_V, 0,        CLF, KC_UP, NC
+	, L_K, 0,      CLF, KC_DOWN, NC
+	, L_B, 0,      CLF, KC_LEFT, NC
+	, L_P, 0,      CLF, KC_RIGHT, NC
 	, 0, 0 // end
 };
