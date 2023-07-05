@@ -14,6 +14,9 @@ bool is_kolobok(uint32_t chorde) {
 	if (chorde & RGHT_MASK) {
 		return true;
 	}
+	if (chorde & RGHT_NUMS) {
+		return true;
+	}
 	if (chorde & LEFT_MASK && chorde & RGHT_MASK) {
 		return true;
 	}

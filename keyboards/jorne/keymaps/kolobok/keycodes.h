@@ -86,6 +86,11 @@
 #define K_Q 0x40
 #define K_MZ 0x80
 
+#define K_8 0x01
+#define K_4 0x02
+#define K_2 0x04
+#define K_1 0x08
+
 // left hand
 #define L_S 0x01
 #define L_V 0x02
@@ -96,6 +101,10 @@
 #define L_P 0x40
 #define L_N 0x80
 
+#define L_1 0x01
+#define L_2 0x02
+#define L_4 0x04
+#define L_8 0x08
 
 
 
