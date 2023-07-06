@@ -8,7 +8,9 @@ enum mod_flag {
 	FLAG_SFL = 0x0004,
 	FLAG_CTL = 0x0008, 
 	FLAG_CLC = 0x0010, 
-	FLAG_CLL = 0x0020
+	FLAG_CLL = 0x0020, 
+	FLAG_ALT = 0x0040,
+	FLAG_ALT_HOLD = 0x0080,
 };
 
 uint16_t mods = 0;
@@ -65,6 +67,35 @@ void ctl_off(void) {
 	}
 }
 
+void alt_on(void) {
+	
+	if (!(mods & FLAG_ALT)) {
+
+		wait_ms(MOD_DELAY);
+		register_mods(MOD_BIT(KC_LEFT_ALT));
+		wait_ms(MOD_DELAY);
+		mods |= FLAG_ALT;
+	}
+}
+
+void alt_off(void) {
+
+	if (mods & FLAG_ALT) {
+		
+		wait_ms(MOD_DELAY);
+		unregister_mods(MOD_BIT(KC_LEFT_ALT));
+		wait_ms(MOD_DELAY);
+		mods &= ~FLAG_ALT;
+		
+	}
+}
+
+void alt_hold(void) {
+	if (is_ctl()) {
+		mods |= FLAG_ALT_HOLD;
+	}
+}
+
 void reset_mods(void) {
 	if (!is_shift()) {
 		shift_off();
@@ -74,6 +105,10 @@ void reset_mods(void) {
 		ctl_off();
 	}
 	
+	if (!(mods & FLAG_ALT_HOLD)) {
+		alt_off();
+	}
+
 	if (is_shift()) {
 		shift_on();
 	}
@@ -122,6 +157,7 @@ bool process_mods(uint16_t keycode, bool pressed) {
 			break;
 			case KC_LCTL:
 				mods &= ~FLAG_CLL;
+				mods &= ~FLAG_ALT_HOLD;
 				processed = true;
 			break;
 		}

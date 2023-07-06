@@ -50,47 +50,56 @@ uint8_t get_keynum(uint16_t keycode) {
 		case KC_8:
 			keynum = 12;
 		break;
-		case RU_E:
+		case KC_BSPC:
 			keynum = 13;
 		break;
-		case RU_O:
+		case KC_ENT:
 			keynum = 14;
 		break;
-		case RU_A:
+		case KC_DEL:
 			keynum = 15;
 		break;
-		case RU_I:
-			keynum = 16;
-		break;
-		case RU_Y:
+		case RU_E:
 			keynum = 17;
 		break;
-		case RU_U:
+		case RU_O:
 			keynum = 18;
 		break;
-		case RU_Q:
+		case RU_A:
 			keynum = 19;
 		break;
-		case RU_MZ:
+		case RU_I:
 			keynum = 20;
 		break;
-		case KC_F8:
+		case RU_Y:
 			keynum = 21;
 		break;
-		case KC_F4:
+		case RU_U:
 			keynum = 22;
 		break;
-		case KC_F2:
+		case RU_Q:
 			keynum = 23;
 		break;
-		case KC_F1:
+		case RU_MZ:
 			keynum = 24;
 		break;
-		case KC_F3:
+		case KC_F8:
 			keynum = 25;
 		break;
-		case KC_SPC:
+		case KC_F4:
 			keynum = 26;
+		break;
+		case KC_F2:
+			keynum = 27;
+		break;
+		case KC_F1:
+			keynum = 28;
+		break;
+		case KC_F3:
+			keynum = 29;
+		break;
+		case KC_SPC:
+			keynum = 30;
 		break;
 	}
 		
@@ -116,7 +125,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 	} else {
 		--chorde_counter;
 		if (!chorde_counter) {
-			if (is_ctl()) {
+			if (is_chorde_ctl()) {
 				uint16_t left_chorde = (uint16_t) chorde;
 				type_chorde16(left_chorde, nav_dict, false);
 			} else if (is_kolobok(chorde)) {

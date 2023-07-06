@@ -28,7 +28,7 @@ bool is_kolobok(uint32_t chorde) {
 
 void type_kolobok(uint32_t chorde) {
 	uint16_t left_cube = chorde & (LEFT_MASK | LEFT_NUMS);
-	uint16_t rght_cube = (chorde & (RGHT_MASK | RGHT_NUMS)) >> 12;
+	uint16_t rght_cube = (chorde & (RGHT_MASK | RGHT_NUMS)) >> 16;
 	bool is_spc = (chorde & B_SPC) > 0;
 	bool caps_first = is_chorde_shift();
 	

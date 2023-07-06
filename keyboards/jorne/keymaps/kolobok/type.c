@@ -38,17 +38,15 @@ bool type_word(const uint8_t *dict, bool caps_first) {
 		} else if (dict_key == CLF) {
 			ctl_off();
 			caps_first = false;
-		// } else if (dict_key == ALN) {
-		// 	alt_on();
-		// 	caps_first = false;
-		// } else if (dict_key == ALF) {
-		// 	alt_off();
-		// 	caps_first = false;
-		// } else if (dict_key == ALH) {
-		// 	if (is_layer()) {
-		// 	alt_hold = true;
-		// 	}
-		// 	caps_first = false;
+		} else if (dict_key == ALN) {
+		 	alt_on();
+		 	caps_first = false;
+		} else if (dict_key == ALF) {
+		 	alt_off();
+		 	caps_first = false;
+		} else if (dict_key == ALH) {
+		 	alt_hold();
+		 	caps_first = false;
 		} else {
 			if (caps_first && is_first) {
 				shift_on();

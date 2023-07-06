@@ -50,20 +50,23 @@
 #define B_L2 0x00000200
 #define B_L4 0x00000400
 #define B_L8 0x00000800
-#define B_E 0x00001000
-#define B_O 0x00002000
-#define B_A 0x00004000
-#define B_I 0x00008000
-#define B_Y 0x00010000
-#define B_U 0x00020000
-#define B_Q 0x00040000
-#define B_MZ 0x00080000
-#define B_R8 0x00100000
-#define B_R4 0x00200000
-#define B_R2 0x00400000
-#define B_R1 0x00800000
-#define B_AST 0x01000000
-#define B_SPC 0x02000000
+#define B_BSPC 0x00001000
+#define B_ENT  0x00002000
+#define B_DEL  0x00004000
+#define B_E 0x00010000
+#define B_O 0x00020000
+#define B_A 0x00040000
+#define B_I 0x00080000
+#define B_Y 0x00100000
+#define B_U 0x00200000
+#define B_Q 0x00400000
+#define B_MZ 0x00800000
+#define B_R8 0x01000000
+#define B_R4 0x02000000
+#define B_R2 0x04000000
+#define B_R1 0x08000000
+#define B_AST 0x10000000
+#define B_SPC 0x20000000
 
 // dict bits
 // kolobok 
@@ -106,7 +109,9 @@
 #define L_4 0x04
 #define L_8 0x08
 
-
+#define L_BSPC 0x10
+#define L_ENT  0x20
+#define L_DEL  0x40
 
 
 
