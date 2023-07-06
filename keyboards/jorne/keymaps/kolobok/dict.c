@@ -54,6 +54,8 @@ const uint8_t PROGMEM kolobok_rght_dict[] = {
 	, K_E | K_Q, 0, RU_YU, NC // ю
 	, K_E | K_U, 0, RU_E, RU_G, RU_O, NC // его
 	, K_A | K_U | K_MZ, 0, RU_A, RU_T, RU_MZ, NC // ать
+	, K_E | K_Y, 0, RU_E, RU_N, NC // ен
+	, K_E | K_O | K_Y, 0, RU_E, RU_R, NC // ер
 	
 	, 0, 0 // end
 };
