@@ -47,6 +47,9 @@ const uint8_t PROGMEM kolobok_rght_dict[] = {
 	, 0, K_8,               KC_8, NC
 	, 0, K_8 | K_1,         KC_9, NC
 	, 0, K_8 | K_2,         KC_0, NC
+	, 0, K_8 | K_4,         SFF, AC2(4, 6), NC // .
+	, 0, K_8 | K_4 | K_2,   SFF, AC2(4, 4), NC // ,
+	, 0, K_8 | K_4 | K_2 | K_1, SFF, KC_MINS, NC // -
 
 	, K_E | K_Q, 0, RU_YU, NC // ю
 	, K_O | K_Q, 0, RU_EE, NC // э
@@ -60,6 +63,8 @@ const uint8_t PROGMEM kolobok_rght_dict[] = {
 	, K_I | K_Y, 0, RU_I, RU_L, NC // ил
 	, K_E | K_A, 0, RU_E, RU_J, NC // ей
 	, K_O | K_I, 0, RU_O, RU_J, NC // ой
+	, K_A | K_Y, 0, RU_A, RU_J, NC // ай
+	, K_I | K_U, 0, RU_I, RU_J, NC // ий
 	
 	, K_O | K_Y, 0, RU_O, RU_M, NC // ом
 	, K_E | K_U, 0, RU_E, RU_G, RU_O, NC // его
