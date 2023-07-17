@@ -24,6 +24,12 @@ const uint8_t PROGMEM kolobok_left_dict[] = {
 	, K_T | K_B, 0, RU_F, NC
 	, K_S | K_B, 0, RU_J, NC
 	
+	, K_S | K_T, 0, RU_S, RU_T, NC // ст
+	, K_P | K_N, 0, RU_P, RU_R, NC // пр
+	, K_V | K_K | K_T, 0, RU_EE, RU_T, NC // эт
+	, K_S | K_K, 0, RU_S, RU_K, NC // ск
+	, K_V | K_T | K_D, 0, RU_X, RU_T, NC // чт
+	
 	, 0, 0 // end
 };
 
@@ -65,11 +71,15 @@ const uint8_t PROGMEM kolobok_rght_dict[] = {
 	, K_O | K_I, 0, RU_O, RU_J, NC // ой
 	, K_A | K_Y, 0, RU_A, RU_J, NC // ай
 	, K_I | K_U, 0, RU_I, RU_J, NC // ий
-	
+	, K_E | K_I, 0, RU_E, RU_M, NC // ем
 	, K_O | K_Y, 0, RU_O, RU_M, NC // ом
+	, K_A | K_U, 0, RU_A, RU_M, NC // ам
+	, K_I | K_Q, 0, RU_I, RU_M, NC // им
+	, K_E | K_Y, 0, RU_E, RU_N, NC // ен
+	, K_O | K_U, 0, RU_O, RU_N, NC // он
+	
 	, K_E | K_U, 0, RU_E, RU_G, RU_O, NC // его
 	, K_A | K_MZ, 0, RU_A, RU_T, RU_MZ, NC // ать
-	, K_E | K_Y, 0, RU_E, RU_N, NC // ен
 	, K_E | K_O | K_Y, 0, RU_E, RU_R, NC // ер
 	
 	, 0, 0 // end
