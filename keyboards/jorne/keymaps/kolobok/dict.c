@@ -29,6 +29,8 @@ const uint8_t PROGMEM kolobok_left_dict[] = {
 	, K_V | K_K | K_T, 0, RU_EE, RU_T, NC // эт
 	, K_S | K_K, 0, RU_S, RU_K, NC // ск
 	, K_V | K_T | K_D, 0, RU_X, RU_T, NC // чт
+	, K_V | K_K | K_B, 0, RU_K, RU_A, RU_K, NC // как
+	, K_V | K_B | K_N, 0, RU_O, RU_N, NC // он
 	
 	, 0, 0 // end
 };
@@ -77,6 +79,8 @@ const uint8_t PROGMEM kolobok_rght_dict[] = {
 	, K_I | K_Q, 0, RU_I, RU_M, NC // им
 	, K_E | K_Y, 0, RU_E, RU_N, NC // ен
 	, K_O | K_U, 0, RU_O, RU_N, NC // он
+	, K_A | K_Q, 0, RU_A, RU_N, NC // ан
+	, K_I | K_MZ, 0, RU_I, RU_N, NC // ин
 	
 	, K_E | K_U, 0, RU_E, RU_G, RU_O, NC // его
 	, K_A | K_MZ, 0, RU_A, RU_T, RU_MZ, NC // ать
@@ -145,8 +149,8 @@ const uint8_t PROGMEM left_dict[] = {
 	, L_D | L_B | L_P, 0,       KC_MINS, NC
 	, L_K | L_T | L_N, 0,       SFG, SFN, KC_1, NC // !
 	, L_K | L_T | L_N, 0,       AC2(4, 6), NC // .
-	, L_K | L_T | L_P, 0,       SFG, SFF, AC2(6, 3), NC // ?
-	, L_K | L_T | L_P, 0,       AC2(4, 4), NC // ,
+	, L_K | L_P | L_N, 0,       SFG, SFF, AC2(6, 3), NC // ?
+	, L_K | L_P | L_N, 0,       AC2(4, 4), NC // ,
 	, L_K | L_B | L_N, 0,       SFG, SFF, AC2(6, 4), NC // @
 	, L_K | L_B | L_N, 0,       AC2(5, 9), NC // ;
 	, L_K | L_T | L_P | L_N, 0, SFG, SFF, AC2(3, 5), NC // #
@@ -174,7 +178,7 @@ const uint8_t PROGMEM left_dict[] = {
 	, L_S | L_V | L_K, 0,       AC3(1, 2, 4), NC // |
 	, L_D | L_B | L_N, 0,       SFN, KC_8, NC // *
 	, L_T | L_P | L_N, 0,       SFF, KC_EQL, NC
-	, L_K | L_P | L_N, 0,       SFN, KC_EQL, NC // +
+	, L_K | L_T | L_P, 0,       SFN, KC_EQL, NC // +
 	
 	, L_V | L_T | L_P, 0,   CLN, KC_V, NC
 	, L_N, L_8,             CLN, KC_Z, NC
