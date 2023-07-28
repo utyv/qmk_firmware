@@ -63,7 +63,9 @@ bool type_word(const uint8_t *dict, bool caps_first) {
 	return true;
 }
 
-void type_chorde16(uint16_t chorde, const uint8_t *dict, bool caps_first) {
+const uint8_t *find_word16(uint16_t chorde, const uint8_t *dict) {
+    
+	const uint8_t *result = 0;
 	
 	uint8_t chorde_0 = (uint8_t) chorde;
 	uint8_t chorde_1 = (uint8_t) (chorde >> 8);
@@ -87,6 +89,8 @@ void type_chorde16(uint16_t chorde, const uint8_t *dict, bool caps_first) {
 					// print word
 					state = PRNT_ST;
 					dict += 2;
+					result = dict;
+					
 				} else {
 					// skip word
 					state = SKP_WRD_ST;
@@ -102,21 +106,32 @@ void type_chorde16(uint16_t chorde, const uint8_t *dict, bool caps_first) {
 				}
 				dict++;
 			break;
-				
-		}
-				
-		if (state == PRNT_ST) {
-			if (type_word(dict, caps_first)) {
-				state = SKP_WRD_ST;
-			} else {
-				state = END_ST;
-			}
-		}
+			case PRNT_ST:
+				// print word
+				dict_key = pgm_read_byte_near(dict);
+				if (dict_key == NC) {
+					// next word
+					state = END_ST;
+				} else if (dict_key == SFG) {
+					// shift guard
+					if (!(is_chorde_shift())) {
+						state = SKP_WRD_ST;
+						result = 0;
+					}
+				}
+				dict++;
+			break;
 			
+				
+		}
+				
 		if (state == END_ST) {
 			break;
 		}
 				
 	}
-}
+	
+	return result;
+	
+}	
 

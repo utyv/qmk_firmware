@@ -32,14 +32,30 @@ void type_kolobok(uint32_t chorde) {
 	bool is_spc = (chorde & B_SPC) > 0;
 	bool caps_first = is_chorde_shift();
 	
-	if (is_spc) {
-		tap_code(KC_SPC);
-	}
+	const uint8_t *plword = 0;
 	if (left_cube) {
-		type_chorde16(left_cube, kolobok_left_dict, caps_first);
-		caps_first = false;
+		plword = find_word16(left_cube, kolobok_left_dict);
 	}
+	
+	const uint8_t *prword = 0;
 	if (rght_cube) {
-		type_chorde16(rght_cube, kolobok_rght_dict, caps_first);
+		prword = find_word16(rght_cube, kolobok_rght_dict);
+	}
+	
+	if (
+		(plword || !left_cube)
+		&& (prword || !rght_cube)
+	) {
+		
+		if (is_spc) {
+			tap_code(KC_SPC);
+		}
+		if (left_cube) {
+			type_word(plword, caps_first);
+			caps_first = false;
+		}
+		if (rght_cube) {
+			type_word(prword, caps_first);
+		}
 	}
 }

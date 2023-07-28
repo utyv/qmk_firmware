@@ -127,7 +127,11 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 		if (!chorde_counter) {
 			if (is_chorde_ctl()) {
 				uint16_t left_chorde = (uint16_t) chorde;
-				type_chorde16(left_chorde, nav_dict, false);
+				const uint8_t *pword = find_word16(left_chorde, nav_dict);
+				if (pword) {
+					type_word(pword, false);
+				}
+				// type_chorde16(left_chorde, nav_dict, false);
 			} else if (is_kolobok(chorde)) {
 				type_kolobok(chorde);
 			} else {
@@ -136,7 +140,11 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 				if (is_spc) {
 					tap_code(KC_SPC);
 				}
-				type_chorde16(left_chorde, left_dict, is_chorde_shift());
+				const uint8_t *pword = find_word16(left_chorde, left_dict);
+				if (pword) {
+					type_word(pword, is_chorde_shift());
+				}
+				// type_chorde16(left_chorde, left_dict, is_chorde_shift());
 			}
 			chorde = 0;
 			reset_mods();
