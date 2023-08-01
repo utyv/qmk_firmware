@@ -4,6 +4,7 @@
 #include "kolobok.h"
 #include "type.h"
 #include "dict.h"
+#include "multitap.h"
 
 uint32_t chorde = 0;
 uint8_t chorde_counter = 0;
@@ -112,6 +113,27 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 		set_chorde_mods();
 	}
 	
+	if (keycode == KC_F3) {
+		if (chorde_counter) {
+			if (pressed) {
+				const uint8_t *pword = 0;
+				uint16_t left_chorde = (uint16_t) chorde;
+				if (is_chorde_ctl()) {
+					pword = find_word16(left_chorde, nav_dict);
+				} else {
+					pword = find_word16(left_chorde, left_dict);
+				}
+				if (pword) {
+					start_multitap(pword);
+				}
+				
+			} else {
+				stop_multitap();				
+			}
+		}
+		return false;
+	}
+		
 	uint8_t keynum = get_keynum(keycode);
 	
 	if (!keynum) {
@@ -125,27 +147,34 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 	} else {
 		--chorde_counter;
 		if (!chorde_counter) {
-			if (is_chorde_ctl()) {
-				uint16_t left_chorde = (uint16_t) chorde;
-				const uint8_t *pword = find_word16(left_chorde, nav_dict);
-				if (pword) {
-					type_word(pword, false);
-				}
-				// type_chorde16(left_chorde, nav_dict, false);
-			} else if (is_kolobok(chorde)) {
-				type_kolobok(chorde);
+			
+			if (was_multitap_active()) {
+				clear_multitap();
 			} else {
-				bool is_spc = (chorde & B_SPC) > 0;
-				uint16_t left_chorde = (uint16_t) chorde;
-				if (is_spc) {
-					tap_code(KC_SPC);
+			
+				if (is_chorde_ctl()) {
+					uint16_t left_chorde = (uint16_t) chorde;
+					const uint8_t *pword = find_word16(left_chorde, nav_dict);
+					if (pword) {
+						type_word(pword, false);
+					}
+					// type_chorde16(left_chorde, nav_dict, false);
+				} else if (is_kolobok(chorde)) {
+					type_kolobok(chorde);
+				} else {
+					bool is_spc = (chorde & B_SPC) > 0;
+					uint16_t left_chorde = (uint16_t) chorde;
+					if (is_spc) {
+						tap_code(KC_SPC);
+					}
+					const uint8_t *pword = find_word16(left_chorde, left_dict);
+					if (pword) {
+						type_word(pword, is_chorde_shift());
+					}
+					// type_chorde16(left_chorde, left_dict, is_chorde_shift());
 				}
-				const uint8_t *pword = find_word16(left_chorde, left_dict);
-				if (pword) {
-					type_word(pword, is_chorde_shift());
-				}
-				// type_chorde16(left_chorde, left_dict, is_chorde_shift());
 			}
+			
 			chorde = 0;
 			reset_mods();
 			reset_chorde_mods();

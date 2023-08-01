@@ -8,6 +8,8 @@
 #include "kolobok.c"
 #include "type.c"
 #include "dict.c"
+#include "multitap.c"
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -27,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO, KC_NO,  RU_I,    RU_A,    RU_O,       RU_E,      KC_NO,                    KC_BSPC,       RU_T,     RU_K,      RU_V,    RU_S,   KC_NO,  KC_NO,
          KC_NO,  RU_MZ,    RU_Q,    RU_U,       RU_Y,      KC_F3,                     KC_ENT,        RU_N,     RU_P,      RU_B,    RU_D,  KC_NO,
          KC_NO,  KC_F1,    KC_F2,    KC_F4,       KC_F8,      KC_NO,                     KC_DEL,        KC_8,    KC_4,     KC_2,   KC_1,  KC_NO,
-                                               KC_NO,     KC_SPC,  KC_NO,  KC_LCTL,  KC_LSFT,        KC_NO
+                                               KC_NO,     KC_SPC,  KC_NO,  KC_LCTL,  KC_LSFT,        KC_F3
 ),
 
 
@@ -44,5 +46,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	}
 		
 	return true;
+}
+
+void matrix_scan_user(void) {
+	process_multitap();
 }
 
