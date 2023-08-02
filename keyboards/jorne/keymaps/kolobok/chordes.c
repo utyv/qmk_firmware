@@ -113,7 +113,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 		set_chorde_mods();
 	}
 	
-	if (keycode == KC_F3) {
+	if (keycode == KC_F5) {
 		if (chorde_counter) {
 			if (pressed) {
 				const uint8_t *pword = 0;
