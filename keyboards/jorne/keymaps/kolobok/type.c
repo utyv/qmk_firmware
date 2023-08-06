@@ -9,20 +9,27 @@ enum search_state {
 	END_ST
 };
 
-bool type_word(const uint8_t *dict, bool caps_first) {
+enum {undo_size = 8};
+
+uint8_t undo_history [undo_size];
+uint8_t undo_count = 0;
+
+uint8_t type_word(const uint8_t *dict, bool caps_first) {
 
 	bool is_first = true;
 	uint8_t dict_key = 0;
+	uint8_t type_count = 0;
+	bool is_altcode = false;
 	
 	while (true) {
 		dict_key = pgm_read_byte_near(dict);
 		if (dict_key == NC) {
 			// next word
-			return false;
+			return type_count;
 		} else if (dict_key == SFG) {
 			// shift guard
 			if (!(is_chorde_shift())) {
-				return true;
+				return type_count;
 			} else {
 				caps_first = false;
 			}
@@ -35,18 +42,23 @@ bool type_word(const uint8_t *dict, bool caps_first) {
 		} else if (dict_key == CLN) {
 			ctl_on();
 		 	caps_first = false;
+			clear_undo_history();
 		} else if (dict_key == CLF) {
 			ctl_off();
 			caps_first = false;
 		} else if (dict_key == ALN) {
 		 	alt_on();
 		 	caps_first = false;
+			is_altcode = true;
+			++type_count;
 		} else if (dict_key == ALF) {
 		 	alt_off();
 		 	caps_first = false;
 		} else if (dict_key == ALH) {
 		 	alt_hold();
 		 	caps_first = false;
+		} else if (dict_key == UND) {
+			undo();
 		} else {
 			if (caps_first && is_first) {
 				shift_on();
@@ -56,11 +68,18 @@ bool type_word(const uint8_t *dict, bool caps_first) {
 				tap_code(dict_key);
 			}
 			is_first = false;
+			if (!is_altcode) {
+				++type_count;
+			}
+			if (dict_key == KC_BSPC) {
+				clear_undo_history();
+				type_count = 0;
+			}
 		}
 		dict++;
 	}
 	
-	return true;
+	return type_count;
 }
 
 const uint8_t *find_word16(uint16_t chorde, const uint8_t *dict) {
@@ -135,3 +154,42 @@ const uint8_t *find_word16(uint16_t chorde, const uint8_t *dict) {
 	
 }	
 
+void add_undo(uint8_t type_count) {
+
+	if (!type_count) {
+		return;
+	}
+	
+	if (undo_count == undo_size) {
+		for (uint8_t i = 0; i<undo_size-1; ++i) {
+			undo_history[i] = undo_history[i+1];
+		}
+		--undo_count;
+	}
+	
+	undo_history[undo_count] = type_count;
+	++undo_count;
+
+}
+
+void undo(void) {
+
+	if (undo_count) {
+		
+		for (uint8_t i = 0; i<undo_history[undo_count-1]; ++i) {
+			tap_code(KC_BSPC);
+		}
+		--undo_count;
+		
+	} else {
+		
+		ctl_on();
+		tap_code(KC_BSPC);
+		
+	}
+	
+}
+
+void clear_undo_history(void) {
+	undo_count = 0;
+}

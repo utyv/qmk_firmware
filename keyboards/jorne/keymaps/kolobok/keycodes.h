@@ -67,6 +67,9 @@
 #define B_R1 0x08000000
 #define B_AST 0x10000000
 #define B_SPC 0x20000000
+#define B_EN 0x40000000
+#define B_RU 0x80000000
+
 
 // dict bits
 // kolobok 
@@ -134,8 +137,8 @@
 #define ALH KC_SCRL
 // shift guard
 #define SFG KC_CAPS
-// macros
-#define MCR KC_INS
+// undo
+#define UND KC_INS
 
 // alt codes
 #define AC2(c1, c2) ALN, KC_KP_ ## c1, KC_KP_ ## c2 

@@ -102,6 +102,12 @@ uint8_t get_keynum(uint16_t keycode) {
 		case KC_SPC:
 			keynum = 30;
 		break;
+		case KC_F6:
+			keynum = 31;
+		break;
+		case KC_F7:
+			keynum = 32;
+		break;
 	}
 		
 	return keynum;
@@ -157,21 +163,85 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 					const uint8_t *pword = find_word16(left_chorde, nav_dict);
 					if (pword) {
 						type_word(pword, false);
+						clear_undo_history();
 					}
 					// type_chorde16(left_chorde, nav_dict, false);
+				} else if (chorde & B_EN || chorde & B_RU) {
+					switch (chorde) {
+						case B_EN:
+							phonetic_on();
+							swap_lang();
+						break;
+						case B_EN | B_AST:
+							phonetic_on();
+						break;
+						case B_RU:
+							phonetic_off();
+							swap_lang();
+						break;
+						case B_RU | B_AST:
+							phonetic_off();
+						break;
+					}
+				} else if (is_phonetic()) {
+					uint16_t left_chorde = (uint16_t) chorde;
+					uint16_t rght_chorde = (uint16_t) ((chorde & ~B_SPC) >> 16);
+					bool is_spc = (chorde & B_SPC) > 0;
+					bool caps_first = is_chorde_shift();
+					
+					const uint8_t *plword = 0;
+					if (left_chorde) {
+						plword = find_word16(left_chorde, phonetic_left_dict);
+					}
+					
+					const uint8_t *prword = 0;
+					if (rght_chorde) {
+						prword = find_word16(rght_chorde, phonetic_rght_dict);
+					}
+					
+					if (
+						(plword || !left_chorde)
+						&& (prword || !rght_chorde)
+					) {
+						
+						uint8_t type_count = 0;
+						
+						if (is_spc) {
+							tap_code(KC_SPC);
+							++type_count;
+						}
+						if (left_chorde) {
+							type_count += type_word(plword, caps_first);
+							caps_first = false;
+						}
+						if (rght_chorde) {
+							type_count += type_word(prword, caps_first);
+						}
+						
+						add_undo(type_count);
+						
+					}
+					
 				} else if (is_kolobok(chorde)) {
 					type_kolobok(chorde);
 				} else {
+					
 					bool is_spc = (chorde & B_SPC) > 0;
 					uint16_t left_chorde = (uint16_t) chorde;
+					
+					uint8_t type_count = 0;
+					
 					if (is_spc) {
 						tap_code(KC_SPC);
+						++type_count;
 					}
 					const uint8_t *pword = find_word16(left_chorde, left_dict);
 					if (pword) {
-						type_word(pword, is_chorde_shift());
+						type_count += type_word(pword, is_chorde_shift());
 					}
-					// type_chorde16(left_chorde, left_dict, is_chorde_shift());
+
+					add_undo(type_count);
+					
 				}
 			}
 			

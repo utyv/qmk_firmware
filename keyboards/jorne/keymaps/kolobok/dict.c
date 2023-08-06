@@ -98,6 +98,130 @@ const uint8_t PROGMEM kolobok_rght_dict[] = {
 	, 0, 0 // end
 };
 
+const uint8_t PROGMEM phonetic_left_dict[] = {
+	K_S, 0,        KC_S, NC
+	, K_V, 0,      KC_V, NC
+	, K_K, 0,      KC_K, NC
+	, K_T, 0,      KC_T, NC
+	, K_D, 0,      KC_D, NC
+	, K_B, 0,      KC_B, NC
+	, K_P, 0,      KC_P, NC
+	, K_N, 0,      KC_N, NC
+	, K_B | K_N, 0, KC_R, NC
+	, K_K | K_T, 0, KC_M, NC
+	, K_B | K_P, 0, KC_L, NC
+	, K_V | K_D, 0, KC_X, NC
+	, K_V | K_P, 0, KC_Z, NC
+	, K_K | K_N, 0, KC_G, NC
+	, K_S | K_N, 0, KC_W, NC
+	, K_K | K_D, 0, KC_H, NC
+	, K_T | K_P, 0, KC_C, NC
+	, K_T | K_B, 0, KC_F, NC
+	, K_S | K_B, 0, KC_J, NC
+	
+	, 0, L_1,               SFG, SFN, KC_5, NC // %
+	, 0, L_1, 	            KC_1, NC
+	, 0, L_2,               SFG, SFN, KC_4, NC // $
+	, 0, L_2,               KC_2, NC
+	, 0, L_1 | L_2,         KC_3, NC
+	, 0, L_4,               SFG, SFN, KC_6, NC // ^
+	, 0, L_4,               KC_4, NC
+	, 0, L_1 | L_4,         KC_5, NC
+	, 0, L_2 | L_4,         KC_6, NC
+	, 0, L_1 | L_2 | L_4,   KC_7, NC
+	, 0, L_8,               SFG, SFN, KC_GRV, NC // ~
+	, 0, L_8,               KC_8, NC
+	, 0, L_8 | L_1,         KC_9, NC
+	, 0, L_8 | L_2,         KC_0, NC
+	, 0, L_8 | L_4,         SFF, KC_DOT, NC // .
+	, 0, L_8 | L_4 | L_2,   SFF, KC_COMM, NC // ,
+	, 0, L_8 | L_4 | L_2 | L_1, SFF, KC_MINS, NC // -
+	
+	, L_S | L_T, 0, KC_O, NC
+	, L_D | L_N, 0, KC_E, NC
+	, L_V | L_T, 0, KC_A, NC
+	, L_P | L_N, 0, KC_I, NC
+	, L_S | L_K, 0, KC_U, NC
+	, L_V | L_K, 0, KC_Q, NC
+	, L_D | L_B, 0, KC_Y, NC
+	
+	, L_B | L_P | L_N, 0,       KC_SPC, NC
+	, L_D | L_B | L_P | L_N, 0, SFF, CLN, KC_SPC, NC
+	, L_D | L_B | L_P, 0,       KC_MINS, NC
+	, L_K | L_T | L_N, 0,       SFG, SFN, KC_1, NC // !
+	, L_K | L_T | L_N, 0,       KC_DOT, NC // .
+	, L_K | L_P | L_N, 0,       SFG, SFN, KC_SLSH, NC // ?
+	, L_K | L_P | L_N, 0,       KC_COMM, NC // ,
+	, L_K | L_B | L_N, 0,       SFG, SFN, KC_2, NC // @
+	, L_K | L_B | L_N, 0,       KC_SCLN, NC // ;
+	, L_K | L_T | L_P | L_N, 0, SFG, SFN, KC_3, NC // #
+	, L_K | L_T | L_P | L_N, 0, SFN, KC_SCLN, NC // :
+	, L_V | L_B, 0,             SFG, SFN, KC_COMM, NC // <
+	, L_V | L_B, 0,             SFN, KC_9, NC // (
+	, L_K | L_P, 0,             SFG, SFN, KC_DOT, NC // >
+	, L_K | L_P, 0,             SFN, KC_0, NC // )
+	, L_V | L_K | L_B | L_P, 0, SFG, SFN, KC_COMM, KC_DOT, NC // <>
+	, L_V | L_K | L_B | L_P, 0, SFN, KC_9, KC_0, NC // ()
+	, L_S | L_D, 0,             SFG, SFN, KC_LBRC, NC // {
+    , L_S | L_D, 0,             KC_LBRC, NC // [
+    , L_T | L_N, 0,             SFG, SFN, KC_RBRC, NC // }
+	, L_T | L_N, 0,             KC_RBRC, NC // ]
+	, L_S | L_T | L_D | L_N, 0, SFG, SFN, KC_LBRC, KC_RBRC, NC // {}
+	, L_S | L_T | L_D | L_N, 0, KC_LBRC, KC_RBRC, NC // []
+	, L_T | L_D | L_N, 0,       SFG, SFF, KC_QUOT, NC // '
+	, L_T | L_D | L_N, 0,       SFN, KC_QUOT, NC // "
+	, L_V | L_K | L_T, 0,       SFG, SFF, KC_BSLS, NC // \*
+	, L_V | L_K | L_T, 0,       SFF, KC_SLSH, NC // /
+	, L_V | L_K | L_T | L_N, 0, SFF, KC_SLSH, KC_SLSH, NC // //
+	, L_S | L_V | L_K, 0,       SFG, SFN, KC_7, NC // &
+	, L_S | L_V | L_K, 0,       SFN, KC_BSLS, NC // |
+	, L_D | L_B | L_N, 0,       SFN, KC_8, NC // *
+	, L_T | L_P | L_N, 0,       SFF, KC_EQL, NC
+	, L_K | L_T | L_P, 0,       SFN, KC_EQL, NC // +
+	
+	, L_V | L_T | L_P, 0,   CLN, KC_V, NC
+	, L_N, L_8,             CLN, KC_Z, NC
+	, L_P, L_4,             CLN, KC_X, NC
+	
+	, 0, L_BSPC,            KC_BSPC, NC
+	, 0, L_ENT,             KC_ENT, NC
+	, 0, L_DEL,             KC_DEL, NC
+	, L_T, L_BSPC,          CLN, KC_BSPC, NC
+	, L_N, L_ENT,           CLN, KC_ENT, NC
+	, 0, L_8 | L_DEL,       CLN, KC_DEL, NC
+	, 0, L_ENT | L_DEL,     KC_ESC, NC
+	, 0, L_BSPC | L_ENT,    UND, NC
+
+	, 0, 0 // end
+};
+
+const uint8_t PROGMEM phonetic_rght_dict[] = {
+	K_E, 0,        KC_E, NC
+	, K_O, 0,      KC_O, NC
+	, K_A, 0,      KC_A, NC
+	, K_I, 0,      KC_I, NC
+	, K_Y, 0,      KC_Y, NC
+	, K_U, 0,      KC_U, NC
+	, K_Q, 0,      KC_Q, NC
+
+	, 0, K_1, 	            KC_1, NC
+	, 0, K_2,               KC_2, NC
+	, 0, K_1 | K_2,         KC_3, NC
+	, 0, K_4,               KC_4, NC
+	, 0, K_1 | K_4,         KC_5, NC
+	, 0, K_2 | K_4,         KC_6, NC
+	, 0, K_1 | K_2 | K_4,   KC_7, NC
+	, 0, K_8,               KC_8, NC
+	, 0, K_8 | K_1,         KC_9, NC
+	, 0, K_8 | K_2,         KC_0, NC
+	, 0, K_8 | K_4,         SFF, KC_DOT, NC // .
+	, 0, K_8 | K_4 | K_2,   SFF, KC_COMM, NC // ,
+	, 0, K_8 | K_4 | K_2 | K_1, SFF, KC_MINS, NC // -
+
+
+	, 0, 0 // end
+};
+
 const uint8_t PROGMEM left_dict[] = {
 	L_S, 0,        RU_S, NC
 	, L_V, 0,      RU_V, NC
@@ -200,6 +324,7 @@ const uint8_t PROGMEM left_dict[] = {
 	, L_N, L_ENT,           CLN, KC_ENT, NC
 	, 0, L_8 | L_DEL,       CLN, KC_DEL, NC
 	, 0, L_ENT | L_DEL,     KC_ESC, NC
+	, 0, L_BSPC | L_ENT,    UND, NC
 
 	, 0, 0 // end
 };

@@ -11,6 +11,7 @@ enum mod_flag {
 	FLAG_CLL = 0x0020, 
 	FLAG_ALT = 0x0040,
 	FLAG_ALT_HOLD = 0x0080,
+	FLAG_PHO = 0x8000,
 };
 
 uint16_t mods = 0;
@@ -94,6 +95,29 @@ void alt_hold(void) {
 	if (is_ctl()) {
 		mods |= FLAG_ALT_HOLD;
 	}
+}
+
+bool is_phonetic(void) {
+	return mods & FLAG_PHO;
+}
+
+void phonetic_on(void) {
+	if (!(mods & FLAG_PHO)) {
+		mods |= FLAG_PHO;
+	}
+}
+
+void phonetic_off(void) {
+	if (mods & FLAG_PHO) {
+		mods &= ~FLAG_PHO;
+	}
+}
+
+void swap_lang(void) {
+	alt_on();
+	shift_on();
+	shift_off();
+	alt_off();
 }
 
 void reset_mods(void) {

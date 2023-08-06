@@ -10,6 +10,7 @@ uint16_t timer = 0;
 #define MULTITAP_MS 80
 
 void start_multitap(const uint8_t *pword_) {
+	clear_undo_history();
 	is_multitap_active_ = true;
 	was_multitap_active_ = true;
 	pword = pword_;

@@ -14,6 +14,11 @@ void ctl_off(void);
 void alt_on(void);
 void alt_off(void);
 void alt_hold(void);
+bool is_phonetic(void);
+void phonetic_on(void);
+void phonetic_off(void);
+void swap_lang(void);
+
 void reset_mods(void);
 void set_chorde_mods(void);
 void reset_chorde_mods(void);

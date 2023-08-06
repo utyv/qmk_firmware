@@ -47,15 +47,21 @@ void type_kolobok(uint32_t chorde) {
 		&& (prword || !rght_cube)
 	) {
 		
+		uint8_t type_count = 0;
+		
 		if (is_spc) {
 			tap_code(KC_SPC);
+			++type_count;
 		}
 		if (left_cube) {
-			type_word(plword, caps_first);
+			type_count += type_word(plword, caps_first);
 			caps_first = false;
 		}
 		if (rght_cube) {
-			type_word(prword, caps_first);
+			type_count += type_word(prword, caps_first);
 		}
+		
+		add_undo(type_count);
+		
 	}
 }
