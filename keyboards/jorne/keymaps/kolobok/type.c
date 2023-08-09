@@ -14,12 +14,16 @@ enum {undo_size = 8};
 uint8_t undo_history [undo_size];
 uint8_t undo_count = 0;
 
-uint8_t type_word(const uint8_t *dict, bool caps_first) {
+uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all) {
 
 	bool is_first = true;
 	uint8_t dict_key = 0;
 	uint8_t type_count = 0;
 	bool is_altcode = false;
+	
+	if (caps_all) {
+		shift_on();
+	}
 	
 	while (true) {
 		dict_key = pgm_read_byte_near(dict);
@@ -60,7 +64,7 @@ uint8_t type_word(const uint8_t *dict, bool caps_first) {
 		} else if (dict_key == UND) {
 			undo();
 		} else {
-			if (caps_first && is_first) {
+			if ((!caps_all) && caps_first && is_first) {
 				shift_on();
 				tap_code(dict_key);
 				shift_off();

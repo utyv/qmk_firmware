@@ -11,6 +11,9 @@ enum mod_flag {
 	FLAG_CLL = 0x0020, 
 	FLAG_ALT = 0x0040,
 	FLAG_ALT_HOLD = 0x0080,
+	// FLAG_CAP = 0x0100,
+	FLAG_CPC = 0x0200,
+	FLAG_CPR = 0x0400,
 	FLAG_PHO = 0x8000,
 };
 
@@ -97,6 +100,14 @@ void alt_hold(void) {
 	}
 }
 
+bool is_caps(void) {
+	return mods & (FLAG_CPR);
+}
+
+bool is_chorde_caps(void) {
+	return mods & (FLAG_CPC);
+}
+
 bool is_phonetic(void) {
 	return mods & FLAG_PHO;
 }
@@ -150,11 +161,15 @@ void set_chorde_mods(void) {
 	if (is_ctl()) {
 		mods |= FLAG_CLC;
 	}
+	if (is_caps()) {
+		mods |= FLAG_CPC;
+	}
 }
 	
 void reset_chorde_mods(void) {
 	mods &= ~FLAG_SFC;
 	mods &= ~FLAG_CLC;
+	mods &= ~FLAG_CPC;
 }
 
 bool process_mods(uint16_t keycode, bool pressed) {
@@ -171,6 +186,10 @@ bool process_mods(uint16_t keycode, bool pressed) {
 				mods |= FLAG_CLL;
 				processed = true;
 			break;
+			case KC_RSFT:
+				mods |= FLAG_CPR;
+				processed = true;
+			break;
 			
 		}
 	} else {
@@ -182,6 +201,10 @@ bool process_mods(uint16_t keycode, bool pressed) {
 			case KC_LCTL:
 				mods &= ~FLAG_CLL;
 				mods &= ~FLAG_ALT_HOLD;
+				processed = true;
+			break;
+			case KC_RSFT:
+				mods &= ~FLAG_CPR;
 				processed = true;
 			break;
 		}

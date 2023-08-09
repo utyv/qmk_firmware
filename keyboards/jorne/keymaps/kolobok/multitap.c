@@ -14,7 +14,7 @@ void start_multitap(const uint8_t *pword_) {
 	is_multitap_active_ = true;
 	was_multitap_active_ = true;
 	pword = pword_;
-	type_word(pword, false);
+	type_word(pword, false, false);
 	reset_mods();
 }
 
@@ -36,7 +36,7 @@ bool was_multitap_active(void) {
 void process_multitap(void) {
 	if (is_multitap_active_) {
 		if (timer_elapsed(timer) > MULTITAP_MS) {
-			type_word(pword, false);
+			type_word(pword, false, false);
 			reset_mods();
 			timer = timer_read();
 		}

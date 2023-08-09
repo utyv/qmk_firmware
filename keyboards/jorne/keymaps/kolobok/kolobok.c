@@ -31,6 +31,7 @@ void type_kolobok(uint32_t chorde) {
 	uint16_t rght_cube = (chorde & (RGHT_MASK | RGHT_NUMS)) >> 16;
 	bool is_spc = (chorde & B_SPC) > 0;
 	bool caps_first = is_chorde_shift();
+	bool caps_all = is_chorde_caps();
 	
 	const uint8_t *plword = 0;
 	if (left_cube) {
@@ -54,11 +55,11 @@ void type_kolobok(uint32_t chorde) {
 			++type_count;
 		}
 		if (left_cube) {
-			type_count += type_word(plword, caps_first);
+			type_count += type_word(plword, caps_first, caps_all);
 			caps_first = false;
 		}
 		if (rght_cube) {
-			type_count += type_word(prword, caps_first);
+			type_count += type_word(prword, caps_first, caps_all);
 		}
 		
 		add_undo(type_count);
