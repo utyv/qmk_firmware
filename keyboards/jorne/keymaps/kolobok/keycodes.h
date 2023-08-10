@@ -143,4 +143,22 @@
 // alt codes
 #define AC2(c1, c2) ALN, KC_KP_ ## c1, KC_KP_ ## c2 
 #define AC3(c1, c2, c3) ALN, KC_KP_ ## c1, KC_KP_ ## c2, KC_KP_ ## c3 
+
+// STENO LETTERS (promokl)
+#define SL_V 0x01
+#define SL_S 0x10
+#define SL_T 0x20
+#define SL_P 0x02
+#define SL_R 0x04
+#define SL_M 0x40
+#define SL_K 0x80
+#define SL_L 0x08
+#define SR_V 0x01
+#define SR_S 0x10
+#define SR_T 0x20
+#define SR_R 0x02
+#define SR_N 0x04
+#define SR_K 0x40
+#define SR_A 0x80
+#define SR_I 0x08
 	

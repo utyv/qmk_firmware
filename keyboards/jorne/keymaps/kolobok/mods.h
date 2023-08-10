@@ -15,6 +15,7 @@ void alt_on(void);
 void alt_off(void);
 void alt_hold(void);
 bool is_chorde_caps(void);
+bool is_chorde_word(void);
 bool is_phonetic(void);
 void phonetic_on(void);
 void phonetic_off(void);
