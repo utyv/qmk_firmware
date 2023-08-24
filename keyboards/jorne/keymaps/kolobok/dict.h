@@ -6,4 +6,4 @@ extern const uint8_t PROGMEM phonetic_left_dict[];
 extern const uint8_t PROGMEM phonetic_rght_dict[];
 extern const uint8_t PROGMEM left_dict[];
 extern const uint8_t PROGMEM nav_dict[];
-extern const uint8_t PROGMEM promokl_dict[];
+extern const uint8_t PROGMEM wrd_dict[];

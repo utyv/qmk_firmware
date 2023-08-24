@@ -66,3 +66,50 @@ void type_kolobok(uint32_t chorde) {
 		
 	}
 }
+
+void type_chorde_word(uint32_t chorde) {
+	uint16_t wrd_chorde = (((uint16_t)chorde) & 0x00ff) | ((uint16_t) (chorde >> 8) & 0xff00);
+	uint16_t rght_chorde = (chorde & (RGHT_MASK | RGHT_NUMS)) >> 16;
+	
+	bool is_spc = (chorde & B_SPC) > 0;
+	bool caps_first = is_chorde_shift();
+	bool caps_all = is_chorde_caps();
+	
+	const uint8_t *pword = 0;
+	const uint8_t *prght = 0;
+	if (wrd_chorde) {
+		pword = find_word16(wrd_chorde, wrd_dict);
+	
+		if (!pword) {
+			wrd_chorde = ((uint16_t)chorde) & 0x00ff;
+			if (wrd_chorde) {
+				pword = find_word16(wrd_chorde, wrd_dict);
+			}
+			if (pword) {
+				prght = find_word16(rght_chorde, kolobok_rght_dict);
+			}
+			if (!prght) {
+				pword = 0;
+			}
+				
+		}
+	}
+	
+	if (pword) {
+		
+		uint8_t type_count = 0;
+		
+		if (is_spc) {
+			tap_code(KC_SPC);
+			++type_count;
+		}
+		type_count += type_word(pword, caps_first, caps_all);
+		if (prght) {
+			type_count += type_word(prght, false, caps_all);
+		}
+		
+		add_undo(type_count);
+		
+	}
+	
+}

@@ -84,16 +84,16 @@ uint8_t get_keynum(uint16_t keycode) {
 		case RU_MZ:
 			keynum = 24;
 		break;
-		case KC_F8:
+		case KC_F1:
 			keynum = 25;
 		break;
-		case KC_F4:
+		case KC_F2:
 			keynum = 26;
 		break;
-		case KC_F2:
+		case KC_F4:
 			keynum = 27;
 		break;
-		case KC_F1:
+		case KC_F8:
 			keynum = 28;
 		break;
 		case KC_F3:
@@ -225,31 +225,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 					
 				} else if (is_chorde_word()) {
 					
-					uint16_t promokl_chorde = (((uint16_t)chorde) & 0x00ff) | ((uint16_t) (chorde >> 8) & 0xff00);
-					bool is_spc = (chorde & B_SPC) > 0;
-					bool caps_first = is_chorde_shift();
-					bool caps_all = is_chorde_caps();
-					
-					const uint8_t *pword = 0;
-					if (promokl_chorde) {
-						pword = find_word16(promokl_chorde, promokl_dict);
-					}
-					
-					if (pword) {
-						
-						uint8_t type_count = 0;
-						
-						if (is_spc) {
-							tap_code(KC_SPC);
-							++type_count;
-						}
-						if (promokl_chorde) {
-							type_count += type_word(pword, caps_first, caps_all);
-						}
-						
-						add_undo(type_count);
-						
-					}
+					type_chorde_word(chorde);
 					
 				} else if (is_kolobok(chorde)) {
 					type_kolobok(chorde);
