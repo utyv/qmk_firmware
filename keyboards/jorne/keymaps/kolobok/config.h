@@ -28,7 +28,7 @@
 #define NO_MUSIC_MODE
 //#define LAYER_STATE_8BIT
 
-
+#define MASTER_RIGHT
 
 //#define ONESHOT_TAP_TOGGLE 3
 //#define ONESHOT_TIMEOUT 5000

@@ -43,15 +43,17 @@ const uint8_t PROGMEM kolobok_left_dict[] = {
 	, K_D | K_N, 0,             RU_D, RU_N, NC // дн
 	, K_S | K_V | K_T, 0,       RU_S, RU_T, RU_V, NC // ств
 	, K_V | K_P | K_N, 0,       RU_Z, RU_N, NC // зн
-	
-	, K_V | K_K | K_P, 0,       RU_I, RU_Z, NC // из
-	, K_S | K_V | K_B, 0,       RU_S, RU_V, NC // св
 	, K_S | K_V | K_K | K_T, 0, RU_S, RU_T, RU_R, NC // стр
-	, K_V | K_N, 0,             RU_V, RU_N, NC // вн
-	, K_D | K_B | K_N, 0,       RU_D, RU_R, NC // др
-	, K_P | K_N, K_8,           RU_P, RU_E, RU_R, NC // пер
+	, K_S | K_V | K_B, 0,       RU_S, RU_V, NC // св
+	, K_V | K_K | K_P, 0,       RU_I, RU_Z, NC // из
+	, K_V | K_K | K_D | K_P, 0, RU_I, RU_S, NC // ис
 	, K_K | K_D | K_N, 0,       RU_G, RU_D, NC // гд
 	, K_K | K_B | K_P | K_N, 0, RU_G, RU_L, NC // гл
+	, K_V | K_N, 0,             RU_V, RU_N, NC // вн
+	, K_S | K_D | K_N, 0,       RU_S, RU_N, NC // сн
+	
+	, K_D | K_B | K_N, 0,       RU_D, RU_R, NC // др
+	, K_P | K_N, K_8,           RU_P, RU_E, RU_R, NC // пер
 	, K_T | K_D | K_B | K_P, 0, KC_MINS, RU_T, NC // -т
 	, K_K | K_T | K_P, 0,       RU_K, RU_T, NC // кт
 	, K_D | K_B | K_P, 0,       RU_D, RU_L, NC // дл
@@ -72,7 +74,7 @@ const uint8_t PROGMEM kolobok_left_dict[] = {
 	, K_V | K_D | K_N, 0,       RU_X, RU_N, NC // чн
 	, K_S | K_K | K_N, 0,       RU_W, RU_K, NC // шк
 	, K_T | K_D | K_N, 0,       RU_ZH, RU_N, NC // жн
-	, K_V | K_K | K_D | K_P, 0, RU_I, RU_S, NC // ис
+	, K_K | K_P, 0,             RU_G, RU_R, NC // гр
 	
 	, 0, 0 // end
 };
@@ -159,6 +161,7 @@ const uint8_t PROGMEM kolobok_rght_dict[] = {
 	, K_U | K_Q, 0,                   RU_U, RU_L, NC // ул
 	, K_E | K_O | K_A | K_I, 0,       RU_E, RU_D, NC // ед
 	, K_A | K_I | K_Q, 0,             RU_A, RU_R, NC // ар
+	, K_E | K_I | K_Q, 0,             RU_I, RU_I, NC // ии
 	
 	
 
