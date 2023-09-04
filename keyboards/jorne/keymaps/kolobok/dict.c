@@ -51,8 +51,9 @@ const uint8_t PROGMEM kolobok_left_dict[] = {
 	, K_K | K_B | K_P | K_N, 0, RU_G, RU_L, NC // гл
 	, K_V | K_N, 0,             RU_V, RU_N, NC // вн
 	, K_S | K_D | K_N, 0,       RU_S, RU_N, NC // сн
-	
 	, K_D | K_B | K_N, 0,       RU_D, RU_R, NC // др
+	, K_B | K_P | K_N, 0,       RU_B, RU_R, NC // бр
+	
 	, K_P | K_N, K_8,           RU_P, RU_E, RU_R, NC // пер
 	, K_T | K_D | K_B | K_P, 0, KC_MINS, RU_T, NC // -т
 	, K_K | K_T | K_P, 0,       RU_K, RU_T, NC // кт
