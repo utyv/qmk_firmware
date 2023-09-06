@@ -37,6 +37,9 @@
 #define RU_YU KC_DOT
 #define RU_Q KC_Z
 
+#define RU_DOT KC_SLSH
+
+
 // chord bits
 #define B_S 0x00000001
 #define B_V 0x00000002
@@ -139,6 +142,8 @@
 #define SFG KC_CAPS
 // undo
 #define UND KC_INS
+// lang swap
+#define LSW KC_PAUS
 
 // alt codes
 #define AC2(c1, c2) ALN, KC_KP_ ## c1, KC_KP_ ## c2 

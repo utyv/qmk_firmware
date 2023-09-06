@@ -63,6 +63,15 @@ uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all) {
 		 	caps_first = false;
 		} else if (dict_key == UND) {
 			undo();
+		} else if (dict_key == LSW) {
+			ctl_off();
+			shift_off();
+		 	alt_off();
+		 	alt_on();
+			shift_on();
+			shift_off();
+		 	alt_off();
+			
 		} else {
 			if ((!caps_all) && caps_first && is_first) {
 				shift_on();
