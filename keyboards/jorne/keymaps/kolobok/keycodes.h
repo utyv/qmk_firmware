@@ -70,8 +70,8 @@
 #define B_R1 0x08000000
 #define B_AST 0x10000000
 #define B_SPC 0x20000000
-#define B_EN 0x40000000
-#define B_RU 0x80000000
+#define B_RU 0x40000000
+#define B_UND 0x80000000
 
 
 // dict bits

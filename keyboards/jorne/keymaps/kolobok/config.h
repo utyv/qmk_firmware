@@ -39,3 +39,5 @@
 // #define SPLIT_USB_DETECT
 // #define NO_USB_STARTUP_CHECK
 #define MOD_DELAY 10
+
+#define KOLOBOK_LEVEL_1

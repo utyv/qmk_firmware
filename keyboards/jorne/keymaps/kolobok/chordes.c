@@ -166,23 +166,19 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 						clear_undo_history();
 					}
 					// type_chorde16(left_chorde, nav_dict, false);
-				} else if (chorde & B_EN || chorde & B_RU) {
+				} else if (chorde & B_RU) {
 					switch (chorde) {
-						case B_EN:
-							phonetic_on();
-							swap_lang();
-						break;
-						case B_EN | B_AST:
-							phonetic_on();
-						break;
 						case B_RU:
 							phonetic_off();
 							swap_lang();
 						break;
 						case B_RU | B_AST:
-							phonetic_off();
+							phonetic_on();
+							swap_lang();
 						break;
 					}
+				} else if (chorde == B_UND) {
+					undo();
 				} else if (is_phonetic()) {
 					uint16_t left_chorde = (uint16_t) chorde;
 					uint16_t rght_chorde = (uint16_t) ((chorde & ~B_SPC) >> 16);
