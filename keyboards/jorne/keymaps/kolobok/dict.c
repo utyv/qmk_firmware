@@ -97,27 +97,99 @@ const uint8_t PROGMEM kolobok_rght_dict[] = {
 	, K_Q, 0,      RU_Q, NC
 	, K_MZ, 0,     RU_MZ, NC
 
-	, 0, K_1, 	            KC_1, NC
-	, 0, K_2,               KC_2, NC
-	, 0, K_1 | K_2,         KC_3, NC
-	, 0, K_4,               KC_4, NC
-	, 0, K_1 | K_4,         KC_5, NC
-	, 0, K_2 | K_4,         KC_6, NC
-	, 0, K_1 | K_2 | K_4,   KC_7, NC
-	, 0, K_8,               KC_8, NC
-	, 0, K_8 | K_1,         KC_9, NC
-	, 0, K_8 | K_2,         KC_0, NC
+	, 0, K_1, 	            KC_EQL, NC
 	#ifdef USE_ALTCODE
-	, 0, K_8 | K_4,         SFF, AC2(4, 6), NC // .
+	, 0, K_2,             SFG, SFF, AC2(6, 2), NC // >
 	#else
-	, 0, K_8 | K_4,         SFF, RU_DOT, NC // .
+	, 0, K_2,             SFG, LSW, SFN, KC_DOT, LSW, NC // >
+	#endif
+	, 0, K_2,             SFN, KC_0, NC // )
+	, 0, K_1 | K_2,         SFN, KC_EQL, NC // +
+	#ifdef USE_ALTCODE
+	, 0, K_4,             SFG, SFF, AC2(6, 0), NC // <
+	#else
+	, 0, K_4,             SFG, LSW, SFN, KC_COMM, LSW, NC // <
+	#endif
+	, 0, K_4,             SFN, KC_9, NC // (
+	#ifdef USE_ALTCODE
+	, 0, K_1 | K_4, SFG, SFF, AC2(3, 5), NC // #
+	#else
+	, 0, K_1 | K_4, SFG, LSW, SFN, KC_3, LSW, NC // #
 	#endif
 	#ifdef USE_ALTCODE
-	, 0, K_8 | K_4 | K_2,   SFF, AC2(4, 4), NC // ,
+	, 0, K_1 | K_4, SFF, AC2(5, 8), NC // :
 	#else
-	, 0, K_8 | K_4 | K_2,   SFN, RU_DOT, NC // ,
+	, 0, K_1 | K_4, SFN, KC_6, NC // :
 	#endif
-	, 0, K_8 | K_4 | K_2 | K_1, SFF, KC_MINS, NC // -
+	#ifdef USE_ALTCODE
+	, 0, K_2 | K_4, SFG, SFF, AC2(6, 0), ALF, AC2(6, 2), NC // <>
+	#else
+	, 0, K_2 | K_4, SFG, LSW, SFN, KC_COMM, KC_DOT, LSW, NC // <>
+	#endif
+	, 0, K_2 | K_4, SFN, KC_9, KC_0, NC // ()
+	, 0, K_1 | K_2 | K_4,       KC_MINS, NC
+	, 0, K_8,       SFG, SFN, KC_1, NC // !
+	#ifdef USE_ALTCODE
+	, 0, K_8,       SFF, AC2(4, 6), NC // .
+	#else
+	, 0, K_8,       SFF, RU_DOT, NC // .
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_1,       SFG, SFF, AC2(3, 9), NC // '
+ 	#else
+	, 0, K_8 | K_1,       SFG, LSW, KC_QUOT, LSW, NC // '
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_1,       SFF, AC2(3, 4), NC // "
+ 	#else
+	, 0, K_8 | K_1,       SFN, KC_2, NC // "
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_2,       SFG, SFF, AC2(6, 4), NC // @
+	#else
+	, 0, K_8 | K_2,       SFG, LSW, SFN, KC_2, LSW, NC // @
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_2,       SFF, AC2(5, 9), NC // ;
+	#else
+	, 0, K_8 | K_2,       SFN, KC_4, NC // ;
+	#endif
+    , 0, K_8 | K_2 | K_1,               SFN, KC_8, NC // *
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_4,       SFG, SFF, AC2(6, 3), NC // ?
+	#else
+	, 0, K_8 | K_4,       SFG, SFN, KC_7, NC // ?
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_4,       SFF, AC2(4, 4), NC // ,
+	#else
+	, 0, K_8 | K_4,       SFN, RU_DOT, NC // ,
+	#endif
+	#ifdef USE_ALTCODE
+    , 0, K_8 | K_4 | K_1,               SFF, AC2(3, 7), NC // %
+	#else
+    , 0, K_8 | K_4 | K_1,               SFN, KC_5, NC // %
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_4 | K_2,       SFG, SFF, AC2(9, 2), NC // \*
+ 	#else
+	, 0, K_8 | K_4 | K_2,       SFG, SFF, KC_BSLS, NC // \*
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_4 | K_2,       SFF, AC2(4, 7), NC // /
+ 	#else
+	, 0, K_8 | K_4 | K_2,       SFN, KC_BSLS, NC // /
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_4 | K_2 | K_1,       SFG, SFF, AC2(3, 8), NC // &
+ 	#else
+	, 0, K_8 | K_4 | K_2 | K_1,       SFG, LSW, SFN, KC_7, LSW, NC // &
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_4 | K_2 | K_1,       SFF, AC3(1, 2, 4), NC // |
+ 	#else
+	, 0, K_8 | K_4 | K_2 | K_1,       LSW, SFN, KC_BSLS, LSW, NC // |
+	#endif
 
 	, K_E | K_Q, 0, RU_YU, NC // ю
 	, K_O | K_Q, 0, RU_EE, NC // э
