@@ -382,19 +382,31 @@ const uint8_t PROGMEM phonetic_rght_dict[] = {
 	, K_U, 0,      KC_U, NC
 	, K_Q, 0,      KC_Q, NC
 
-	, 0, K_1, 	            KC_1, NC
-	, 0, K_2,               KC_2, NC
-	, 0, K_1 | K_2,         KC_3, NC
-	, 0, K_4,               KC_4, NC
-	, 0, K_1 | K_4,         KC_5, NC
-	, 0, K_2 | K_4,         KC_6, NC
-	, 0, K_1 | K_2 | K_4,   KC_7, NC
-	, 0, K_8,               KC_8, NC
-	, 0, K_8 | K_1,         KC_9, NC
-	, 0, K_8 | K_2,         KC_0, NC
-	, 0, K_8 | K_4,         SFF, KC_DOT, NC // .
-	, 0, K_8 | K_4 | K_2,   SFF, KC_COMM, NC // ,
-	, 0, K_8 | K_4 | K_2 | K_1, SFF, KC_MINS, NC // -
+	, 0, K_1, 	            KC_EQL, NC
+	, 0, K_2,             SFG, SFN, KC_DOT, NC // >
+	, 0, K_2,             SFN, KC_0, NC // )
+	, 0, K_1 | K_2,         SFN, KC_EQL, NC // +
+	, 0, K_4,             SFG, SFN, KC_COMM, NC // <
+	, 0, K_4,             SFN, KC_9, NC // (
+	, 0, K_1 | K_4, SFG, SFN, LSW, NC // #
+	, 0, K_1 | K_4, SFN, KC_SCLN, NC // :
+	, 0, K_2 | K_4, SFG, SFN, KC_COMM, KC_DOT, NC // <>
+	, 0, K_2 | K_4, SFN, KC_9, KC_0, NC // ()
+	, 0, K_1 | K_2 | K_4,       KC_MINS, NC
+	, 0, K_8,       SFG, SFN, KC_1, NC // !
+	, 0, K_8,       SFF, KC_DOT, NC // .
+	, 0, K_8 | K_1,       SFG, SFF, KC_QUOT, NC // '
+	, 0, K_8 | K_1,       SFN, KC_QUOT, NC // "
+	, 0, K_8 | K_2,       SFG, SFN, KC_2, NC // @
+	, 0, K_8 | K_2,       KC_SCLN, NC // ;
+    , 0, K_8 | K_2 | K_1,               SFN, KC_8, NC // *
+	, 0, K_8 | K_4,       SFG, SFN, KC_SLSH, NC // ?
+	, 0, K_8 | K_4,       KC_COMM, NC // ,
+    , 0, K_8 | K_4 | K_1,               SFN, KC_5, NC // %
+	, 0, K_8 | K_4 | K_2,       SFG, SFF, KC_BSLS, NC // \*
+	, 0, K_8 | K_4 | K_2,       SFF, KC_SLSH, NC // /
+	, 0, K_8 | K_4 | K_2 | K_1,       SFG, SFN, KC_7, NC // &
+	, 0, K_8 | K_4 | K_2 | K_1,       SFN, KC_BSLS, NC // |
 
 
 	, 0, 0 // end
