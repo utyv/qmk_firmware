@@ -609,6 +609,7 @@ const uint8_t PROGMEM left_dict[] = {
  	#else
 	, L_V | L_K | L_T | L_N, 0, SFN, KC_BSLS, KC_BSLS, NC // //
 	#endif
+	, L_V | L_K | L_T | L_P, 0, SFG, SFN, CLN, KC_PSLS, NC // /
 	, L_V | L_K | L_T | L_P, 0, CLN, KC_PSLS, NC // /
 	#ifdef USE_ALTCODE
 	, L_S | L_V | L_K, 0,       SFG, SFF, AC2(3, 8), NC // &
