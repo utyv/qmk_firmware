@@ -34,7 +34,7 @@ const uint8_t PROGMEM kolobok_left_dict[] = {
 	, K_D | K_B | K_P | K_N, 0        , RU_B, RU_Y, RU_L, NC // был
 	, K_V | K_K | K_T, 0, RU_EE, RU_T, NC // эт
 	, K_S | K_V, 0          , RU_V, RU_S, NC // вс
-	, K_S | K_B | K_P, 0    , RU_S, RU_L, NC // сл
+	, K_S | K_V | K_K, 0    , RU_S, RU_L, NC // сл
 	, K_S | K_K, 0      , RU_S, RU_K, NC // ск
 	, K_V | K_K | K_T | K_B, 0, RU_T, RU_A, RU_K, NC // так
 	, K_K | K_T | K_B | K_N, 0, RU_K, RU_O, RU_T, RU_O, RU_R, NC // котор
@@ -226,15 +226,15 @@ const uint8_t PROGMEM kolobok_rght_dict[] = {
 	, K_A | K_Y | K_Q, 0,       RU_A, RU_Q, NC // ая
 	, K_A | K_Y | K_U | K_Q, 0, RU_A, RU_L, RU_A, NC // ала
 	, K_A | K_Q, 0, RU_A, RU_N, NC // ан
-	, K_I | K_U | K_Q, 0,       RU_I, RU_L, RU_I, NC // или
+	, K_U | K_Q | K_MZ, 0,       RU_I, RU_L, RU_I, NC // или
 	, K_O | K_I | K_Y, 0,       RU_O, RU_V, NC // ов
 	, K_O | K_A | K_I, 0,       RU_O, RU_E, NC // ое
 	, K_A | K_Y | K_MZ, 0,            RU_A, RU_E, RU_T, NC // ает
 	, K_O | K_A | K_Y | K_U, 0,       RU_O, RU_D, NC // од
 	, K_E | K_O | K_A, 0,       RU_E, RU_E, NC // ее
 	, K_Y | K_U | K_Q, 0,       RU_Y, RU_E, NC // ые
-	, K_I | K_Q, 0, RU_I, RU_M, NC // им
-	, K_I | K_Y | K_U, 0,             RU_I, RU_E, NC // ие
+	, K_O | K_A | K_MZ, 0,      RU_I, RU_M, NC // им
+	, K_E | K_O | K_MZ, 0,      RU_I, RU_E, NC // ие
 	, K_O | K_A | K_U, 0,       RU_O, RU_R, NC // ор
 	, K_A | K_U, 0, RU_A, RU_M, NC // ам
 	, K_E | K_I | K_Y, 0,             RU_E, RU_H, NC // ех
@@ -655,11 +655,18 @@ const uint8_t PROGMEM nav_dict[] = {
 	, L_P, 0,      CLF, KC_RIGHT, NC
 	, L_N, 0,      CLF, KC_END, NC
 	
-	, 0, L_1,      CLN, KC_A, NC
-	, 0, L_2,      CLN, KC_S, NC
+	, 0, L_1,      CLN, KC_Z, NC
+	, 0, L_2,      CLN, KC_X, NC
 	, 0, L_4,      CLN, KC_C, NC
-	, 0, L_8,      CLN, KC_F, NC
+	, 0, L_8,      CLN, KC_V, NC
 	
+	, L_D, L_1,       CLN, KC_A, NC
+	, L_B, L_2,       CLN, KC_S, NC
+	, L_P, L_4,       CLF, KC_PSCR, NC
+	, L_N, L_8,       CLN, KC_F, NC
+
+	, 0, L_1 | L_2,   CLN, KC_PAUS, NC
+
 	, L_S | L_V, 0,   CLF, KC_PGUP, NC
 	, L_K | L_T, 0,   CLF, KC_PGDN, NC
 	, L_D | L_B, 0,   CLN, KC_LEFT, NC
@@ -677,12 +684,11 @@ const uint8_t PROGMEM nav_dict[] = {
 	, L_T | L_N, 0,   CLF, KC_F5, NC
 	, L_K | L_T | L_P | L_N, 0, CLF, KC_F9, NC
 	
-	, L_P, L_4,       CLF, KC_PSCR, NC
-	, L_N, L_8,       CLN, KC_PAUS, NC
-	
 	, 0, L_BSPC,      CLF, KC_TAB, NC
 	, 0, L_ENT,       CLF, ALN, KC_TAB, ALH, NC
 	, 0, L_DEL,       CLN, KC_TAB, NC
+	
+	, L_K | L_N, 0,   MTS, NC
 	
 	, 0, 0 // end
 };

@@ -220,6 +220,7 @@ bool process_mods(uint16_t keycode, bool pressed) {
 				mods &= ~FLAG_CLL;
 				mods &= ~FLAG_ALT_HOLD;
 				processed = true;
+				stop_multitap();
 			break;
 			case KC_RSFT:
 				mods &= ~FLAG_CPR;

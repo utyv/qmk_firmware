@@ -57,6 +57,7 @@ void type_kolobok(uint32_t chorde) {
 		if (left_cube) {
 			type_count += type_word(plword, caps_first, caps_all);
 			caps_first = false;
+
 		}
 		if (rght_cube) {
 			type_count += type_word(prword, caps_first, caps_all);
