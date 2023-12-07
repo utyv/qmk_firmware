@@ -1,6 +1,8 @@
 #include QMK_KEYBOARD_H
 #include "type.h"
 #include "keycodes.h"
+#include "multitap.h"
+
 
 enum search_state {
 	CHK_CHORD_ST,
@@ -20,20 +22,23 @@ uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all) {
 	uint8_t dict_key = 0;
 	uint8_t type_count = 0;
 	bool is_altcode = false;
-	
+	const uint8_t *to_save = 0;
+	to_save = dict;
+
 	if (caps_all) {
 		shift_on();
 	}
+	
 	
 	while (true) {
 		dict_key = pgm_read_byte_near(dict);
 		if (dict_key == NC) {
 			// next word
-			return type_count;
+			break;
 		} else if (dict_key == SFG) {
 			// shift guard
 			if (!(is_chorde_shift())) {
-				return type_count;
+				break;
 			} else {
 				caps_first = false;
 			}
@@ -72,6 +77,11 @@ uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all) {
 			shift_off();
 		 	alt_off();
 			
+		} else if (dict_key == MTS) {
+			
+			start_multitap();
+			to_save = 0;
+			
 		} else {
 			if ((!caps_all) && caps_first && is_first) {
 				shift_on();
@@ -90,6 +100,12 @@ uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all) {
 			}
 		}
 		dict++;
+		
+	}
+	
+	if (to_save) {
+		set_multitap_chorde(to_save);
+		
 	}
 	
 	return type_count;

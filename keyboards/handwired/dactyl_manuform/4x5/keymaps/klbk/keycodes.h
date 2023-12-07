@@ -143,7 +143,9 @@
 // undo
 #define UND KC_INS
 // lang swap
-#define LSW KC_PAUS
+#define LSW KC_F13
+// multitap start
+#define MTS KC_F14
 
 // alt codes
 #define AC2(c1, c2) ALN, KC_KP_ ## c1, KC_KP_ ## c2 

@@ -119,7 +119,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 		set_chorde_mods();
 	}
 	
-	if (keycode == KC_F5) {
+	/*if (keycode == KC_F5) {
 		if (chorde_counter) {
 			if (pressed) {
 				const uint8_t *pword = 0;
@@ -138,7 +138,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 			}
 		}
 		return false;
-	}
+	}*/
 		
 	uint8_t keynum = get_keynum(keycode);
 	
@@ -154,9 +154,10 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 		--chorde_counter;
 		if (!chorde_counter) {
 			
-			if (was_multitap_active()) {
-				clear_multitap();
-			} else {
+			//if (was_multitap_active()) {
+			//	clear_multitap();
+			//} else {
+				
 			
 				if (is_chorde_ctl()) {
 					uint16_t left_chorde = (uint16_t) chorde;
@@ -164,6 +165,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 					if (pword) {
 						type_word(pword, false, false);
 						clear_undo_history();
+						
 					}
 					// type_chorde16(left_chorde, nav_dict, false);
 				} else if (chorde & B_RU) {
@@ -210,6 +212,8 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 						if (left_chorde) {
 							type_count += type_word(plword, caps_first, caps_all);
 							caps_first = false;
+							
+
 						}
 						if (rght_chorde) {
 							type_count += type_word(prword, caps_first, caps_all);
@@ -239,12 +243,13 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 					const uint8_t *pword = find_word16(left_chorde, left_dict);
 					if (pword) {
 						type_count += type_word(pword, is_chorde_shift(), is_chorde_caps());
+
 					}
 
 					add_undo(type_count);
 					
 				}
-			}
+			//}
 			
 			chorde = 0;
 			reset_mods();
@@ -256,4 +261,3 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 	return false;
 	
 }
-		
