@@ -97,14 +97,12 @@ const uint8_t PROGMEM kolobok_rght_dict[] = {
 	, K_Q, 0,      RU_Q, NC
 	, K_MZ, 0,     RU_MZ, NC
 
-	, 0, K_1, 	            KC_EQL, NC
+	, 0, K_8,       SFG, SFN, KC_1, NC // !
 	#ifdef USE_ALTCODE
-	, 0, K_2,             SFG, SFF, AC2(6, 2), NC // >
+	, 0, K_8,       SFF, AC2(4, 6), NC // .
 	#else
-	, 0, K_2,             SFG, LSW, SFN, KC_DOT, LSW, NC // >
+	, 0, K_8,       SFF, RU_DOT, NC // .
 	#endif
-	, 0, K_2,             SFN, KC_0, NC // )
-	, 0, K_1 | K_2,         SFN, KC_EQL, NC // +
 	#ifdef USE_ALTCODE
 	, 0, K_4,             SFG, SFF, AC2(6, 0), NC // <
 	#else
@@ -112,14 +110,26 @@ const uint8_t PROGMEM kolobok_rght_dict[] = {
 	#endif
 	, 0, K_4,             SFN, KC_9, NC // (
 	#ifdef USE_ALTCODE
-	, 0, K_1 | K_4, SFG, SFF, AC2(3, 5), NC // #
+	, 0, K_2,             SFG, SFF, AC2(6, 2), NC // >
 	#else
-	, 0, K_1 | K_4, SFG, LSW, SFN, KC_3, LSW, NC // #
+	, 0, K_2,             SFG, LSW, SFN, KC_DOT, LSW, NC // >
+	#endif
+	, 0, K_2,             SFN, KC_0, NC // )
+	#ifdef USE_ALTCODE
+	, 0, K_1,               SFG, SFF, AC2(3, 6), NC // $
+	#else
+	, 0, K_1,               SFG, LSW, SFN, KC_4, LSW, NC // $
+	#endif
+	, 0, K_1, 	            KC_EQL, NC // =
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_4,       SFG, SFF, AC2(6, 3), NC // ?
+	#else
+	, 0, K_8 | K_4,       SFG, SFN, KC_7, NC // ?
 	#endif
 	#ifdef USE_ALTCODE
-	, 0, K_1 | K_4, SFF, AC2(5, 8), NC // :
+	, 0, K_8 | K_4,       SFF, AC2(4, 4), NC // ,
 	#else
-	, 0, K_1 | K_4, SFN, KC_6, NC // :
+	, 0, K_8 | K_4,       SFN, RU_DOT, NC // ,
 	#endif
 	#ifdef USE_ALTCODE
 	, 0, K_2 | K_4, SFG, SFF, AC2(6, 0), ALF, AC2(6, 2), NC // <>
@@ -127,13 +137,12 @@ const uint8_t PROGMEM kolobok_rght_dict[] = {
 	, 0, K_2 | K_4, SFG, LSW, SFN, KC_COMM, KC_DOT, LSW, NC // <>
 	#endif
 	, 0, K_2 | K_4, SFN, KC_9, KC_0, NC // ()
-	, 0, K_1 | K_2 | K_4,       KC_MINS, NC
-	, 0, K_8,       SFG, SFN, KC_1, NC // !
 	#ifdef USE_ALTCODE
-	, 0, K_8,       SFF, AC2(4, 6), NC // .
+	, 0, K_1 | K_2,               SFG, SFF, AC2(9, 4), NC // ^
 	#else
-	, 0, K_8,       SFF, RU_DOT, NC // .
+	, 0, K_1 | K_2,               SFG, LSW, SFN, KC_6, LSW, NC // ^
 	#endif
+	, 0, K_1 | K_2,         SFN, KC_EQL, NC // +
 	#ifdef USE_ALTCODE
 	, 0, K_8 | K_1,       SFG, SFF, AC2(3, 9), NC // '
  	#else
@@ -154,21 +163,15 @@ const uint8_t PROGMEM kolobok_rght_dict[] = {
 	#else
 	, 0, K_8 | K_2,       SFN, KC_4, NC // ;
 	#endif
-    , 0, K_8 | K_2 | K_1,               SFN, KC_8, NC // *
 	#ifdef USE_ALTCODE
-	, 0, K_8 | K_4,       SFG, SFF, AC2(6, 3), NC // ?
+	, 0, K_1 | K_4, SFG, SFF, AC2(3, 5), NC // #
 	#else
-	, 0, K_8 | K_4,       SFG, SFN, KC_7, NC // ?
+	, 0, K_1 | K_4, SFG, LSW, SFN, KC_3, LSW, NC // #
 	#endif
 	#ifdef USE_ALTCODE
-	, 0, K_8 | K_4,       SFF, AC2(4, 4), NC // ,
+	, 0, K_1 | K_4, SFF, AC2(5, 8), NC // :
 	#else
-	, 0, K_8 | K_4,       SFN, RU_DOT, NC // ,
-	#endif
-	#ifdef USE_ALTCODE
-    , 0, K_8 | K_4 | K_1,               SFF, AC2(3, 7), NC // %
-	#else
-    , 0, K_8 | K_4 | K_1,               SFN, KC_5, NC // %
+	, 0, K_1 | K_4, SFN, KC_6, NC // :
 	#endif
 	#ifdef USE_ALTCODE
 	, 0, K_8 | K_4 | K_2,       SFG, SFF, AC2(9, 2), NC // \*
@@ -180,6 +183,24 @@ const uint8_t PROGMEM kolobok_rght_dict[] = {
  	#else
 	, 0, K_8 | K_4 | K_2,       SFN, KC_BSLS, NC // /
 	#endif
+	, 0, K_1 | K_2 | K_4,       SFG, SFN, KC_MINS, NC // _
+	, 0, K_1 | K_2 | K_4,       SFF, KC_MINS, NC // -
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_4 | K_1,               SFG, SFF, AC3(1, 2, 6), NC // ~
+	#else
+	, 0, K_8 | K_4 | K_1,               SFG, LSW, SFN, KC_GRV, LSW, NC // ~
+	#endif
+	#ifdef USE_ALTCODE
+    , 0, K_8 | K_4 | K_1,               SFF, AC2(3, 7), NC // %
+	#else
+    , 0, K_8 | K_4 | K_1,               SFN, KC_5, NC // %
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_2 | K_1,               SFG, SFF, AC2(9, 6), NC // `
+	#else
+	, 0, K_8 | K_2 | K_1,               SFG, LSW, SFF, KC_GRV, LSW, NC // `
+	#endif
+    , 0, K_8 | K_2 | K_1,               SFN, KC_8, NC // *
 	#ifdef USE_ALTCODE
 	, 0, K_8 | K_4 | K_2 | K_1,       SFG, SFF, AC2(3, 8), NC // &
  	#else
@@ -297,22 +318,61 @@ const uint8_t PROGMEM phonetic_left_dict[] = {
 	, K_T | K_B, 0, KC_F, NC
 	, K_S | K_B, 0, KC_J, NC
 	
-	, 0, L_1,               SFG, SFN, KC_5, NC // %
-	, 0, L_1, 	            KC_1, NC
-	, 0, L_2,               SFG, SFN, KC_4, NC // $
-	, 0, L_2,               KC_2, NC
-	, 0, L_1 | L_2,         KC_3, NC
-	, 0, L_4,               SFG, SFN, KC_6, NC // ^
-	, 0, L_4,               KC_4, NC
-	, 0, L_1 | L_4,         KC_5, NC
-	, 0, L_2 | L_4,         KC_6, NC
-	, 0, L_1 | L_2 | L_4,   KC_7, NC
-	, 0, L_8,               SFG, SFN, KC_GRV, NC // ~
+	#ifdef USE_ALTCODE
+    , 0, L_8,             SFG, SFF, AC3(1, 2, 5), NC // }
+ 	#else
+    , 0, L_8,             SFG, SFN, KC_RBRC, NC // }
+  	#endif
 	, 0, L_8,               KC_8, NC
-	, 0, L_8 | L_1,         KC_9, NC
-	, 0, L_8 | L_2,         KC_0, NC
+	#ifdef USE_ALTCODE
+	, 0, L_4,             SFG, SFF, AC2(9, 3), NC // ]
+ 	#else
+ 	, 0, L_4,             SFG, SFF, KC_RBRC, NC // ]
+ 	#endif
+	, 0, L_4,               KC_4, NC
+	#ifdef USE_ALTCODE
+	, 0, L_2,             SFG, SFF, AC2(9, 1), NC // [
+ 	#else
+	, 0, L_2,             SFG, SFF, KC_LBRC, NC // [
+  	#endif
+	, 0, L_2,               KC_2, NC
+	#ifdef USE_ALTCODE
+	, 0, L_1,             SFG, SFF, AC3(1, 2, 3), NC // {
+ 	#else
+	, 0, L_1,             SFG, SFN, KC_LBRC, NC // {
+  	#endif
+	, 0, L_1, 	            KC_1, NC
+	#ifdef USE_ALTCODE
+	, 0, L_8 | L_4,         SFF, AC2(4, 6), NC // .
+ 	#else
 	, 0, L_8 | L_4,         SFF, KC_DOT, NC // .
+  	#endif
+	#ifdef USE_ALTCODE
+	, 0, L_2 | L_4,         SFG, SFF, AC2(9, 1), ALF, AC2(9, 3), NC // []
+ 	#else
+	, 0, L_2 | L_4,         SFG, SFF, KC_LBRC, KC_RBRC, NC // []
+ 	#endif
+	, 0, L_2 | L_4,         KC_6, NC
+	, 0, L_1 | L_2,         SFF, KC_3, NC
+	#ifdef USE_ALTCODE
+	, 0, L_8 | L_1,         SFG, SFF, AC3(1, 2, 3), ALF, AC3(1, 2, 5), NC // {}
+ 	#else
+	, 0, L_8 | L_1,         SFG, SFN, KC_LBRC, KC_RBRC, NC // {}
+ 	#endif
+	, 0, L_8 | L_1,         KC_9, NC
+	, 0, L_8 | L_2,         SFF, KC_0, NC
+	, 0, L_1 | L_4,         SFF, KC_5, NC
+	#ifdef USE_ALTCODE
+	, 0, L_8 | L_4 | L_2,   SFF, AC2(4, 4), NC // ,
+	#else
 	, 0, L_8 | L_4 | L_2,   SFF, KC_COMM, NC // ,
+	#endif
+	, 0, L_1 | L_2 | L_4,   SFF, KC_7, NC
+	#ifdef USE_ALTCODE
+	, 0, L_1 | L_4 | L_8,   SFF, AC3(2, 5, 2), NC // №
+	#else
+	, 0, L_1 | L_4 | L_8,   LSW, SFN, KC_3, LSW, NC // №
+	#endif
 	, 0, L_8 | L_4 | L_2 | L_1, SFF, KC_MINS, NC // -
 	
 	, L_S | L_T, 0, KC_O, NC
@@ -322,44 +382,122 @@ const uint8_t PROGMEM phonetic_left_dict[] = {
 	, L_S | L_K, 0, KC_U, NC
 	, L_V | L_K, 0, KC_Q, NC
 	, L_D | L_B, 0, KC_Y, NC
-	
+
 	, L_B | L_P | L_N, 0,       KC_SPC, NC
-	, L_D | L_B | L_P | L_N, 0, SFF, CLN, KC_SPC, NC
-	, L_D | L_B | L_P, 0,       KC_MINS, NC
 	, L_K | L_T | L_N, 0,       SFG, SFN, KC_1, NC // !
-	, L_K | L_T | L_N, 0,       KC_DOT, NC // .
-	, L_K | L_P | L_N, 0,       SFG, SFN, KC_SLSH, NC // ?
-	, L_K | L_P | L_N, 0,       KC_COMM, NC // ,
-	, L_K | L_B | L_N, 0,       SFG, SFN, KC_2, NC // @
-	, L_K | L_B | L_N, 0,       KC_SCLN, NC // ;
-	, L_K | L_T | L_P | L_N, 0, SFG, SFN, KC_3, NC // #
-	, L_K | L_T | L_P | L_N, 0, SFN, KC_SCLN, NC // :
+	#ifdef USE_ALTCODE
+	, L_K | L_T | L_N, 0,       SFF, AC2(4, 6), NC // .
+	#else
+	, L_K | L_T | L_N, 0,         SFF, KC_DOT, NC // .
+ 	#endif
+	#ifdef USE_ALTCODE
+	, L_V | L_B, 0,             SFG, SFF, AC2(6, 0), NC // <
+	#else
 	, L_V | L_B, 0,             SFG, SFN, KC_COMM, NC // <
+	#endif
 	, L_V | L_B, 0,             SFN, KC_9, NC // (
+	#ifdef USE_ALTCODE
+	, L_K | L_P, 0,             SFG, SFF, AC2(6, 2), NC // >
+	#else
 	, L_K | L_P, 0,             SFG, SFN, KC_DOT, NC // >
+	#endif
 	, L_K | L_P, 0,             SFN, KC_0, NC // )
+	#ifdef USE_ALTCODE
+	, L_T | L_P | L_N, 0,               SFG, SFF, AC2(3, 6), NC // $
+	#else
+	, L_T | L_P | L_N, 0,               SFG, SFN, KC_4, NC // $
+	#endif
+	, L_T | L_P | L_N, 0,       SFF, KC_EQL, NC // =
+	#ifdef USE_ALTCODE
+	, L_K | L_P | L_N, 0,       SFG, SFF, AC2(6, 3), NC // ?
+	#else
+	, L_K | L_P | L_N, 0,       SFG, SFN, KC_SLSH, NC // ?
+	#endif
+	#ifdef USE_ALTCODE
+	, L_K | L_P | L_N, 0,       SFF, AC2(4, 4), NC // ,
+	#else
+	, L_K | L_P | L_N, 0,       KC_COMM, NC // ,
+	#endif
+	#ifdef USE_ALTCODE
+	, L_V | L_K | L_B | L_P, 0, SFG, SFF, AC2(6, 0), ALF, AC2(6, 2), NC // <>
+	#else
 	, L_V | L_K | L_B | L_P, 0, SFG, SFN, KC_COMM, KC_DOT, NC // <>
+	#endif
 	, L_V | L_K | L_B | L_P, 0, SFN, KC_9, KC_0, NC // ()
-	, L_S | L_D, 0,             SFG, SFN, KC_LBRC, NC // {
-    , L_S | L_D, 0,             KC_LBRC, NC // [
-    , L_T | L_N, 0,             SFG, SFN, KC_RBRC, NC // }
-	, L_T | L_N, 0,             KC_RBRC, NC // ]
-	, L_S | L_T | L_D | L_N, 0, SFG, SFN, KC_LBRC, KC_RBRC, NC // {}
-	, L_S | L_T | L_D | L_N, 0, KC_LBRC, KC_RBRC, NC // []
-	, L_T | L_D | L_N, 0,       SFG, SFF, KC_QUOT, NC // '
-	, L_T | L_D | L_N, 0,       SFN, KC_QUOT, NC // "
-	, L_V | L_K | L_T, 0,       SFG, SFF, KC_BSLS, NC // \*
-	, L_V | L_K | L_T, 0,       SFF, KC_SLSH, NC // /
-	, L_V | L_K | L_T | L_N, 0, SFF, KC_SLSH, KC_SLSH, NC // //
-	, L_S | L_V | L_K, 0,       SFG, SFN, KC_7, NC // &
-	, L_S | L_V | L_K, 0,       SFN, KC_BSLS, NC // |
-	, L_D | L_B | L_N, 0,       SFN, KC_8, NC // *
-	, L_T | L_P | L_N, 0,       SFF, KC_EQL, NC
+	#ifdef USE_ALTCODE
+	, L_K | L_T | L_P, 0,               SFG, SFF, AC2(9, 4), NC // ^
+	#else
+	, L_K | L_T | L_P, 0,               SFG, SFN, KC_6, NC // ^
+	#endif
 	, L_K | L_T | L_P, 0,       SFN, KC_EQL, NC // +
-	
-	, L_V | L_T | L_P, 0,   CLN, KC_V, NC
-	, L_N, L_8,             CLN, KC_Z, NC
-	, L_P, L_4,             CLN, KC_X, NC
+	#ifdef USE_ALTCODE
+	, L_T | L_D | L_N, 0,       SFG, SFF, AC2(3, 9), NC // '
+ 	#else
+	, L_T | L_D | L_N, 0,       SFG, KC_QUOT, NC // '
+	#endif
+	#ifdef USE_ALTCODE
+	, L_T | L_D | L_N, 0,       SFF, AC2(3, 4), NC // "
+ 	#else
+	, L_T | L_D | L_N, 0,       SFN, KC_QUOT, NC // "
+	#endif
+	#ifdef USE_ALTCODE
+	, L_K | L_B | L_N, 0,       SFG, SFF, AC2(6, 4), NC // @
+	#else
+	, L_K | L_B | L_N, 0,       SFG, SFN, KC_2, NC // @
+	#endif
+	#ifdef USE_ALTCODE
+	, L_K | L_B | L_N, 0,       SFF, AC2(5, 9), NC // ;
+	#else
+	, L_K | L_B | L_N, 0,       KC_SCLN, NC // ;
+	#endif
+	#ifdef USE_ALTCODE
+	, L_K | L_T | L_P | L_N, 0, SFG, SFF, AC2(3, 5), NC // #
+	#else
+	, L_K | L_T | L_P | L_N, 0, SFG, SFN, KC_3, NC // #
+	#endif
+	#ifdef USE_ALTCODE
+	, L_K | L_T | L_P | L_N, 0, SFF, AC2(5, 8), NC // :
+	#else
+	, L_K | L_T | L_P | L_N, 0, SFN, KC_SCLN, NC // :
+	#endif
+	#ifdef USE_ALTCODE
+	, L_V | L_K | L_T, 0,       SFG, SFF, AC2(9, 2), NC // \*
+ 	#else
+	, L_V | L_K | L_T, 0,       SFG, SFF, KC_BSLS, NC // \*
+	#endif
+	#ifdef USE_ALTCODE
+	, L_V | L_K | L_T, 0,       SFF, AC2(4, 7), NC // /
+ 	#else
+	, L_V | L_K | L_T, 0,       SFF, KC_SLSH, NC // /
+	#endif
+	, L_D | L_B | L_P, 0,       KC_MINS, NC
+	#ifdef USE_ALTCODE
+	, L_D | L_P | L_N, 0,               SFG, SFF, AC3(1, 2, 6), NC // ~
+	#else
+	, L_D | L_P | L_N, 0,               SFG, SFN, KC_GRV, NC // ~
+	#endif
+	#ifdef USE_ALTCODE
+    , L_D | L_P | L_N, 0,               SFF, AC2(3, 7), NC // %
+	#else
+    , L_D | L_P | L_N, 0,               SFN, KC_5, NC // %
+	#endif
+	#ifdef USE_ALTCODE
+	, L_D | L_B | L_N, 0,               SFG, SFF, AC2(9, 6), NC // `
+	#else
+	, L_D | L_B | L_N, 0,               SFG, SFF, KC_GRV, NC // `
+	#endif
+	, L_D | L_B | L_N, 0,       SFN, KC_8, NC // *
+	#ifdef USE_ALTCODE
+	, L_S | L_V | L_K, 0,       SFG, SFF, AC2(3, 8), NC // &
+ 	#else
+	, L_S | L_V | L_K, 0,       SFG, SFN, KC_7, NC // &
+	#endif
+	#ifdef USE_ALTCODE
+	, L_S | L_V | L_K, 0,       SFF, AC3(1, 2, 4), NC // |
+ 	#else
+	, L_S | L_V | L_K, 0,       SFN, KC_BSLS, NC // |
+	#endif
+
 	
 	, 0, L_BSPC,            KC_BSPC, NC
 	, 0, L_ENT,             KC_ENT, NC
@@ -368,7 +506,16 @@ const uint8_t PROGMEM phonetic_left_dict[] = {
 	, L_N, L_ENT,           CLN, KC_ENT, NC
 	, 0, L_8 | L_DEL,       CLN, KC_DEL, NC
 	, 0, L_ENT | L_DEL,     KC_ESC, NC
-	//, 0, L_BSPC | L_ENT,    UND, NC
+
+	#ifdef UTYUMOV
+	
+	#ifdef USE_ALTCODE
+	, L_V | L_K | L_T | L_N, 0, SFF, AC2(4, 7), ALF, AC2(4, 7), NC // //
+ 	#else
+	, L_V | L_K | L_T | L_N, 0, SFF, KC_SLSH, KC_SLSH, NC // //
+	#endif
+	
+	#endif
 
 	, 0, 0 // end
 };
@@ -382,31 +529,121 @@ const uint8_t PROGMEM phonetic_rght_dict[] = {
 	, K_U, 0,      KC_U, NC
 	, K_Q, 0,      KC_Q, NC
 
-	, 0, K_1, 	            KC_EQL, NC
-	, 0, K_2,             SFG, SFN, KC_DOT, NC // >
-	, 0, K_2,             SFN, KC_0, NC // )
-	, 0, K_1 | K_2,         SFN, KC_EQL, NC // +
-	, 0, K_4,             SFG, SFN, KC_COMM, NC // <
-	, 0, K_4,             SFN, KC_9, NC // (
-	, 0, K_1 | K_4, SFG, SFN, LSW, NC // #
-	, 0, K_1 | K_4, SFN, KC_SCLN, NC // :
-	, 0, K_2 | K_4, SFG, SFN, KC_COMM, KC_DOT, NC // <>
-	, 0, K_2 | K_4, SFN, KC_9, KC_0, NC // ()
-	, 0, K_1 | K_2 | K_4,       KC_MINS, NC
 	, 0, K_8,       SFG, SFN, KC_1, NC // !
+	#ifdef USE_ALTCODE
+	, 0, K_8,       SFF, AC2(4, 6), NC // .
+	#else
 	, 0, K_8,       SFF, KC_DOT, NC // .
-	, 0, K_8 | K_1,       SFG, SFF, KC_QUOT, NC // '
-	, 0, K_8 | K_1,       SFN, KC_QUOT, NC // "
-	, 0, K_8 | K_2,       SFG, SFN, KC_2, NC // @
-	, 0, K_8 | K_2,       KC_SCLN, NC // ;
-    , 0, K_8 | K_2 | K_1,               SFN, KC_8, NC // *
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_4,             SFG, SFF, AC2(6, 0), NC // <
+	#else
+	, 0, K_4,             SFG, SFN, KC_COMM, NC // <
+	#endif
+	, 0, K_4,             SFN, KC_9, NC // (
+	#ifdef USE_ALTCODE
+	, 0, K_2,             SFG, SFF, AC2(6, 2), NC // >
+	#else
+	, 0, K_2,             SFG, SFN, KC_DOT, NC // >
+	#endif
+	, 0, K_2,             SFN, KC_0, NC // )
+	#ifdef USE_ALTCODE
+	, 0, K_1,               SFG, SFF, AC2(3, 6), NC // $
+	#else
+	, 0, K_1,               SFG, SFN, KC_4, NC // $
+	#endif
+	, 0, K_1, 	            KC_EQL, NC // =
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_4,       SFG, SFF, AC2(6, 3), NC // ?
+	#else
 	, 0, K_8 | K_4,       SFG, SFN, KC_SLSH, NC // ?
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_4,       SFF, AC2(4, 4), NC // ,
+	#else
 	, 0, K_8 | K_4,       KC_COMM, NC // ,
-    , 0, K_8 | K_4 | K_1,               SFN, KC_5, NC // %
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_2 | K_4, SFG, SFF, AC2(6, 0), ALF, AC2(6, 2), NC // <>
+	#else
+	, 0, K_2 | K_4, SFG, SFN, KC_COMM, KC_DOT, NC // <>
+	#endif
+	, 0, K_2 | K_4, SFN, KC_9, KC_0, NC // ()
+	#ifdef USE_ALTCODE
+	, 0, K_1 | K_2,               SFG, SFF, AC2(9, 4), NC // ^
+	#else
+	, 0, K_1 | K_2,               SFG, SFN, KC_6, NC // ^
+	#endif
+	, 0, K_1 | K_2,         SFN, KC_EQL, NC // +
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_1,       SFG, SFF, AC2(3, 9), NC // '
+ 	#else
+	, 0, K_8 | K_1,       SFG, SFF, KC_QUOT, NC // '
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_1,       SFF, AC2(3, 4), NC // "
+ 	#else
+	, 0, K_8 | K_1,       SFN, KC_QUOT, NC // "
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_2,       SFG, SFF, AC2(6, 4), NC // @
+	#else
+	, 0, K_8 | K_2,       SFG, SFN, KC_2, NC // @
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_2,       SFF, AC2(5, 9), NC // ;
+	#else
+	, 0, K_8 | K_2,       KC_SCLN, NC // ;
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_1 | K_4, SFG, SFF, AC2(3, 5), NC // #
+	#else
+	, 0, K_1 | K_4, SFG, SFN, KC_3, NC // #
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_1 | K_4, SFF, AC2(5, 8), NC // :
+	#else
+	, 0, K_1 | K_4, SFN, KC_SCLN, NC // :
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_4 | K_2,       SFG, SFF, AC2(9, 2), NC // \*
+ 	#else
 	, 0, K_8 | K_4 | K_2,       SFG, SFF, KC_BSLS, NC // \*
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_4 | K_2,       SFF, AC2(4, 7), NC // /
+ 	#else
 	, 0, K_8 | K_4 | K_2,       SFF, KC_SLSH, NC // /
+	#endif
+	, 0, K_1 | K_2 | K_4,       SFG, SFN, KC_MINS, NC // _
+	, 0, K_1 | K_2 | K_4,       SFF, KC_MINS, NC // -
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_4 | K_1,               SFG, SFF, AC3(1, 2, 6), NC // ~
+	#else
+	, 0, K_8 | K_4 | K_1,               SFG, SFN, KC_GRV, NC // ~
+	#endif
+	#ifdef USE_ALTCODE
+    , 0, K_8 | K_4 | K_1,               SFF, AC2(3, 7), NC // %
+	#else
+    , 0, K_8 | K_4 | K_1,               SFN, KC_5, NC // %
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_2 | K_1,               SFG, SFF, AC2(9, 6), NC // `
+	#else
+	, 0, K_8 | K_2 | K_1,               SFG, SFF, KC_GRV, NC // `
+	#endif
+    , 0, K_8 | K_2 | K_1,               SFN, KC_8, NC // *
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_4 | K_2 | K_1,       SFG, SFF, AC2(3, 8), NC // &
+ 	#else
 	, 0, K_8 | K_4 | K_2 | K_1,       SFG, SFN, KC_7, NC // &
+	#endif
+	#ifdef USE_ALTCODE
+	, 0, K_8 | K_4 | K_2 | K_1,       SFF, AC3(1, 2, 4), NC // |
+ 	#else
 	, 0, K_8 | K_4 | K_2 | K_1,       SFN, KC_BSLS, NC // |
+	#endif
+
 
 
 	, 0, 0 // end
@@ -423,44 +660,59 @@ const uint8_t PROGMEM left_dict[] = {
 	, L_N, 0,      RU_N, NC
 	
 	#ifdef USE_ALTCODE
-    , 0, L_1,               SFG, SFF, AC2(3, 7), NC // %
+	, 0, L_8,               SFG, SFF, AC3(1, 2, 5), NC // }
 	#else
-    , 0, L_1,               SFG, SFN, KC_5, NC // %
-	#endif
-	, 0, L_1, 	            KC_1, NC
-	#ifdef USE_ALTCODE
-	, 0, L_2,               SFG, SFF, AC2(3, 6), NC // $
-	#else
-	, 0, L_2,               SFG, LSW, SFN, KC_4, LSW, NC // $
-	#endif
-	, 0, L_2,               KC_2, NC
-	, 0, L_1 | L_2,         KC_3, NC
-	#ifdef USE_ALTCODE
-	, 0, L_4,               SFG, SFF, AC2(9, 4), NC // ^
-	#else
-	, 0, L_4,               SFG, LSW, SFN, KC_6, LSW, NC // ^
-	#endif
-	, 0, L_4,               KC_4, NC
-	, 0, L_1 | L_4,         KC_5, NC
-	, 0, L_2 | L_4,         KC_6, NC
-	, 0, L_1 | L_2 | L_4,   KC_7, NC
-	#ifdef USE_ALTCODE
-	, 0, L_8,               SFG, SFF, AC3(1, 2, 6), NC // ~
-	#else
-	, 0, L_8,               SFG, LSW, SFN, KC_GRV, LSW, NC // ~
+	, 0, L_8,               SFG, LSW, SFN, KC_RBRC, LSW, NC // }
 	#endif
 	, 0, L_8,               KC_8, NC
-	, 0, L_8 | L_1,         KC_9, NC
-	, 0, L_8 | L_2,         KC_0, NC
+	#ifdef USE_ALTCODE
+	, 0, L_4,               SFG, SFF, AC2(9, 3), NC // ]
+	#else
+	, 0, L_4,               SFG, LSW, KC_RBRC, LSW, NC // ]
+	#endif
+	, 0, L_4,               KC_4, NC
+	#ifdef USE_ALTCODE
+	, 0, L_2,               SFG, SFF, AC2(9, 1), NC // [
+	#else
+	, 0, L_2,               SFG, LSW, KC_LBRC, LSW, NC // [
+	#endif
+	, 0, L_2,               KC_2, NC
+	#ifdef USE_ALTCODE
+    , 0, L_1,               SFG, SFF, AC3(1, 2, 3), NC // {
+	#else
+    , 0, L_1,               SFG, LSW, SFN, KC_LBRC, LSW, NC // {
+	#endif
+	, 0, L_1, 	            KC_1, NC
 	#ifdef USE_ALTCODE
 	, 0, L_8 | L_4,         SFF, AC2(4, 6), NC // .
 	#else
 	, 0, L_8 | L_4,         SFF, RU_DOT, NC // .
 	#endif
 	#ifdef USE_ALTCODE
+	, 0, L_2 | L_4,         SFG, SFF, AC2(9, 1), ALF, AC2(9, 3), NC // []
+ 	#else
+	, 0, L_2 | L_4,         SFG, LSW, KC_LBRC, KC_RBRC, LSW, NC // []
+ 	#endif
+	, 0, L_2 | L_4,         KC_6, NC
+	, 0, L_1 | L_2,         SFF, KC_3, NC
+	#ifdef USE_ALTCODE
+	, 0, L_8 | L_1,         SFG, SFF, AC3(1, 2, 3), ALF, AC3(1, 2, 5), NC // {}
+ 	#else
+	, 0, L_8 | L_1,         SFG, LSW, SFN, KC_LBRC, KC_RBRC, LSW, NC // {}
+ 	#endif
+	, 0, L_8 | L_1,         KC_9, NC
+	, 0, L_8 | L_2,         SFF, KC_0, NC
+	, 0, L_1 | L_4,         SFF, KC_5, NC
+	#ifdef USE_ALTCODE
 	, 0, L_8 | L_4 | L_2,   SFF, AC2(4, 4), NC // ,
 	#else
 	, 0, L_8 | L_4 | L_2,   SFN, RU_DOT, NC // ,
+	#endif
+	, 0, L_1 | L_2 | L_4,   SFF, KC_7, NC
+	#ifdef USE_ALTCODE
+	, 0, L_1 | L_4 | L_8,   SFF, AC3(2, 5, 2), NC // №
+	#else
+	, 0, L_1 | L_4 | L_8,   SFN, KC_3, NC // №
 	#endif
 	, 0, L_8 | L_4 | L_2 | L_1, SFF, KC_MINS, NC // -
 	
@@ -490,17 +742,33 @@ const uint8_t PROGMEM left_dict[] = {
 	, L_D | L_P, 0, RU_EE, NC
 	, L_V | L_N, 0, RU_MZ, NC
 	, L_S | L_P, 0, RU_TZ, NC
-	, L_D | L_P | L_N, 0, RU_YO, NC
+	, L_S | L_B | L_N, 0, RU_YO, NC
 	
 	, L_B | L_P | L_N, 0,       KC_SPC, NC
-	, L_D | L_B | L_P | L_N, 0, SFF, CLN, KC_SPC, NC
-	, L_D | L_B | L_P, 0,       KC_MINS, NC
 	, L_K | L_T | L_N, 0,       SFG, SFN, KC_1, NC // !
 	#ifdef USE_ALTCODE
 	, L_K | L_T | L_N, 0,       SFF, AC2(4, 6), NC // .
 	#else
 	, L_K | L_T | L_N, 0,       SFF, RU_DOT, NC // .
 	#endif
+	#ifdef USE_ALTCODE
+	, L_V | L_B, 0,             SFG, SFF, AC2(6, 0), NC // <
+	#else
+	, L_V | L_B, 0,             SFG, LSW, SFN, KC_COMM, LSW, NC // <
+	#endif
+	, L_V | L_B, 0,             SFN, KC_9, NC // (
+	#ifdef USE_ALTCODE
+	, L_K | L_P, 0,             SFG, SFF, AC2(6, 2), NC // >
+	#else
+	, L_K | L_P, 0,             SFG, LSW, SFN, KC_DOT, LSW, NC // >
+	#endif
+	, L_K | L_P, 0,             SFN, KC_0, NC // )
+	#ifdef USE_ALTCODE
+	, L_T | L_P | L_N, 0,               SFG, SFF, AC2(3, 6), NC // $
+	#else
+	, L_T | L_P | L_N, 0,               SFG, LSW, SFN, KC_4, LSW, NC // $
+	#endif
+	, L_T | L_P | L_N, 0,       SFF, KC_EQL, NC // =
 	#ifdef USE_ALTCODE
 	, L_K | L_P | L_N, 0,       SFG, SFF, AC2(6, 3), NC // ?
 	#else
@@ -510,6 +778,28 @@ const uint8_t PROGMEM left_dict[] = {
 	, L_K | L_P | L_N, 0,       SFF, AC2(4, 4), NC // ,
 	#else
 	, L_K | L_P | L_N, 0,       SFN, RU_DOT, NC // ,
+	#endif
+	#ifdef USE_ALTCODE
+	, L_V | L_K | L_B | L_P, 0, SFG, SFF, AC2(6, 0), ALF, AC2(6, 2), NC // <>
+	#else
+	, L_V | L_K | L_B | L_P, 0, SFG, LSW, SFN, KC_COMM, KC_DOT, LSW, NC // <>
+	#endif
+	, L_V | L_K | L_B | L_P, 0, SFN, KC_9, KC_0, NC // ()
+	#ifdef USE_ALTCODE
+	, L_K | L_T | L_P, 0,               SFG, SFF, AC2(9, 4), NC // ^
+	#else
+	, L_K | L_T | L_P, 0,               SFG, LSW, SFN, KC_6, LSW, NC // ^
+	#endif
+	, L_K | L_T | L_P, 0,       SFN, KC_EQL, NC // +
+	#ifdef USE_ALTCODE
+	, L_T | L_D | L_N, 0,       SFG, SFF, AC2(3, 9), NC // '
+ 	#else
+	, L_T | L_D | L_N, 0,       SFG, LSW, KC_QUOT, LSW, NC // '
+	#endif
+	#ifdef USE_ALTCODE
+	, L_T | L_D | L_N, 0,       SFF, AC2(3, 4), NC // "
+ 	#else
+	, L_T | L_D | L_N, 0,       SFN, KC_2, NC // "
 	#endif
 	#ifdef USE_ALTCODE
 	, L_K | L_B | L_N, 0,       SFG, SFF, AC2(6, 4), NC // @
@@ -532,69 +822,6 @@ const uint8_t PROGMEM left_dict[] = {
 	, L_K | L_T | L_P | L_N, 0, SFN, KC_6, NC // :
 	#endif
 	#ifdef USE_ALTCODE
-	, L_V | L_T | L_D | L_P, 0, SFF, AC3(2, 5, 2), NC // №
-	#else
-	, L_V | L_T | L_D | L_P, 0, SFN, KC_3, NC // №
-	#endif
-	#ifdef USE_ALTCODE
-	, L_V | L_B, 0,             SFG, SFF, AC2(6, 0), NC // <
-	#else
-	, L_V | L_B, 0,             SFG, LSW, SFN, KC_COMM, LSW, NC // <
-	#endif
-	, L_V | L_B, 0,             SFN, KC_9, NC // (
-	#ifdef USE_ALTCODE
-	, L_K | L_P, 0,             SFG, SFF, AC2(6, 2), NC // >
-	#else
-	, L_K | L_P, 0,             SFG, LSW, SFN, KC_DOT, LSW, NC // >
-	#endif
-	, L_K | L_P, 0,             SFN, KC_0, NC // )
-	#ifdef USE_ALTCODE
-	, L_V | L_K | L_B | L_P, 0, SFG, SFF, AC2(6, 0), ALF, AC2(6, 2), NC // <>
-	#else
-	, L_V | L_K | L_B | L_P, 0, SFG, LSW, SFN, KC_COMM, KC_DOT, LSW, NC // <>
-	#endif
-	, L_V | L_K | L_B | L_P, 0, SFN, KC_9, KC_0, NC // ()
-	#ifdef USE_ALTCODE
-	, L_S | L_D, 0,             SFG, SFF, AC3(1, 2, 3), NC // {
- 	#else
-	, L_S | L_D, 0,             SFG, LSW, SFN, KC_LBRC, LSW, NC // {
-  	#endif
-	#ifdef USE_ALTCODE
-	, L_S | L_D, 0,             SFF, AC2(9, 1), NC // [
- 	#else
-	, L_S | L_D, 0,             LSW, KC_LBRC, LSW, NC // [
-  	#endif
-	#ifdef USE_ALTCODE
-    , L_T | L_N, 0,             SFG, SFF, AC3(1, 2, 5), NC // }
- 	#else
-    , L_T | L_N, 0,             SFG, LSW, SFN, KC_RBRC, LSW, NC // }
-  	#endif
-	#ifdef USE_ALTCODE
-	, L_T | L_N, 0,             SFF, AC2(9, 3), NC // ]
- 	#else
- 	, L_T | L_N, 0,             LSW, KC_RBRC, LSW, NC // ]
- 	#endif
-	#ifdef USE_ALTCODE
-	, L_S | L_T | L_D | L_N, 0, SFG, SFF, AC3(1, 2, 3), ALF, AC3(1, 2, 5), NC // {}
- 	#else
-	, L_S | L_T | L_D | L_N, 0, SFG, LSW, SFN, KC_LBRC, KC_RBRC, LSW, NC // {}
- 	#endif
-	#ifdef USE_ALTCODE
-	, L_S | L_T | L_D | L_N, 0, SFF, AC2(9, 1), ALF, AC2(9, 3), NC // []
- 	#else
-	, L_S | L_T | L_D | L_N, 0, LSW, KC_LBRC, KC_RBRC, LSW, NC // []
- 	#endif
-	#ifdef USE_ALTCODE
-	, L_T | L_D | L_N, 0,       SFG, SFF, AC2(3, 9), NC // '
- 	#else
-	, L_T | L_D | L_N, 0,       SFG, LSW, KC_QUOT, LSW, NC // '
-	#endif
-	#ifdef USE_ALTCODE
-	, L_T | L_D | L_N, 0,       SFF, AC2(3, 4), NC // "
- 	#else
-	, L_T | L_D | L_N, 0,       SFN, KC_2, NC // "
-	#endif
-	#ifdef USE_ALTCODE
 	, L_V | L_K | L_T, 0,       SFG, SFF, AC2(9, 2), NC // \*
  	#else
 	, L_V | L_K | L_T, 0,       SFG, SFF, KC_BSLS, NC // \*
@@ -604,13 +831,23 @@ const uint8_t PROGMEM left_dict[] = {
  	#else
 	, L_V | L_K | L_T, 0,       SFN, KC_BSLS, NC // /
 	#endif
+	, L_D | L_B | L_P, 0,       KC_MINS, NC
 	#ifdef USE_ALTCODE
-	, L_V | L_K | L_T | L_N, 0, SFF, AC2(4, 7), ALF, AC2(4, 7), NC // //
- 	#else
-	, L_V | L_K | L_T | L_N, 0, SFN, KC_BSLS, KC_BSLS, NC // //
+	, L_D | L_P | L_N, 0,               SFG, SFF, AC3(1, 2, 6), NC // ~
+	#else
+	, L_D | L_P | L_N, 0,               SFG, LSW, SFN, KC_GRV, LSW, NC // ~
 	#endif
-	, L_V | L_K | L_T | L_P, 0, SFG, SFN, CLN, KC_PSLS, NC // /
-	, L_V | L_K | L_T | L_P, 0, CLN, KC_PSLS, NC // /
+	#ifdef USE_ALTCODE
+    , L_D | L_P | L_N, 0,               SFF, AC2(3, 7), NC // %
+	#else
+    , L_D | L_P | L_N, 0,               SFN, KC_5, NC // %
+	#endif
+	#ifdef USE_ALTCODE
+	, L_D | L_B | L_N, 0,               SFG, SFF, AC2(9, 6), NC // `
+	#else
+	, L_D | L_B | L_N, 0,               SFG, LSW, SFF, KC_GRV, LSW, NC // `
+	#endif
+	, L_D | L_B | L_N, 0,       SFN, KC_8, NC // *
 	#ifdef USE_ALTCODE
 	, L_S | L_V | L_K, 0,       SFG, SFF, AC2(3, 8), NC // &
  	#else
@@ -621,13 +858,6 @@ const uint8_t PROGMEM left_dict[] = {
  	#else
 	, L_S | L_V | L_K, 0,       LSW, SFN, KC_BSLS, LSW, NC // |
 	#endif
-	, L_D | L_B | L_N, 0,       SFN, KC_8, NC // *
-	, L_T | L_P | L_N, 0,       SFF, KC_EQL, NC
-	, L_K | L_T | L_P, 0,       SFN, KC_EQL, NC // +
-	
-	, L_V | L_T | L_P, 0,   CLN, KC_V, NC
-	, L_N, L_8,             CLN, KC_Z, NC
-	, L_P, L_4,             CLN, KC_X, NC
 	
 	, 0, L_BSPC,            KC_BSPC, NC
 	, 0, L_ENT,             KC_ENT, NC
@@ -638,10 +868,22 @@ const uint8_t PROGMEM left_dict[] = {
 	, 0, L_ENT | L_DEL,     KC_ESC, NC
 	//, 0, L_BSPC | L_ENT,    UND, NC
 
+	#ifdef UTYUMOV
+	
+	#ifdef USE_ALTCODE
+	, L_V | L_K | L_T | L_N, 0, SFF, AC2(4, 7), ALF, AC2(4, 7), NC // //
+ 	#else
+	, L_V | L_K | L_T | L_N, 0, SFN, KC_BSLS, KC_BSLS, NC // //
+	#endif
+
+	#endif
+
+
 	, 0, 0 // end
 };
 
 const uint8_t PROGMEM nav_dict[] = {
+	
 	L_S, 0,        CLN, KC_HOME, NC
 	, L_V, 0,      SFG, CLF, SFN, KC_UP, NC
 	, L_V, 0,      CLF, KC_UP, NC
@@ -655,6 +897,19 @@ const uint8_t PROGMEM nav_dict[] = {
 	, L_P, 0,      CLF, KC_RIGHT, NC
 	, L_N, 0,      CLF, KC_END, NC
 	
+	, L_S | L_V, 0,   CLF, KC_PGUP, NC
+	, L_K | L_T, 0,   CLF, KC_PGDN, NC
+	, L_D | L_B, 0,   CLN, KC_LEFT, NC
+	, L_P | L_N, 0,   CLN, KC_RIGHT, NC
+	, L_D | L_P, 0,   CLN, KC_LBRC, NC // Ctl {
+	, L_B | L_N, 0,   CLN, KC_RBRC, NC // Ctl }
+	
+	, L_V | L_K, 0,   CLF, KC_APP, NC
+	
+	, 0, L_BSPC,      CLF, KC_TAB, NC
+	, 0, L_ENT,       CLF, ALN, KC_TAB, ALH, NC
+	, 0, L_DEL,       CLN, KC_TAB, NC
+	
 	, 0, L_1,      CLN, KC_Z, NC
 	, 0, L_2,      CLN, KC_X, NC
 	, 0, L_4,      CLN, KC_C, NC
@@ -665,18 +920,14 @@ const uint8_t PROGMEM nav_dict[] = {
 	, L_P, L_4,       CLF, KC_PSCR, NC
 	, L_N, L_8,       CLN, KC_F, NC
 
-	, 0, L_1 | L_2,   CLN, KC_PAUS, NC
-
-	, L_S | L_V, 0,   CLF, KC_PGUP, NC
-	, L_K | L_T, 0,   CLF, KC_PGDN, NC
-	, L_D | L_B, 0,   CLN, KC_LEFT, NC
-	, L_P | L_N, 0,   CLN, KC_RIGHT, NC
-	, L_D | L_P, 0,   CLN, KC_LBRC, NC // Ctl {
-	, L_B | L_N, 0,   CLN, KC_RBRC, NC // Ctl }
+	, L_K | L_N, 0,   MTS, NC
 	
-	, L_V | L_K, 0,   CLF, KC_APP, NC
-	, L_B | L_P, 0,   SFG, SFF, CLN, KC_MINS, NC
-	, L_B | L_P, 0,   CLF, KC_F12, NC
+	#ifdef UTYUMOV
+	
+	, 0, L_1 | L_2,   CLN, KC_PAUS, NC
+	, L_B | L_P | L_N, 0, SFF, CLN, KC_SPC, NC
+	, L_V | L_K | L_T | L_P, 0, SFG, SFN, CLN, KC_PSLS, NC // /
+	, L_V | L_K | L_T | L_P, 0, CLN, KC_PSLS, NC // /
 	
 	, L_S | L_D, 0,   CLF, KC_F2, NC
 	, L_V | L_B, 0,   CLF, KC_F3, NC
@@ -684,12 +935,31 @@ const uint8_t PROGMEM nav_dict[] = {
 	, L_T | L_N, 0,   CLF, KC_F5, NC
 	, L_K | L_T | L_P | L_N, 0, CLF, KC_F9, NC
 	
-	, 0, L_BSPC,      CLF, KC_TAB, NC
-	, 0, L_ENT,       CLF, ALN, KC_TAB, ALH, NC
-	, 0, L_DEL,       CLN, KC_TAB, NC
+	, L_B | L_P, 0,   SFG, SFF, CLN, KC_MINS, NC
+	, L_B | L_P, 0,   CLF, KC_F12, NC
+
+	, L_B | L_P | L_N, 0, SFF, CLN, KC_SPC, NC
+
+	#else
+		
+	, L_S | L_D, 0,   CLF, KC_F1, NC
+	, L_V | L_B, 0,   CLF, KC_F2, NC
+	, L_S | L_D | L_V | L_B, 0,   CLF, KC_F3, NC
+	, L_K | L_P, 0,   CLF, KC_F4, NC
+	, L_S | L_D | L_K | L_P, 0,   CLF, KC_F5, NC
+	, L_V | L_B | L_K | L_P, 0,   CLF, KC_F6, NC
+	, L_S | L_D | L_V | L_B | L_K | L_P, 0,   CLF, KC_F7, NC
+	, L_T | L_N, 0,   CLF, KC_F8, NC
+	, L_S | L_D | L_T | L_N, 0,   CLF, KC_F9, NC
+	, L_V | L_B | L_T | L_N, 0,   CLF, KC_F10, NC
+	, L_S | L_D | L_V | L_B | L_T | L_N, 0,   CLF, KC_F11, NC
+	, L_K | L_P | L_T | L_N, 0,   CLF, KC_F12, NC
+	, L_S | L_D | L_K | L_P | L_T | L_N, 0,   CLF, KC_F13, NC
+	, L_V | L_B | L_K | L_P | L_T | L_N, 0,   CLF, KC_F14, NC
+	, L_S | L_D | L_V | L_B | L_K | L_P | L_T | L_N, 0,   CLF, KC_F15, NC
 	
-	, L_K | L_N, 0,   MTS, NC
 	
+	#endif
 	, 0, 0 // end
 };
 

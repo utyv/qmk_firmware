@@ -54,3 +54,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef DEBOUNCE
 #define DEBOUNCE 10
 #define MOD_DELAY 10
+
+#define UTYUMOV
+#define USE_ALTCODE
