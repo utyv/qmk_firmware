@@ -24,6 +24,7 @@ uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all) {
 	bool is_altcode = false;
 	const uint8_t *to_save = 0;
 	to_save = dict;
+	bool is_cmd = false;
 
 	if (caps_all) {
 		shift_on();
@@ -32,16 +33,30 @@ uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all) {
 	
 	while (true) {
 		dict_key = pgm_read_byte_near(dict);
-		if (dict_key == NC) {
+		if (is_cmd) {
+			if (dict_key == ALH) {
+				alt_hold();
+				caps_first = false;
+			} else if (dict_key == UND) {
+				undo();
+			} else if (dict_key == LSW) {
+				swap_lang();
+			} else if (dict_key == MTS) {
+				start_multitap();
+				to_save = 0;
+			} else if (dict_key == PHN) {
+				phonetic_on();
+			} else if (dict_key == PHF) {
+				phonetic_off();
+			} else if (dict_key == OHN) {
+				onehand_on();
+			} else if (dict_key == OHF) {
+				onehand_off();
+			}
+			is_cmd = false;
+		} else if (dict_key == NC) {
 			// next word
 			break;
-		} else if (dict_key == SFG) {
-			// shift guard
-			if (!(is_chorde_shift())) {
-				break;
-			} else {
-				caps_first = false;
-			}
 		} else if (dict_key == SFN) {
 			shift_on();
 			caps_first = false;
@@ -63,25 +78,15 @@ uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all) {
 		} else if (dict_key == ALF) {
 		 	alt_off();
 		 	caps_first = false;
-		} else if (dict_key == ALH) {
-		 	alt_hold();
+		} else if (dict_key == WNN) {
+			win_on();
 		 	caps_first = false;
-		} else if (dict_key == UND) {
-			undo();
-		} else if (dict_key == LSW) {
-			ctl_off();
-			shift_off();
-		 	alt_off();
-		 	alt_on();
-			shift_on();
-			shift_off();
-		 	alt_off();
-			
-		} else if (dict_key == MTS) {
-			
-			start_multitap();
-			to_save = 0;
-			
+			clear_undo_history();
+		} else if (dict_key == WNF) {
+			win_off();
+			caps_first = false;
+		} else if (dict_key == CMD) {
+			is_cmd = true;
 		} else {
 			if ((!caps_all) && caps_first && is_first) {
 				shift_on();
@@ -94,7 +99,12 @@ uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all) {
 			if (!is_altcode) {
 				++type_count;
 			}
-			if (dict_key == KC_BSPC) {
+			if (
+				dict_key == KC_BSPC
+				|| dict_key == KC_ENT
+				|| dict_key == KC_DEL
+				|| dict_key == KC_ESC
+			) {
 				clear_undo_history();
 				type_count = 0;
 			}
@@ -154,26 +164,11 @@ const uint8_t *find_word16(uint16_t chorde, const uint8_t *dict) {
 				}
 				dict++;
 			break;
-			case PRNT_ST:
-				// print word
-				dict_key = pgm_read_byte_near(dict);
-				if (dict_key == NC) {
-					// next word
-					state = END_ST;
-				} else if (dict_key == SFG) {
-					// shift guard
-					if (!(is_chorde_shift())) {
-						state = SKP_WRD_ST;
-						result = 0;
-					}
-				}
-				dict++;
-			break;
 			
 				
 		}
 				
-		if (state == END_ST) {
+		if (state == END_ST || state == PRNT_ST) {
 			break;
 		}
 				

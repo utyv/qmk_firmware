@@ -43,3 +43,4 @@
 #define KOLOBOK_LEVEL_1
 #define UTYUMOV
 #define USE_ALTCODE
+//#define ONEHAND

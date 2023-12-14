@@ -1,9 +1,22 @@
 #pragma once
 
-extern const uint8_t PROGMEM kolobok_left_dict[];
-extern const uint8_t PROGMEM kolobok_rght_dict[];
-extern const uint8_t PROGMEM phonetic_left_dict[];
-extern const uint8_t PROGMEM phonetic_rght_dict[];
-extern const uint8_t PROGMEM left_dict[];
-extern const uint8_t PROGMEM nav_dict[];
-extern const uint8_t PROGMEM wrd_dict[];
+extern const uint8_t PROGMEM dict_l[];
+extern const uint8_t PROGMEM dict_r[];
+extern const uint8_t PROGMEM dict_l_ru[];
+extern const uint8_t PROGMEM dict_l_en[];
+extern const uint8_t PROGMEM dict_r_ru[];
+extern const uint8_t PROGMEM dict_r_en[];
+extern const uint8_t PROGMEM dict_l_ru_sft[];
+extern const uint8_t PROGMEM dict_l_en_sft[];
+extern const uint8_t PROGMEM dict_r_ru_sft[];
+extern const uint8_t PROGMEM dict_r_en_sft[];
+extern const uint8_t PROGMEM dict_l_ru_oh[];
+extern const uint8_t PROGMEM dict_l_ru_oh_sft[];
+extern const uint8_t PROGMEM dict_l_ru_th[];
+extern const uint8_t PROGMEM dict_l_en_oh[];
+extern const uint8_t PROGMEM dict_l_en_oh_sft[];
+extern const uint8_t PROGMEM dict_l_en_th[];
+extern const uint8_t PROGMEM dict_l_cmd[];
+extern const uint8_t PROGMEM dict_l_cmd_sft[];
+extern const uint8_t PROGMEM dict_r_cmd[];
+extern const uint8_t PROGMEM dict_wrd[];
