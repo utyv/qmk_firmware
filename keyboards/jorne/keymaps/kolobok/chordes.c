@@ -194,6 +194,10 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 					
 					if (wrd_chorde && !p_left_word) {
 						p_left_word = find_word16(wrd_chorde, dict_wrd);
+						if (p_left_word) {
+							left_chorde = wrd_chorde;
+							rght_chorde = 0;
+						}
 					}
 					
 					if (left_chorde && !p_left_word) {
@@ -286,25 +290,30 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 				}
 				
 			}
-						
+			
 			if (
-				is_text 
-				&& is_spc
-			
+				(left_chorde && !p_left_word)
+				|| (rght_chorde && !p_rght_word)
 			) {
-				tap_code(KC_SPC);
-				++type_count;
-			}
-			if (p_left_word) {
-				type_count += type_word(p_left_word, caps_first, caps_all);
-				caps_first = false;
-			}
-			if (p_rght_word) {
-				type_count += type_word(p_rght_word, caps_first, caps_all);
-			}
+				// error
+			} else {
+				
+				if (is_text	&& is_spc) {
+					tap_code(KC_SPC);
+					++type_count;
+				}
+				if (p_left_word) {
+					type_count += type_word(p_left_word, caps_first, caps_all);
+					caps_first = false;
+				}
+				if (p_rght_word) {
+					type_count += type_word(p_rght_word, caps_first, caps_all);
+				}
+				
+				if (type_count && is_text) {
+					add_undo(type_count);
+				}
 			
-			if (type_count && is_text) {
-				add_undo(type_count);
 			}
 			
 			left_chorde = 0;
