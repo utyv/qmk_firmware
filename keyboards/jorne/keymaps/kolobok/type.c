@@ -16,14 +16,14 @@ enum {undo_size = 8};
 uint8_t undo_history [undo_size];
 uint8_t undo_count = 0;
 
-uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all) {
+uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all, bool do_ctl_off) {
 
 	bool is_first = true;
 	uint8_t dict_key = 0;
 	uint8_t type_count = 0;
 	bool is_altcode = false;
-	const uint8_t *to_save = 0;
-	to_save = dict;
+	const uint8_t *to_save = dict;
+	bool to_save_do_ctl_off = do_ctl_off;
 	bool is_cmd = false;
 
 	if (caps_all) {
@@ -33,6 +33,13 @@ uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all) {
 	
 	while (true) {
 		dict_key = pgm_read_byte_near(dict);
+		if (do_ctl_off) {
+			if (dict_key != CLN) {
+				ctl_off();
+			}
+			do_ctl_off = false;
+		}
+				
 		if (is_cmd) {
 			if (dict_key == ALH) {
 				alt_hold();
@@ -114,7 +121,7 @@ uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all) {
 	}
 	
 	if (to_save) {
-		set_multitap_chorde(to_save);
+		set_multitap_chorde(to_save, to_save_do_ctl_off);
 		
 	}
 	

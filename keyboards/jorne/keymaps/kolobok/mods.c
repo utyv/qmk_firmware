@@ -21,10 +21,11 @@ enum mod_flag {
 	FLAG_WDK = 0x00004000, // word mode on the keyboard
 	FLAG_WDC = 0x00008000, // word mode with the chorde
 	FLAG_PHO = 0x00010000, // phonetic mode
-	FLAG_OHD = 0x00020000, // one hand mode
-	FLAG_WNK = 0x00040000, // win on the keyboard
-	FLAG_WNC = 0x00080000, // win with a chorde
-	FLAG_WNS = 0x00100000, // win in the system
+	FLAG_PHT = 0x00020000, // temporary phonetic mode for hotkeys
+	FLAG_OHD = 0x00040000, // one hand mode
+	FLAG_WNK = 0x00080000, // win on the keyboard
+	FLAG_WNC = 0x00100000, // win with a chorde
+	FLAG_WNS = 0x00200000, // win in the system
 };
 
 uint32_t mods = 0;
@@ -116,7 +117,7 @@ bool is_word(void) {
 }
 
 bool is_phonetic(void) {
-	return mods & FLAG_PHO;
+	return mods & (FLAG_PHO | FLAG_PHT);
 }
 
 void phonetic_on(void) {
@@ -270,9 +271,8 @@ bool process_mods(uint16_t keycode, bool pressed) {
 				processed = true;
 			break;
 			case KC_RCTL:
-				#ifndef UTYUMOV
 				mods |= FLAG_CLK;
-				#endif
+				mods |= FLAG_PHT;
 				processed = true;
 			break;
 			case KC_RSFT:
@@ -314,9 +314,8 @@ bool process_mods(uint16_t keycode, bool pressed) {
 				processed = true;
 			break;
 			case KC_RCTL:
-				#ifndef UTYUMOV
 				mods &= ~FLAG_CLK;
-				#endif
+				mods &= ~FLAG_PHT;
 				processed = true;
 			break;
 			case KC_RSFT:

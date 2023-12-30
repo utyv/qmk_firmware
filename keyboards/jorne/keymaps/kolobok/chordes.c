@@ -160,6 +160,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 			uint8_t type_count = 0;
 			bool caps_first = is_shift();
 			bool caps_all = is_caps();
+			bool do_ctl_off = false;
 			
 			if (is_wcl()) {
 				
@@ -181,7 +182,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 				if (p_left_word || p_rght_word) {
 					clear_undo_history();
 					if (!is_ctl()) {
-						ctl_off();
+						do_ctl_off = true;
 					}
 				}
 				
@@ -303,11 +304,12 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 					++type_count;
 				}
 				if (p_left_word) {
-					type_count += type_word(p_left_word, caps_first, caps_all);
+					type_count += type_word(p_left_word, caps_first, caps_all, do_ctl_off);
 					caps_first = false;
+					do_ctl_off = false;
 				}
 				if (p_rght_word) {
-					type_count += type_word(p_rght_word, caps_first, caps_all);
+					type_count += type_word(p_rght_word, caps_first, caps_all, do_ctl_off);
 				}
 				
 				if (type_count && is_text) {
