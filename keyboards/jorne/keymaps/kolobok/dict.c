@@ -27,6 +27,9 @@ const uint8_t PROGMEM dict_l[] = {
 
 const uint8_t PROGMEM dict_r[] = {
 	  0, K_BSPC,   CMD, UND, NC
+	#ifdef UTYUMOV
+	, 0, K_ENT,    SFF, KC_MINS, NC
+	#endif
 	, 0, 0 // end
 };
 
@@ -232,10 +235,6 @@ const uint8_t PROGMEM dict_r_ru[] = {
 	, 0, K_8 | K_4 | K_2 | K_1, CMD, LSW, SFN, KC_BSLS, CMD, LSW, NC // |
 	#endif
 
-	#ifdef UTYUMOV
-	, 0, K_ENT, SFF, KC_MINS, NC
-	#endif
-	
 	, 0, 0 // end
 };
 
@@ -294,10 +293,6 @@ const uint8_t PROGMEM dict_r_en[] = {
 	, 0, K_8 | K_4 | K_2 | K_1,  SFF, AC3(1, 2, 4), NC // |
  	#else
 	, 0, K_8 | K_4 | K_2 | K_1,  SFN, KC_BSLS, NC // |
-	#endif
-
-	#ifdef UTYUMOV
-	, 0, K_ENT, SFF, KC_MINS, NC
 	#endif
 
 	, 0, 0 // end
@@ -461,10 +456,6 @@ const uint8_t PROGMEM dict_r_ru_sft[] = {
 	, 0, K_8 | K_4 | K_2 | K_1, CMD, LSW, SFN, KC_7, CMD, LSW, NC // &
 	#endif
 
-	#ifdef UTYUMOV
-	, 0, K_ENT, SFN, KC_MINS, NC
-	#endif
-
 	, 0, 0 // end
 };
 
@@ -535,9 +526,6 @@ const uint8_t PROGMEM dict_r_en_sft[] = {
 	, 0, K_8 | K_4 | K_2 | K_1, SFF, AC2(3, 8), NC // &
  	#else
 	, 0, K_8 | K_4 | K_2 | K_1, SFN, KC_7, NC // &
-	#endif
-	#ifdef UTYUMOV
-	, 0, K_ENT, SFN, KC_MINS, NC
 	#endif
 
 	, 0, 0 // end
