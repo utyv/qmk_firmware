@@ -41,6 +41,7 @@
 #define MOD_DELAY 10
 
 #define KOLOBOK_LEVEL_1
+#define KOLOBOK_LEVEL_2
 #define UTYUMOV
 #define USE_ALTCODE
 //#define ONEHAND

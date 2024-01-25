@@ -187,6 +187,41 @@ const uint8_t PROGMEM dict_r_ru[] = {
 	, K_Y | K_U, 0,                   RU_Y, RU_L, NC // ыл
 	#endif
 
+	#ifdef KOLOBOK_LEVEL_2
+	, K_E | K_A | K_I, 0,             RU_I, RU_H, NC // их
+	, K_O | K_A | K_Q, 0,             RU_O, RU_Z, NC // оз
+	, K_E | K_A | K_U, 0,             RU_A, RU_M, RU_I, NC // ами
+	, K_E | K_Y | K_U | K_Q, 0,       RU_E, RU_N, RU_I, RU_E, NC // ение
+	, K_E | K_O | K_U, 0,             RU_E, RU_M, RU_U, NC // ему
+	, K_E | K_A | K_MZ, 0,            RU_A, RU_L, RU_MZ, NC // аль
+	, K_E | K_O | K_Q, 0,             RU_I, RU_T, NC // ит
+	, K_E | K_Y | K_Q, 0,             RU_I, RU_L, RU_A, NC // ила
+	, K_A | K_U | K_MZ, 0,            RU_A, RU_R, NC // ар
+	, K_O | K_Y | K_U, 0,             RU_O, RU_M, RU_U, NC // ому
+	, K_E | K_O | K_A | K_Q, 0,       RU_E, RU_N, RU_I, RU_Q, NC // ения
+	, K_E | K_U | K_MZ, 0,            RU_E, RU_L, RU_I, NC // ели
+	, K_O | K_Y | K_MZ, 0,            RU_O, RU_S, RU_T, RU_MZ, NC // ость
+	, K_E | K_A | K_Y, 0,             RU_I, RU_N, NC // ин
+	, K_Y | K_U | K_Q | K_MZ, 0,      RU_I, RU_Q, NC // ия
+	, K_E | K_O | K_A | K_Y, 0,       RU_E, RU_S, RU_T, RU_MZ, NC // есть
+	, K_E | K_A | K_Q, 0,             RU_A, RU_YU, NC // аю
+	, K_O | K_U | K_MZ, 0,            RU_U, RU_T, NC // ут
+	, K_O | K_Y | K_Q, 0,             RU_E, RU_Z, NC // ез
+	, K_E | K_Y | K_U, 0,             RU_I, RU_L, RU_O, NC // ило
+	, K_A | K_I | K_U, 0,             RU_A, RU_S, NC // ас
+	, K_E | K_Q | K_MZ, 0,            RU_Q, RU_L, NC // ял
+	, K_O | K_Y | K_U | K_MZ, 0,      RU_E, RU_T, RU_MZ, NC // еть
+	, K_O | K_U | K_Q | K_MZ, 0,      RU_U, RU_T, RU_MZ, NC // уть
+	, K_E | K_Y | K_MZ, 0,            RU_I, RU_L, RU_MZ, NC // иль
+	, K_E | K_O | K_Y | K_Q, 0,       RU_I, RU_T, RU_E, NC // ите
+	, K_O | K_I | K_U, 0,             RU_O, RU_I, NC // ои
+	, K_A | K_I | K_Y, 0,             RU_A, RU_E, NC // ае
+	, K_O | K_Y | K_U | K_Q, 0,       RU_E, RU_T, RU_E, NC // ете
+	, K_E | K_A | K_Y | K_MZ, 0,      RU_A, RU_E, RU_T, RU_E, NC // аете
+	, K_E | K_A | K_I | K_Y, 0,       RU_A, RU_E, RU_M, NC // аем
+	, K_E | K_A | K_Y | K_Q, 0,       RU_A, RU_YU, RU_T, NC // ают
+	#endif
+
 	#ifdef USE_ALTCODE
 	, 0, K_8,       SFF, AC2(4, 6), NC // .
 	#else
@@ -710,6 +745,41 @@ const uint8_t PROGMEM dict_l_ru_th[] = { // two hands
 	, K_D | K_B | K_P, 0,       RU_D, RU_L, NC // дл
 	, K_K | K_B | K_P, 0,       RU_K, RU_L, NC // кл
 	,
+	#endif
+	#ifdef KOLOBOK_LEVEL_2
+	  K_S | K_P | K_N, 0,       RU_S, RU_P, RU_R, NC // спр
+	, K_S | K_K | K_N, 0,       RU_S, RU_X, NC // сч
+	, K_V | K_D | K_P, 0,       RU_Z, RU_D, NC // зд
+	, K_V | K_K, 0,             RU_S, RU_V, NC // св
+	, K_V | K_T | K_B | K_P, 0, RU_S, RU_K, RU_A, RU_Z, NC // сказ
+	, K_V | K_K | K_B | K_N, 0, RU_G, RU_O, RU_V, RU_O, RU_R, NC // говор
+	, K_V | K_T | K_N, 0,       RU_R, RU_A, RU_Z, NC // раз
+	, K_S | K_T | K_N, 0,       RU_V, RU_S, RU_T, NC // вст
+	, K_D | K_P | K_N, 0,       RU_D, RU_E, RU_L, NC // дел
+	, K_V | K_D | K_B, 0,       RU_B, RU_U, RU_D, NC // буд
+	, K_S | K_V | K_N, 0,       RU_S, RU_N, NC // сн
+	, K_T | K_P | K_N, 0,       RU_P, RU_E, RU_R, NC // пер
+	, K_V | K_B | K_P | K_N, 0, RU_X, RU_E, RU_L, RU_O, RU_V, NC // челов
+	, K_V | K_T, 0,             RU_V, RU_I, RU_D, NC // вид
+	, K_S | K_D, 0,             RU_S, RU_R, NC // ср
+	, K_V | K_T | K_B, 0,       RU_K, RU_A, RU_Z, NC // каз
+	, K_S | K_V | K_K, 0,       RU_S, RU_A, RU_M, NC // сам
+    , K_D | K_P, 0,             RU_P, RU_L, NC // пл
+    , K_T | K_D | K_B, 0,       RU_ZH, RU_D, NC // жд
+    , K_S | K_K | K_P, 0,       RU_S, RU_P, NC // сп
+    , K_V | K_K | K_D | K_N, 0, RU_O, RU_D, RU_N, NC // одн
+    , K_V | K_K | K_T | K_N, 0, RU_S, RU_K, RU_O, RU_L, RU_MZ, RU_K, NC // скольк
+    , K_T | K_B | K_P | K_N, 0, RU_H, RU_O, RU_R, RU_O, RU_W, NC // хорош
+    , K_K | K_T | K_B, 0,       RU_B, RU_L, NC // бл
+    , K_K | K_P | K_N, 0,       RU_K, RU_N, NC // кн
+    , K_V | K_K | K_D, 0,       RU_X, RU_K, NC // чк
+    , K_S | K_V | K_T | K_N, 0, RU_V, RU_S, RU_T, RU_V, NC // вств
+    , K_S | K_V | K_K | K_T | K_N, 0, RU_V, RU_S, RU_T, RU_R, NC // встр
+    , K_V | K_K | K_N, 0,       RU_B, RU_N, NC // бн
+    , K_V | K_T | K_P, 0,       RU_S, RU_K, RU_R, NC // скр
+    , K_V | K_K | K_T | K_P, 0, RU_S, RU_K, RU_L, NC // скл
+    , K_T | K_D | K_P, 0,       RU_S, RU_H, NC // сх
+    ,	
 	#endif
 	 0, 0 // end
 };
