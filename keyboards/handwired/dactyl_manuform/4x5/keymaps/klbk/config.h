@@ -57,3 +57,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define UTYUMOV
 #define USE_ALTCODE
+#define KOLOBOK_LEVEL_1
+#define KOLOBOK_LEVEL_2
+//#define ONEHAND

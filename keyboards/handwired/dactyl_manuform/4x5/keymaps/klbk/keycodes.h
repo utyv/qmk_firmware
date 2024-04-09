@@ -41,41 +41,43 @@
 
 
 // chord bits
-#define B_S 0x00000001
-#define B_V 0x00000002
-#define B_K 0x00000004
-#define B_T 0x00000008
-#define B_D 0x00000010
-#define B_B 0x00000020
-#define B_P 0x00000040
-#define B_N 0x00000080
-#define B_L1 0x00000100
-#define B_L2 0x00000200
-#define B_L4 0x00000400
-#define B_L8 0x00000800
-#define B_BSPC 0x00001000
-#define B_ENT  0x00002000
-#define B_DEL  0x00004000
-#define B_E 0x00010000
-#define B_O 0x00020000
-#define B_A 0x00040000
-#define B_I 0x00080000
-#define B_Y 0x00100000
-#define B_U 0x00200000
-#define B_Q 0x00400000
-#define B_MZ 0x00800000
-#define B_R8 0x01000000
-#define B_R4 0x02000000
-#define B_R2 0x04000000
-#define B_R1 0x08000000
-#define B_AST 0x10000000
-#define B_SPC 0x20000000
-#define B_RU 0x40000000
-#define B_UND 0x80000000
+// left
+#define B_S 0x0001
+#define B_V 0x0002
+#define B_K 0x0004
+#define B_T 0x0008
+#define B_D 0x0010
+#define B_B 0x0020
+#define B_P 0x0040
+#define B_N 0x0080
+#define B_L1 0x0100
+#define B_L2 0x0200
+#define B_L4 0x0400
+#define B_L8 0x0800
+#define B_BSPC 0x1000
+#define B_ENT  0x2000
+#define B_DEL  0x4000
+
+// right
+#define B_E 0x0001
+#define B_O 0x0002
+#define B_A 0x0004
+#define B_I 0x0008
+#define B_Y 0x0010
+#define B_U 0x0020
+#define B_Q 0x0040
+#define B_MZ 0x0080
+#define B_R8 0x0100
+#define B_R4 0x0200
+#define B_R2 0x0400
+#define B_R1 0x0800
+#define B_UND 0x1000
+#define B_SPC 0x8000
 
 
 // dict bits
-// kolobok 
+// alphas lower byte
+// left side
 #define K_S 0x01
 #define K_V 0x02
 #define K_K 0x04
@@ -85,7 +87,7 @@
 #define K_P 0x40
 #define K_N 0x80
 
-
+// rght side
 #define K_E 0x01
 #define K_O 0x02
 #define K_A 0x04
@@ -95,30 +97,16 @@
 #define K_Q 0x40
 #define K_MZ 0x80
 
+// higher byte
+// both sides 
 #define K_1 0x01
 #define K_2 0x02
 #define K_4 0x04
 #define K_8 0x08
-
-// left hand
-#define L_S 0x01
-#define L_V 0x02
-#define L_K 0x04
-#define L_T 0x08
-#define L_D 0x10
-#define L_B 0x20
-#define L_P 0x40
-#define L_N 0x80
-
-#define L_1 0x01
-#define L_2 0x02
-#define L_4 0x04
-#define L_8 0x08
-
-#define L_BSPC 0x10
-#define L_ENT  0x20
-#define L_DEL  0x40
-
+#define K_BSPC 0x10
+#define K_ENT  0x20
+#define K_DEL  0x40
+#define K_SPC  0x80
 
 
 // control codes in dictionaries
@@ -136,16 +124,36 @@
 #define ALN KC_LALT
 // alt off
 #define ALF KC_RALT
+// win on
+#define WNN KC_LGUI
+// win off
+#define WNF KC_RGUI
+// command
+#define CMD 0x01
+
+// after CMD expected some of the following:
+
 // alt hold
-#define ALH KC_SCRL
-// shift guard
-#define SFG KC_CAPS
+#define ALH 0x01
 // undo
-#define UND KC_INS
+#define UND 0x02
 // lang swap
-#define LSW KC_F13
+#define LSW 0x03
 // multitap start
-#define MTS KC_F14
+#define MTS 0x04
+// phonetic on
+#define PHN 0x05
+// phonetic off
+#define PHF 0x06
+// one hand on
+#define OHN 0x07
+// one hand off
+#define OHF 0x08
+
+
+
+
+
 
 // alt codes
 #define AC2(c1, c2) ALN, KC_KP_ ## c1, KC_KP_ ## c2 
