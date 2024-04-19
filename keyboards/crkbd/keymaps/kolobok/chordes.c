@@ -190,7 +190,6 @@ bool process_chorde(uint16_t keycode, bool pressed) {
             } else if (is_word()) {
 				
 				if (!is_phonetic() && !is_onehand()) {
-					
 					const uint16_t wrd_chorde = (left_chorde & 0x0011) | (rght_chorde << 8);
 					
 					if (wrd_chorde && !p_left_word) {

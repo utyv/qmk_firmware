@@ -983,10 +983,11 @@ const uint8_t PROGMEM dict_l_cmd[] = {
 	
 	, K_V | K_K | K_T, 0, CLN, ALN, KC_PAUS, NC
 
+	, K_K | K_B | K_N, 0, CLN, ALN, KC_P, NC
+	, K_V | K_T | K_P, 0, CLN, KC_F7, NC
+
 	#else
 		
-	, K_D | K_B | K_P, 0, CMD, OHN, NC
-
 	, K_S | K_D, 0,   KC_F1, NC
 	, K_V | K_B, 0,   KC_F2, NC
 	, K_S | K_D | K_V | K_B, 0,   KC_F3, NC
@@ -1003,8 +1004,8 @@ const uint8_t PROGMEM dict_l_cmd[] = {
 	, K_V | K_B | K_K | K_P | K_T | K_N, 0,   KC_F14, NC
 	, K_S | K_D | K_V | K_B | K_K | K_P | K_T | K_N, 0,   KC_F15, NC
 	
-	
 	#endif
+	, K_D | K_B | K_P, 0, CMD, OHN, NC
 	, 0, 0 // end
 };
 
@@ -1017,11 +1018,8 @@ const uint8_t PROGMEM dict_l_cmd_sft[] = {
 };
 
 const uint8_t PROGMEM dict_r_cmd[] = {
-	#ifndef UTYUMOV
       K_U| K_Q| K_MZ, 0, CMD, OHF, NC
-	, 
-	#endif
-	  0, 0 // end
+	, 0, 0 // end
 };
 
 const uint8_t PROGMEM dict_wrd[] = {
@@ -1033,16 +1031,38 @@ const uint8_t PROGMEM dict_wrd[] = {
 		, RU_D, RU_O, RU_B, RU_R, RU_Y, RU_J, KC_SPACE, RU_V, RU_E, RU_X, RU_E, RU_R, NC // 3. добрый вечер
 	, K_T | K_D | K_P, 0
 		, RU_P, RU_O, RU_ZH, RU_A, RU_L, RU_U, RU_J, RU_S, RU_T, RU_A, NC // 4. пожалуйста
+	#ifdef UTYUMOV
+	, 0, K_O
+		, RU_O, RU_B, RU_TZ, RU_E, RU_K, RU_T, NC // 5. объект
+	, 0, K_U
+		, CMD, LSW, KC_U, KC_T, KC_Y, KC_V, CMD, LSW, NC // 6. utyv CMD, LSW, 
+	, K_T | K_P, 0
+		, RU_K, RU_O, RU_N, RU_E, RU_C, NC // 7. конец
+	, K_V | K_D, 0
+		, RU_I, RU_N, RU_A, RU_X, RU_E, NC // 8. иначе
+	, K_V | K_T | K_D | K_P, 0
+		, RU_K, RU_A, RU_ZH, RU_D, RU_O, RU_G, RU_O, NC // 9. каждого
+	, K_K, 0
+		, RU_C, RU_I, RU_K, RU_L, NC // 10. цикл
+	, K_P, 0
+		, RU_P, RU_R, RU_O, RU_C, RU_E, RU_D, RU_U, RU_R, NC // 12. процедур
+	, K_K | K_P, 0
+		, RU_F,  RU_U, RU_N, RU_K, RU_C, RU_I, NC // 14. функци
+	, 0, K_U | K_Q
+	#ifdef USE_ALTCODE
+		, SFF, AC2(9, 1), ALF, KC_0, AC2(9, 3), NC // [0]
+ 	#else
+		, CMD, LSW, KC_LBRC, KC_0, KC_RBRC, CMD, LSW, NC // [0]
+ 	#endif
+	#endif
 	/*, K_S, K_I
 		, RU_E, RU_S, RU_L, RU_I, NC // 5. если
-	, K_V | K_D, 0
-		, RU_I, RU_N, RU_A, RU_X, RU_E, NC // 6. иначе
 	, K_T, 0
 		, RU_T, RU_O, RU_G, RU_D, RU_A, NC // 7. тогда
 	, K_T | K_P, 0
-		, RU_C, RU_I, RU_K, RU_L, NC // 8. цикл
-	, K_K, 0
-		, RU_K, RU_O, RU_N, RU_E, RU_C, NC // 9. конец
+		, RU_C, RU_I, RU_K, RU_L, NC // 7. цикл
+	, K_T | K_P, K_A
+		, RU_C, RU_I, RU_K, RU_L, RU_A, NC // 8. циклa
 	, K_S | K_T, 0
 		, RU_S, RU_T, RU_R, RU_O, RU_K, NC // 10. строк
 	, K_V | K_P, 0
@@ -1101,16 +1121,12 @@ const uint8_t PROGMEM dict_wrd[] = {
 		, RU_Z, RU_A, RU_P, RU_O, RU_L, RU_N, NC // 37. заполн
 	, K_S | K_K | K_T | K_P | K_N, 0
 		, RU_K, RU_O, RU_N, RU_S, RU_U, RU_L, RU_MZ, RU_T, RU_A, RU_C, NC // 38. консультац
-	, K_K | K_T | K_B, 0
-		, RU_O, RU_B, RU_TZ, RU_E, RU_K, RU_T, NC // 39. объект
 	, K_S | K_K, 0
 		, RU_S, RU_S, RU_Y, RU_L, RU_K, NC // 40. ссылк
 	, K_P, K_MZ
 		, RU_P, RU_O, RU_L, RU_U, RU_X, RU_I, RU_T, RU_MZ, NC // 41. получить
 	, K_P | K_N, 0
 		, RU_N, RU_E, RU_O, RU_P, RU_R, RU_E, RU_D, RU_E, RU_L, RU_E, RU_N, RU_O, NC // 41. неопределено
-	, K_K | K_T | K_D, 0
-		, RU_K, RU_A, RU_ZH, RU_D, RU_O, RU_G, RU_O, NC // 42. каждого
 	, K_T | K_N, 0
 		, RU_N, RU_A, RU_J, RU_T, RU_I, NC // 44. найти
 	, K_S | K_V | K_B, 0
