@@ -28,10 +28,11 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
-[0] = LAYOUT_split_3x6_3(
+[0] = LAYOUT_46(
          CC_DU,  RU_S,    RU_V,    RU_K,       RU_T,      KC_BSPC,                      KC_CNCL,     RU_E,     RU_O,      RU_A,    RU_I,   CC_DV,   
          CC_SD,  RU_D,    RU_B,    RU_P,       RU_N,      KC_ENT,                       KC_LALT,     RU_Y,     RU_U,      RU_Q,    RU_MZ,  CC_IMZ,
          CC_DD,  KC_1,    KC_2,    KC_4,       KC_8,      KC_DEL,                       CC_W5,       KC_F8,    KC_F4,     KC_F2,   KC_F1,  CC_PJ,
+		                  CC_W4,   CC_W3,                                                            CC_W1,    CC_W2, 
                                                KC_CAPS,   KC_LSFT,  KC_LCTL,    CC_UT,  KC_SPC,  CC_OB
 ),
 
