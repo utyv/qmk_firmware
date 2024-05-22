@@ -222,6 +222,11 @@ const uint8_t PROGMEM dict_r_ru[] = {
 	, K_E | K_A | K_Y | K_Q, 0,       RU_A, RU_YU, RU_T, NC // ают
 	#endif
 
+	#ifdef UTYUMOV
+	, K_E | K_O | K_Y | K_U | K_Q, 0,       RU_A, RU_N, RU_I, RU_E, NC // ание
+	, K_E | K_O | K_A | K_U | K_Q, 0,       RU_A, RU_N, RU_I, RU_Q, NC // ания
+	#endif
+
 	#ifdef USE_ALTCODE
 	, 0, K_8,       SFF, AC2(4, 6), NC // .
 	#else
