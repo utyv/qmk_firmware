@@ -7,6 +7,7 @@
 
 uint16_t left_chorde = 0;
 uint16_t rght_chorde = 0;
+uint16_t thmb_chorde = 0;
 uint8_t chorde_counter = 0;
 
 bool is_chorde(void) {
@@ -124,12 +125,29 @@ uint16_t get_rght_bit(uint16_t keycode) {
 			bit = K_DEL << 8;
 			#endif
 		break;
+	}
+		
+	return bit;
+}
+
+uint16_t get_thmb_bit(uint16_t keycode) {
+	
+	uint16_t bit = 0;
+	
+	switch (keycode) {
 		case KC_SPC:
-			bit = K_SPC << 8;
+			bit = K_SPC;
+		break;
+		case KC_F5:
+			bit = K_DOT;
+		break;
+		case KC_F3:
+			bit = K_COMM;
 		break;
 	}
 		
 	return bit;
+	
 }
 
 bool process_chorde(uint16_t keycode, bool pressed) {
@@ -137,8 +155,9 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 		
 	uint16_t left_bit = get_left_bit(keycode);
 	uint16_t rght_bit = get_rght_bit(keycode);
+	uint16_t thmb_bit = get_thmb_bit(keycode);
 	
-	if ((!left_bit) && (!rght_bit)) {
+	if ((!left_bit) && (!rght_bit) && (!thmb_bit)) {
 		return true;
 	}
 	
@@ -146,6 +165,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 		++chorde_counter;
 		left_chorde |= left_bit;
 		rght_chorde |= rght_bit;
+		thmb_chorde |= thmb_bit;
 		set_chorde_mods();
 	} else {
 		--chorde_counter;
@@ -153,9 +173,8 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 			
 			const uint8_t *p_left_word = 0;
 			const uint8_t *p_rght_word = 0;
+			const uint8_t *p_thmb_word = 0;
 			
-			bool is_spc = (rght_chorde & (K_SPC << 8)) != 0;
-			rght_chorde &= ~((uint16_t) (K_SPC << 8));
 			bool is_text = true;
 			uint8_t type_count = 0;
 			bool caps_first = is_shift();
@@ -207,11 +226,24 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 						}	
 					}
 					
+					if (thmb_chorde && !p_thmb_word) {
+						p_thmb_word = find_word16(thmb_chorde, dict_t_ru);
+					}
+					
 				}
 				
 			} else {
 				
 				if (is_phonetic()) { // en
+					
+					if (is_shift()) {
+						if (thmb_chorde && !p_thmb_word) {
+						    p_thmb_word = find_word16(thmb_chorde, dict_t_en_sft);
+						}
+					}
+					if (thmb_chorde && !p_thmb_word) {
+						p_thmb_word = find_word16(thmb_chorde, dict_t_en);
+					}
 					
 					if (is_onehand()) {
 						
@@ -244,6 +276,15 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 					
 				} else { // ru
 					
+					if (is_shift()) {
+						if (thmb_chorde && !p_thmb_word) {
+						    p_thmb_word = find_word16(thmb_chorde, dict_t_ru_sft);
+						}
+					}
+					if (thmb_chorde && !p_thmb_word) {
+						p_thmb_word = find_word16(thmb_chorde, dict_t_ru);
+					}
+
 					if (is_onehand()) {
 						
 						if (is_shift()) {
@@ -294,21 +335,21 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 			if (
 				(left_chorde && !p_left_word)
 				|| (rght_chorde && !p_rght_word)
+				|| (thmb_chorde && !p_thmb_word)
 			) {
 				// error
 			} else {
 				
-				if (is_text	&& is_spc) {
-					tap_code(KC_SPC);
-					++type_count;
+				if (p_thmb_word) {
+					type_count += type_word(p_thmb_word, &caps_first, false, do_ctl_off);
 				}
 				if (p_left_word) {
-					type_count += type_word(p_left_word, caps_first, caps_all, do_ctl_off);
+					type_count += type_word(p_left_word, &caps_first, caps_all, do_ctl_off);
 					caps_first = false;
 					do_ctl_off = false;
 				}
 				if (p_rght_word) {
-					type_count += type_word(p_rght_word, caps_first, caps_all, do_ctl_off);
+					type_count += type_word(p_rght_word, &caps_first, caps_all, do_ctl_off);
 				}
 				
 				if (type_count && is_text) {
@@ -319,6 +360,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 			
 			left_chorde = 0;
 			rght_chorde = 0;
+			thmb_chorde = 0;
 			reset_chorde_mods();
 			reset_mods();
 			

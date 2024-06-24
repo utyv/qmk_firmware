@@ -40,41 +40,6 @@
 #define RU_DOT KC_SLSH
 
 
-// chord bits
-// left
-#define B_S 0x0001
-#define B_V 0x0002
-#define B_K 0x0004
-#define B_T 0x0008
-#define B_D 0x0010
-#define B_B 0x0020
-#define B_P 0x0040
-#define B_N 0x0080
-#define B_L1 0x0100
-#define B_L2 0x0200
-#define B_L4 0x0400
-#define B_L8 0x0800
-#define B_BSPC 0x1000
-#define B_ENT  0x2000
-#define B_DEL  0x4000
-
-// right
-#define B_E 0x0001
-#define B_O 0x0002
-#define B_A 0x0004
-#define B_I 0x0008
-#define B_Y 0x0010
-#define B_U 0x0020
-#define B_Q 0x0040
-#define B_MZ 0x0080
-#define B_R8 0x0100
-#define B_R4 0x0200
-#define B_R2 0x0400
-#define B_R1 0x0800
-#define B_UND 0x1000
-#define B_SPC 0x8000
-
-
 // dict bits
 // alphas lower byte
 // left side
@@ -106,7 +71,11 @@
 #define K_BSPC 0x10
 #define K_ENT  0x20
 #define K_DEL  0x40
-#define K_SPC  0x80
+
+// thumb
+#define K_SPC  0x01
+#define K_DOT  0x02
+#define K_COMM  0x04
 
 
 // control codes in dictionaries
@@ -149,6 +118,8 @@
 #define OHN 0x07
 // one hand off
 #define OHF 0x08
+// caps first on
+#define CFN 0x10
 
 
 
