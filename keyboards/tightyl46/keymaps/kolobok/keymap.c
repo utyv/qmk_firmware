@@ -16,8 +16,6 @@ enum custom_keycodes {
 	CC_DV,
 	CC_PJ,
 	CC_OB,
-	CC_UT,
-	CC_KC,
 	CC_W1,
 	CC_W2,
 	CC_W3,
@@ -33,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          CC_SD,  RU_D,    RU_B,    RU_P,       RU_N,      KC_ENT,                       KC_LALT,     RU_Y,     RU_U,      RU_Q,    RU_MZ,  CC_IMZ,
          CC_DD,  KC_1,    KC_2,    KC_4,       KC_8,      KC_DEL,                       CC_W5,       KC_F8,    KC_F4,     KC_F2,   KC_F1,  CC_PJ,
 		                  CC_W4,   CC_W3,                                                            CC_W1,    CC_W2, 
-                                               KC_CAPS,   KC_LSFT,  KC_LCTL,    CC_UT,  KC_SPC,  CC_OB
+                                               KC_CAPS,   KC_LSFT,  KC_LCTL,    KC_F3,  KC_SPC,  KC_F5
 ),
 
 
@@ -71,14 +69,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		    process_chorde(RU_D, record->event.pressed);
 		    process_chorde(RU_P, record->event.pressed);
 		return false;
-		case CC_OB:
-		    process_mods(KC_RSFT, record->event.pressed);
-		    process_chorde(RU_O, record->event.pressed);
-		return false;
-		case CC_UT:
-		    process_mods(KC_RSFT, record->event.pressed);
-		    process_chorde(RU_U, record->event.pressed);
-		return false;
 		case CC_W1:
 		    process_mods(KC_RSFT, record->event.pressed);
 		    process_chorde(RU_T, record->event.pressed);
@@ -98,9 +88,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		    process_chorde(RU_P, record->event.pressed);
 		return false;
 		case CC_W5:
-		    process_mods(KC_RSFT, record->event.pressed);
-		    process_chorde(RU_U, record->event.pressed);
-		    process_chorde(RU_Q, record->event.pressed);
+		    process_chorde(KC_F4, record->event.pressed);
+		    process_chorde(KC_F1, record->event.pressed);
 		return false;
 	}
 	#endif

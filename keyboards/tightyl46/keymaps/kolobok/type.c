@@ -16,7 +16,7 @@ enum {undo_size = 8};
 uint8_t undo_history [undo_size];
 uint8_t undo_count = 0;
 
-uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all, bool do_ctl_off) {
+uint8_t type_word(const uint8_t *dict, bool *p_caps_first, bool caps_all, bool do_ctl_off) {
 
 	bool is_first = true;
 	uint8_t dict_key = 0;
@@ -43,7 +43,7 @@ uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all, bool do_c
 		if (is_cmd) {
 			if (dict_key == ALH) {
 				alt_hold();
-				caps_first = false;
+				*p_caps_first = false;
 			} else if (dict_key == UND) {
 				undo();
 			} else if (dict_key == LSW) {
@@ -59,6 +59,8 @@ uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all, bool do_c
 				onehand_on();
 			} else if (dict_key == OHF) {
 				onehand_off();
+			} else if (dict_key == CFN) {
+				*p_caps_first = true;
 			}
 			is_cmd = false;
 		} else if (dict_key == NC) {
@@ -66,36 +68,37 @@ uint8_t type_word(const uint8_t *dict, bool caps_first, bool caps_all, bool do_c
 			break;
 		} else if (dict_key == SFN) {
 			shift_on();
-			caps_first = false;
+			*p_caps_first = false;
 		} else if (dict_key == SFF) {
 			shift_off();
-			caps_first = false;
+			*p_caps_first = false;
 		} else if (dict_key == CLN) {
 			ctl_on();
-		 	caps_first = false;
+		 	*p_caps_first = false;
 			clear_undo_history();
 		} else if (dict_key == CLF) {
 			ctl_off();
-			caps_first = false;
+			*p_caps_first = false;
 		} else if (dict_key == ALN) {
 		 	alt_on();
-		 	caps_first = false;
+		 	*p_caps_first = false;
 			is_altcode = true;
 			++type_count;
 		} else if (dict_key == ALF) {
 		 	alt_off();
-		 	caps_first = false;
+		 	*p_caps_first = false;
+			is_altcode = false;
 		} else if (dict_key == WNN) {
 			win_on();
-		 	caps_first = false;
+		 	*p_caps_first = false;
 			clear_undo_history();
 		} else if (dict_key == WNF) {
 			win_off();
-			caps_first = false;
+			*p_caps_first = false;
 		} else if (dict_key == CMD) {
 			is_cmd = true;
 		} else {
-			if ((!caps_all) && caps_first && is_first) {
+			if ((!caps_all) && *p_caps_first && is_first) {
 				shift_on();
 				tap_code(dict_key);
 				shift_off();

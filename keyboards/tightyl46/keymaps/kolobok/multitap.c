@@ -26,7 +26,8 @@ void start_multitap(void) {
 	}
 	clear_undo_history();
 	is_multitap_active_ = true;
-	type_word(pword, false, false, do_ctl_off);
+	bool caps_first = false;
+	type_word(pword, &caps_first, false, do_ctl_off);
 	reset_mods();
 	timer = timer_read();
 }
@@ -43,7 +44,8 @@ void process_multitap(void) {
 	if (is_multitap_active_) {
 		if (timer_elapsed(timer) > MULTITAP_MS) {
 			ctl_off();
-			type_word(pword, false, false, do_ctl_off);
+			bool caps_first = false;
+			type_word(pword, &caps_first, false, do_ctl_off);
 			reset_mods();
 			timer = timer_read();
 		}
