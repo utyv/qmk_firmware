@@ -926,7 +926,7 @@ const uint8_t PROGMEM dict_l_ru_th[] = { // two hands
 	, K_V | K_T, 0,             RU_V, RU_I, RU_D, NC // вид
 	, K_S | K_D, 0,             RU_S, RU_R, NC // ср
 	, K_V | K_T | K_B, 0,       RU_K, RU_A, RU_Z, NC // каз
-	, K_S | K_V | K_K, 0,       RU_S, RU_A, RU_M, NC // сам
+	, K_K | K_T | K_D, 0,       RU_S, RU_A, RU_M, NC // сам
     , K_D | K_P, 0,             RU_P, RU_L, NC // пл
     , K_T | K_D | K_B, 0,       RU_ZH, RU_D, NC // жд
     , K_S | K_K | K_P, 0,       RU_S, RU_P, NC // сп
