@@ -30,7 +30,6 @@ uint8_t type_word(const uint8_t *dict, bool *p_caps_first, bool caps_all, bool d
 		shift_on();
 	}
 	
-	
 	while (true) {
 		dict_key = pgm_read_byte_near(dict);
 		if (do_ctl_off) {

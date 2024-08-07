@@ -233,6 +233,12 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 				}
 				
 			} else {
+
+				#ifdef KOLOBOK_ONE_SHOT
+				if (!(caps_first) && !(caps_all)) {
+					shift_off();
+				}
+				#endif
 				
 				if (is_phonetic()) { // en
 					
