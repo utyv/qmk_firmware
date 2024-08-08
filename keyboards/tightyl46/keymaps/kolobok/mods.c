@@ -218,9 +218,11 @@ void reset_mods(void) {
 }
 
 void set_chorde_mods(void) {
+	#ifndef KOLOBOK_ONE_SHOT
 	if (mods & FLAG_SFK) {
 		mods |= FLAG_SFC;
 	}
+	#endif
 	if (mods & FLAG_WCK) {
 		mods |= FLAG_WCC;
 	}
@@ -260,6 +262,9 @@ bool process_mods(uint16_t keycode, bool pressed) {
 		switch (keycode) {
 			case KC_LSFT:
 				mods |= FLAG_SFK;
+				#ifdef KOLOBOK_ONE_SHOT
+				mods |= FLAG_SFC;
+				#endif
 				processed = true;
 			break;
 			case KC_LCTL:
@@ -301,6 +306,11 @@ bool process_mods(uint16_t keycode, bool pressed) {
 		switch (keycode) {
 			case KC_LSFT:
 				mods &= ~FLAG_SFK;
+				#ifdef KOLOBOK_ONE_SHOT
+				if ((mods & FLAG_SFC) && (!is_chorde())) {
+					mods &= ~FLAG_SFC;
+				}
+				#endif
 				processed = true;
 			break;
 			case KC_LCTL:
