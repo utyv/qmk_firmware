@@ -24,6 +24,7 @@
 #define USE_ALTCODE
 #define KOLOBOK_LEVEL_1
 #define KOLOBOK_LEVEL_2
+#define KOLOBOK_LEVEL_3
 
 #define KOLOBOK_ONE_SHOT
 //#define ONEHAND

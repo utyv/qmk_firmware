@@ -269,7 +269,7 @@ const uint8_t PROGMEM dict_r_ru[] = {
 	, K_E | K_Y | K_Q, 0,             RU_I, RU_L, RU_A, NC // ила
 	, K_A | K_U | K_MZ, 0,            RU_A, RU_R, NC // ар
 	, K_O | K_Y | K_U, 0,             RU_O, RU_M, RU_U, NC // ому
-	, K_E | K_O | K_A | K_Q, 0,       RU_E, RU_N, RU_I, RU_Q, NC // ения
+	, K_E | K_O | K_Y | K_U | K_Q, 0, RU_E, RU_N, RU_I, RU_Q, NC // ения
 	, K_E | K_U | K_MZ, 0,            RU_E, RU_L, RU_I, NC // ели
 	, K_O | K_Y | K_MZ, 0,            RU_O, RU_S, RU_T, RU_MZ, NC // ость
 	, K_E | K_A | K_Y, 0,             RU_I, RU_N, NC // ин
@@ -293,9 +293,11 @@ const uint8_t PROGMEM dict_r_ru[] = {
 	, K_E | K_A | K_Y | K_Q, 0,       RU_A, RU_YU, RU_T, NC // ают
 	#endif
 
+	#ifdef KOLOBOK_LEVEL_3
+	, K_E | K_O | K_A | K_Q, 0,       RU_A, RU_N, RU_I, RU_E, NC // ание
+	, K_E | K_O | K_A | K_U | K_Q, 0, RU_A, RU_N, RU_I, RU_Q, NC // ания
+	#endif
 	#ifdef UTYUMOV
-	, K_E | K_O | K_Y | K_U | K_Q, 0,       RU_A, RU_N, RU_I, RU_E, NC // ание
-	, K_E | K_O | K_A | K_U | K_Q, 0,       RU_A, RU_N, RU_I, RU_Q, NC // ания
 	, K_U, K_8,                             CMD, LSW, KC_U, KC_T, KC_Y, KC_V, CMD, LSW, NC // utyv
 	#endif
 
@@ -945,9 +947,13 @@ const uint8_t PROGMEM dict_l_ru_th[] = { // two hands
     ,	
 	#endif
 	
-	#ifdef UTYUMOV
+	#ifdef KOLOBOK_LEVEL_3
 	  K_S | K_D | K_P | K_N, 0,       RU_S, RU_D, RU_E, RU_L, NC // сдел
-    , K_B, K_8,                       RU_O, RU_B, RU_TZ, RU_E, RU_K, RU_T, NC // объект	
+	,
+	#endif
+	
+	#ifdef UTYUMOV
+      K_B, K_8,                       RU_O, RU_B, RU_TZ, RU_E, RU_K, RU_T, NC // объект	
 	#ifdef USE_ALTCODE
 	, K_N, K_2 | K_4,         SFF, AC2(9, 1), ALF, KC_0, AC2(9, 3), NC // [0]
  	#else
