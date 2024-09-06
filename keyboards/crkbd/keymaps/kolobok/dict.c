@@ -296,6 +296,15 @@ const uint8_t PROGMEM dict_r_ru[] = {
 	#ifdef KOLOBOK_LEVEL_3
 	, K_E | K_O | K_A | K_Q, 0,       RU_A, RU_N, RU_I, RU_E, NC // ание
 	, K_E | K_O | K_A | K_U | K_Q, 0, RU_A, RU_N, RU_I, RU_Q, NC // ания
+	, K_E | K_O | K_Y | K_U, 0,       RU_I, RU_I, NC // ии
+	, K_A | K_Q | K_MZ, 0,            RU_A, RU_T, NC // ат
+	, K_E | K_O | K_U | K_MZ, 0,      RU_U, RU_YU, RU_T, NC // уют
+	, K_E | K_Y | K_Q | K_MZ, 0,      RU_I, RU_YU, NC // ию
+	, K_E | K_A | K_Y | K_U | K_Q, 0, RU_E, RU_N, RU_I, RU_YU, NC // ению
+	, K_E | K_O | K_A | K_Y | K_Q, 0, RU_A, RU_N, RU_I, RU_YU, NC // анию
+	, K_E | K_O | K_A | K_Q | K_MZ, 0,       RU_Q, RU_N, RU_I, RU_E, NC // яние
+	, K_E | K_O | K_A | K_U | K_Q | K_MZ, 0, RU_Q, RU_N, RU_I, RU_Q, NC // яния
+	
 	#endif
 	#ifdef UTYUMOV
 	, K_U, K_8,                             CMD, LSW, KC_U, KC_T, KC_Y, KC_V, CMD, LSW, NC // utyv
@@ -949,7 +958,12 @@ const uint8_t PROGMEM dict_l_ru_th[] = { // two hands
 	
 	#ifdef KOLOBOK_LEVEL_3
 	  K_S | K_D | K_P | K_N, 0,       RU_S, RU_D, RU_E, RU_L, NC // сдел
-	,
+	, K_S | K_V | K_K | K_P, 0,       RU_I, RU_S, NC // ис
+	, K_V | K_T | K_B | K_P | K_N, 0, RU_S, RU_K, RU_A, RU_ZH, NC // скаж
+	, K_K | K_D | K_B | K_N, 0,       RU_H, RU_R, NC // хр
+	, K_V | K_K | K_T | K_D, 0,       RU_V, RU_M, NC // вм
+	, K_K | K_D | K_P, 0,             RU_P, RU_O, RU_L, NC // пол
+	, 
 	#endif
 	
 	#ifdef UTYUMOV
