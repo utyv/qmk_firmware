@@ -1,3 +1,4 @@
+
 #include "chordes.h"
 #include "keycodes.h"
 #include "mods.h"
@@ -238,7 +239,8 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 				if (!(caps_first) && !(caps_all)) {
 					shift_off();
 				}
-				#endif				
+				#endif
+				
 				if (is_phonetic()) { // en
 					
 					if (is_shift()) {
@@ -347,14 +349,17 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 				
 				if (p_thmb_word) {
 					type_count += type_word(p_thmb_word, &caps_first, false, do_ctl_off);
+					reset_mods();
 				}
 				if (p_left_word) {
 					type_count += type_word(p_left_word, &caps_first, caps_all, do_ctl_off);
+					reset_mods();
 					caps_first = false;
 					do_ctl_off = false;
 				}
 				if (p_rght_word) {
 					type_count += type_word(p_rght_word, &caps_first, caps_all, do_ctl_off);
+					reset_mods();
 				}
 				
 				if (type_count && is_text) {
