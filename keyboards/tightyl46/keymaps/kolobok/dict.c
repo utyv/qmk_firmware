@@ -606,7 +606,7 @@ const uint8_t PROGMEM dict_r_ru_sft[] = {
 	#ifdef USE_ALTCODE
 	, 0, K_2,             SFF, AC2(6, 2), NC // >
 	#else
-	, 0, K_2,             CMD, LSW, SFN, KC_DOT, CMD, NC // >
+	, 0, K_2,             CMD, LSW, SFN, KC_DOT, CMD, LSW, NC // >
 	#endif
 	#ifdef USE_ALTCODE
 	, 0, K_1,             SFF, AC2(3, 6), NC // $
