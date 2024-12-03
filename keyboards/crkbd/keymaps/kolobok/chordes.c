@@ -234,12 +234,6 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 				
 			} else {
 
-				#ifdef KOLOBOK_ONE_SHOT
-				if (!(caps_first) && !(caps_all)) {
-					shift_off();
-				}
-				#endif
-				
 				if (is_phonetic()) { // en
 					
 					if (is_shift()) {
@@ -346,18 +340,40 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 				// error
 			} else {
 				
+				#ifdef KOLOBOK_ONE_SHOT
+				if (is_text && !(caps_first) && !(caps_all)) {
+					shift_off();
+				}
+				#endif
+
+				uint8_t sa = SA_NO;
+				if (caps_first && !caps_all) {
+					sa =  SA_SUPRESS_2;
+				}
 				if (p_thmb_word) {
-					type_count += type_word(p_thmb_word, &caps_first, false, do_ctl_off);
+					type_count += type_word(p_thmb_word, SA_NO, do_ctl_off);
 					reset_mods();
+					#ifdef KOLOBOK_ONE_SHOT
+					if (is_text && !(caps_first) && !(caps_all)) {
+						shift_off();
+					}
+					#endif
 				}
 				if (p_left_word) {
-					type_count += type_word(p_left_word, &caps_first, caps_all, do_ctl_off);
+					type_count += type_word(p_left_word, sa, do_ctl_off);
 					reset_mods();
-					caps_first = false;
+					#ifdef KOLOBOK_ONE_SHOT
+					if (is_text && !(caps_first) && !(caps_all)) {
+						shift_off();
+					}
+					#endif
 					do_ctl_off = false;
+					if (sa == SA_SUPRESS_2) {
+						sa = SA_SUPRESS_ALL;
+					}
 				}
 				if (p_rght_word) {
-					type_count += type_word(p_rght_word, &caps_first, caps_all, do_ctl_off);
+					type_count += type_word(p_rght_word, sa, do_ctl_off);
 					reset_mods();
 				}
 				
