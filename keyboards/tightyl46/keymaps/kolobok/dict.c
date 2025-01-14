@@ -304,6 +304,8 @@ const uint8_t PROGMEM dict_r_ru[] = {
 	, K_E | K_O | K_A | K_Y | K_Q, 0, RU_A, RU_N, RU_I, RU_YU, NC // анию
 	, K_E | K_O | K_A | K_Q | K_MZ, 0,       RU_Q, RU_N, RU_I, RU_E, NC // яние
 	, K_E | K_O | K_A | K_U | K_Q | K_MZ, 0, RU_Q, RU_N, RU_I, RU_Q, NC // яния
+	, K_E | K_Y | K_U | K_Q | K_MZ, 0,       RU_E, RU_N, RU_I, RU_I, NC // ении
+	, K_E | K_O | K_A | K_Y | K_U | K_Q, 0,  RU_A, RU_N, RU_I, RU_I, NC // ании
 	
 	#endif
 	#ifdef UTYUMOV
