@@ -5,7 +5,7 @@
 
 enum mod_flag {
 	FLAG_SFK = 0x00000001, // shift on the keyboard
-	FLAG_SFC = 0x00000002, // shift with a chorde
+	FLAG_SFC = 0x00000002, // shift with a chorde or solo
 	FLAG_SFS = 0x00000004, // shift in the system
 	FLAG_WCK = 0x00000008, // weak control on the keyboard
 	FLAG_WCC = 0x00000010, // weak control with a chorde
@@ -26,6 +26,8 @@ enum mod_flag {
 	FLAG_WNK = 0x00080000, // win on the keyboard
 	FLAG_WNC = 0x00100000, // win with a chorde
 	FLAG_WNS = 0x00200000, // win in the system
+	FLAG_SOL = 0x00400000, // solo mode
+	FLAG_SYM = 0x00800000, // symbol layer in solo mode
 };
 
 uint32_t mods = 0;
@@ -49,6 +51,15 @@ void shift_off(void) {
 		unregister_mods(MOD_BIT(KC_LSFT));
 		wait_ms(MOD_DELAY);
 		mods &= ~FLAG_SFS;
+	}
+}
+
+void shift_done(void) {
+	if (mods & FLAG_SFC) {
+		mods &= ~FLAG_SFC;
+	}
+	if (mods & FLAG_SYM) {
+		mods &= ~FLAG_SYM;
 	}
 }
 
@@ -159,6 +170,22 @@ void onehand_off(void) {
 	}
 }
 
+bool is_solo(void) {
+	return (mods & FLAG_SOL) && !(mods & FLAG_WCK) && !(mods & FLAG_WCC);
+}
+
+void solo_on(void) {
+	if (!(mods & FLAG_SOL)) {
+		mods |= FLAG_SOL;
+	}
+}
+
+void solo_off(void) {
+	if ((mods & FLAG_SOL)) {
+		mods &= ~FLAG_SOL;
+	}
+}
+
 bool is_win(void) {
 	return mods & (FLAG_WNC);
 }
@@ -181,9 +208,12 @@ void win_off(void) {
 	}
 }
 
+bool is_sym(void) {
+	return (mods & (FLAG_SYM));
+}
 
 void reset_mods(void) {
-	if (!((mods & FLAG_SFK) || (mods & FLAG_SFC) || (mods & FLAG_CPK) || (mods & FLAG_CPC))) {
+	if (!((mods & FLAG_SFK) || ((mods & FLAG_SFC) && !(mods & FLAG_SOL)) || (mods & FLAG_CPK) || (mods & FLAG_CPC))) {
 		shift_off();
 	}
 
@@ -199,7 +229,7 @@ void reset_mods(void) {
 		win_off();
 	}
 
-	if ((mods & FLAG_SFK) || (mods & FLAG_SFC) || (mods & FLAG_CPK) || (mods & FLAG_CPC)) {
+	if ((mods & FLAG_SFK) || ((mods & FLAG_SFC) && !(mods & FLAG_SOL)) || (mods & FLAG_CPK) || (mods & FLAG_CPC)) {
 		shift_on();
 	}
 	
@@ -220,7 +250,9 @@ void reset_mods(void) {
 void set_chorde_mods(void) {
 	#ifndef KOLOBOK_ONE_SHOT
 	if (mods & FLAG_SFK) {
-		mods |= FLAG_SFC;
+		if (!is_solo()) {
+			mods |= FLAG_SFC;
+		}
 	}
 	#endif
 	if (mods & FLAG_WCK) {
@@ -244,7 +276,9 @@ void set_chorde_mods(void) {
 }
 	
 void reset_chorde_mods(void) {
-	mods &= ~FLAG_SFC;
+	if (!is_solo()) {
+		mods &= ~FLAG_SFC;
+	}
 	mods &= ~FLAG_WCC;
 	mods &= ~FLAG_CLC;
 	mods &= ~FLAG_ALC;
@@ -264,6 +298,10 @@ bool process_mods(uint16_t keycode, bool pressed) {
 				mods |= FLAG_SFK;
 				#ifdef KOLOBOK_ONE_SHOT
 				mods |= FLAG_SFC;
+				#else
+				if (is_solo()) {
+					mods |= FLAG_SFC;
+				}
 				#endif
 				processed = true;
 			break;
@@ -272,7 +310,11 @@ bool process_mods(uint16_t keycode, bool pressed) {
 				processed = true;
 			break;
 			case KC_CAPS:
-				mods |= FLAG_CPK;
+				if (is_solo()) {
+					mods |= FLAG_SYM;
+				} else {
+					mods |= FLAG_CPK;
+				}
 				processed = true;
 			break;
 			case KC_RCTL:
@@ -285,16 +327,18 @@ bool process_mods(uint16_t keycode, bool pressed) {
 				processed = true;
 			break;
 			case KC_LALT:
-				#ifndef UTYUMOV
-				mods |= FLAG_ALK;
-				#endif
-				processed = true;
+				if (!is_solo()) {
+					#ifndef UTYUMOV
+					mods |= FLAG_ALK;
+					processed = true;
+					#endif
+				}
  			break;
 			case KC_LGUI:
 				#ifndef UTYUMOV
 				mods |= FLAG_WNK;
-				#endif
 				processed = true;
+				#endif
 			break;
 			
 		}
@@ -306,11 +350,13 @@ bool process_mods(uint16_t keycode, bool pressed) {
 		switch (keycode) {
 			case KC_LSFT:
 				mods &= ~FLAG_SFK;
-				#ifdef KOLOBOK_ONE_SHOT
-				if ((mods & FLAG_SFC) && (!is_chorde())) {
-					mods &= ~FLAG_SFC;
+				if (!is_solo()) {
+					#ifdef KOLOBOK_ONE_SHOT
+					if ((mods & FLAG_SFC) && (!is_chorde())) {
+						mods &= ~FLAG_SFC;
+					}
+					#endif
 				}
-				#endif
 				processed = true;
 			break;
 			case KC_LCTL:
@@ -320,7 +366,9 @@ bool process_mods(uint16_t keycode, bool pressed) {
 				processed = true;
 			break;
 			case KC_CAPS:
-				mods &= ~FLAG_CPK;
+				if (!is_solo()) {
+					mods &= ~FLAG_CPK;
+				}
 				processed = true;
 			break;
 			case KC_RCTL:
@@ -333,16 +381,18 @@ bool process_mods(uint16_t keycode, bool pressed) {
 				processed = true;
 			break;
 			case KC_LALT:
-				#ifndef UTYUMOV
-				mods &= ~FLAG_ALK;
-				processed = true;
-				#endif
+				if (!is_solo()) {
+					#ifndef UTYUMOV
+					mods &= ~FLAG_ALK;
+					processed = true;
+					#endif
+				}
 			break;
 			case KC_LGUI:
 				#ifndef UTYUMOV
 				mods &= ~FLAG_WNK;
-				#endif
 				processed = true;
+				#endif
 			break;
 		}
 	}

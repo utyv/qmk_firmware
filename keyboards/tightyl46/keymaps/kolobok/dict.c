@@ -1212,6 +1212,8 @@ const uint8_t PROGMEM dict_l_cmd_sft[] = {
 
 const uint8_t PROGMEM dict_r_cmd[] = {
       K_U | K_Q| K_MZ, 0, CMD, OHF, NC
+	, K_E, 0, CMD, SLN, NC
+	, K_I, 0, CMD, SLF, NC
 	, 0, 0 // end
 };
 

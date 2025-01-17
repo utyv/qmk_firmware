@@ -54,6 +54,10 @@ uint8_t type_word(const uint8_t *dict, uint8_t sa, bool do_ctl_off) { // sa mean
 				onehand_on();
 			} else if (dict_key == OHF) {
 				onehand_off();
+			} else if (dict_key == SLN) {
+				solo_on();
+			} else if (dict_key == SLF) {
+				solo_off();
 			} else if (dict_key == CFN) {
 				sa = SA_NO;
 			}

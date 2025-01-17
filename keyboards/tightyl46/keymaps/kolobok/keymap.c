@@ -7,6 +7,7 @@
 #include "dict.c"
 #include "multitap.c"
 
+
 enum custom_keycodes {
 	// layers
 	CC_SD = SAFE_RANGE,
@@ -23,6 +24,8 @@ enum custom_keycodes {
 	CC_W5
 };
 
+#include "solo.c"
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
@@ -38,6 +41,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+	if (is_solo()) {
+		if (!process_mods(keycode, record->event.pressed)) {
+			return false;
+		}
+		process_solo(keycode, record->event.pressed);
+		return false;
+	}
+	
 	#ifdef UTYUMOV
     switch (keycode) {
 		case CC_SD:

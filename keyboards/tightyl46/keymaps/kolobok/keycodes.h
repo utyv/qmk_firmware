@@ -118,11 +118,15 @@
 #define OHN 0x07
 // one hand off
 #define OHF 0x08
+// solo on
+#define SLN 0x09
+// solo off
+#define SLF 0x0a
 // caps first on
 #define CFN 0x10
 
 
-
+#define LO_HI(c) (uint8_t) c, (uint8_t) (c >> 8)
 
 
 

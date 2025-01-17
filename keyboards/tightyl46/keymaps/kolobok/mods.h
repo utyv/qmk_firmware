@@ -6,6 +6,7 @@
 bool is_shift(void);
 void shift_on(void);
 void shift_off(void);
+void shift_done(void);
 bool is_wcl(void);
 bool is_ctl(void);
 void ctl_on(void);
@@ -23,9 +24,13 @@ void swap_lang(void);
 bool is_onehand(void);
 void onehand_on(void);
 void onehand_off(void);
+bool is_solo(void);
+void solo_on(void);
+void solo_off(void);
 bool is_win(void);
 void win_on(void);
 void win_off(void);
+bool is_sym(void);
 
 void reset_mods(void);
 void set_chorde_mods(void);
