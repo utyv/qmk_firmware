@@ -50,7 +50,7 @@ const uint8_t PROGMEM dict_ru[] = {
 	, LO_HI(CC_W5), RU_B, NC
 	, LO_HI(KC_F8), RU_M, NC
 	, LO_HI(KC_F4), RU_P, NC
-	, LO_HI(CC_PJ), RU_ZH, NC
+	, LO_HI(CC_PJ), RU_WW, NC
 	
 	#ifdef USE_ALTCODE
 	, LO_HI(KC_F3),            SFF, AC2(4, 4), ALF, KC_SPC, NC // ,
@@ -127,7 +127,7 @@ const uint8_t PROGMEM dict_ru_sym[] = {
 	, LO_HI(RU_Y),            RU_H, NC
 	, LO_HI(RU_U),            RU_YU, NC
 	, LO_HI(RU_Q),            RU_C, NC
-	, LO_HI(RU_MZ),           RU_WW, NC
+	, LO_HI(RU_MZ),           RU_ZH, NC
 	, LO_HI(KC_F8),           SFN, KC_1, NC // !
 	#ifdef USE_ALTCODE
 	, LO_HI(KC_F4),             SFF, AC2(6, 3), NC // ?
