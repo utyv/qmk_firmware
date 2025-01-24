@@ -6,7 +6,6 @@
 bool is_shift(void);
 void shift_on(void);
 void shift_off(void);
-void shift_done(void);
 bool is_wcl(void);
 bool is_ctl(void);
 void ctl_on(void);

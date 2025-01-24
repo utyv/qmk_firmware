@@ -248,11 +248,94 @@ const uint8_t PROGMEM dict_ru_sym_sft[] = {
 	, 0, 0
 };
 
+const uint8_t PROGMEM dict_word[] = {
+	  LO_HI(CC_DU)
+		, RU_D, RU_O, RU_B, RU_R, RU_O, RU_E, KC_SPACE, RU_U, RU_T, RU_R, RU_O, NC // доброе утро
+	, LO_HI(RU_S)
+		, RU_A, RU_N, RU_I, RU_YU, NC // анию
+	, LO_HI(RU_V)
+		, RU_A, RU_N, RU_I, RU_I, NC // ании
+	, LO_HI(RU_K)
+		, RU_A, RU_N, RU_I, RU_Q, NC // ания
+	, LO_HI(RU_T)
+		, RU_A, RU_N, RU_I, RU_E, NC // ание
+	, LO_HI(KC_BSPC)
+		, RU_A, RU_N, RU_I, RU_J, NC // аний
+	
+	, LO_HI(CC_SD)
+		, RU_Z, RU_D, RU_R, RU_A, RU_V, RU_S, RU_T, RU_V, RU_U, RU_J, RU_T, RU_E, NC // здравствуйте
+	, LO_HI(RU_D)
+		, RU_E, RU_N, RU_I, RU_YU, NC // ению
+	, LO_HI(RU_B)
+		, RU_E, RU_N, RU_I, RU_I, NC // ении
+	, LO_HI(RU_P)
+		, RU_E, RU_N, RU_I, RU_Q, NC // ения
+	, LO_HI(RU_N)
+		, RU_E, RU_N, RU_I, RU_E, NC // ение
+	, LO_HI(KC_ENT)
+		, RU_E, RU_N, RU_I, RU_J, NC // ений
+	
+	, LO_HI(CC_DD)
+		, RU_D, RU_O, RU_B, RU_R, RU_Y, RU_J, KC_SPC, RU_D, RU_E, RU_N, RU_MZ, NC // добрый день
+	, LO_HI(KC_1)
+		, RU_Q, RU_N, RU_I, RU_YU, NC // янию
+	, LO_HI(KC_2)
+		, RU_Q, RU_N, RU_I, RU_I, NC // янии
+	, LO_HI(KC_4)
+		, RU_Q, RU_N, RU_I, RU_Q, NC // яния
+	, LO_HI(KC_8)
+		, RU_Q, RU_N, RU_I, RU_E, NC // яние
+	, LO_HI(KC_DEL)
+		, RU_Q, RU_N, RU_I, RU_J, NC // яний
+	
+	#ifdef UTYUMOV
+	, LO_HI(KC_CNCL)
+		, CMD, LSW, KC_U, KC_T, KC_Y, KC_V, CMD, LSW, NC // utyv
+	#endif
+	, LO_HI(RU_E)
+		, RU_S, RU_K, RU_A, RU_Z, NC // сказ
+	, LO_HI(RU_O)
+		, RU_K, RU_O, RU_T, RU_O, RU_R, NC // котор
+	, LO_HI(RU_A)
+		, RU_E, RU_S, RU_T, RU_MZ, NC // есть
+	, LO_HI(RU_I)
+		, RU_X, RU_E, RU_L, RU_O, RU_V, RU_E, NC // челове
+	, LO_HI(CC_DV)
+		, RU_D, RU_O, RU_B, RU_R, RU_Y, RU_J, KC_SPACE, RU_V, RU_E, RU_X, RU_E, RU_R, NC // добрый вечер
+	, LO_HI(KC_LALT)
+		, RU_EE, RU_L, RU_E, RU_K, RU_T, RU_R, NC // электр
+	, LO_HI(RU_Y)
+		, RU_H, RU_O, RU_R, RU_O, RU_W, NC // хорош
+	, LO_HI(RU_U)	
+		, RU_O, RU_B, RU_TZ, RU_E, RU_K, RU_T, NC // объект
+	, LO_HI(RU_Q)
+		, RU_S, RU_K, RU_O, RU_L, RU_MZ, RU_K, NC // скольк
+	, LO_HI(RU_MZ)
+		, RU_G, RU_O, RU_V, RU_O, RU_R, NC // говор
+	, LO_HI(CC_IMZ)
+		, RU_S, RU_P, RU_A, RU_S, RU_I, RU_B, RU_O, NC // спасибо
+	, LO_HI(KC_F8)
+		, RU_F,  RU_U, RU_N, RU_K, RU_C, RU_I, NC // функци
+	, LO_HI(KC_F4)
+		, RU_P, RU_R, RU_O, RU_C, RU_E, RU_D, RU_U, RU_R, NC // процедур
+	, LO_HI(KC_F2)
+		, RU_E, RU_WW, RU_E, NC // еще
+	, LO_HI(KC_F1)
+		, RU_K, RU_O, RU_N, RU_E, RU_C, NC // конец
+	, LO_HI(CC_PJ)
+		, RU_P, RU_O, RU_ZH, RU_A, RU_L, RU_U, RU_J, RU_S, RU_T, RU_A, NC // пожалуйста
+	
+	, 0, 0
+};
+
 void process_solo(uint16_t keycode, bool pressed) {
 	
 	if (pressed) {
 		const uint8_t *p_word = 0;
 
+		if (!p_word && is_word()) {
+			p_word = find_word16(keycode, dict_word);
+		}
 		if (!p_word && is_sym() && is_shift()) {
 			p_word = find_word16(keycode, dict_ru_sym_sft);
 		}
@@ -283,7 +366,7 @@ void process_solo(uint16_t keycode, bool pressed) {
 				shift_off();
 			}
 			type_word(p_word, SA_SUPRESS_2, false);
-			shift_done();
+			reset_chorde_mods();
 			reset_mods();
 			
 		}

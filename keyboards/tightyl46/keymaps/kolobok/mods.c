@@ -54,15 +54,6 @@ void shift_off(void) {
 	}
 }
 
-void shift_done(void) {
-	if (mods & FLAG_SFC) {
-		mods &= ~FLAG_SFC;
-	}
-	if (mods & FLAG_SYM) {
-		mods &= ~FLAG_SYM;
-	}
-}
-
 bool is_wcl(void) {
 	return mods & (FLAG_WCC);
 }
@@ -276,9 +267,8 @@ void set_chorde_mods(void) {
 }
 	
 void reset_chorde_mods(void) {
-	if (!is_solo()) {
-		mods &= ~FLAG_SFC;
-	}
+	mods &= ~FLAG_SFC;
+	mods &= ~FLAG_SYM;
 	mods &= ~FLAG_WCC;
 	mods &= ~FLAG_CLC;
 	mods &= ~FLAG_ALC;
@@ -340,6 +330,13 @@ bool process_mods(uint16_t keycode, bool pressed) {
 				processed = true;
 				#endif
 			break;
+			case KC_F5:
+				if (mods & FLAG_SOL) {
+					mods |= FLAG_WDK;
+					mods |= FLAG_WDC;
+					processed = true;
+				}
+			break;
 			
 		}
 		if (is_chorde()) {
@@ -394,7 +391,13 @@ bool process_mods(uint16_t keycode, bool pressed) {
 				processed = true;
 				#endif
 			break;
-		}
+			case KC_F5:
+				if (mods & FLAG_SOL) {
+					mods &= ~FLAG_WDK;
+					processed = true;
+				}
+			break;
+}
 	}
 	
 	reset_mods();
