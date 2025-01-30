@@ -139,13 +139,13 @@ const uint8_t PROGMEM dict_ru_sym[] = {
 	, LO_HI(RU_A), RU_S, RU_D, NC // сд
 	, LO_HI(RU_I), RU_F, NC
 	
-	, LO_HI(KC_LALT), RU_B, RU_L, NC // бл
+	, LO_HI(KC_LALT), RU_V, RU_L, NC // вл
 	, LO_HI(RU_Y),            RU_H, NC
 	, LO_HI(RU_U),            RU_YU, NC
 	, LO_HI(RU_Q),            RU_C, NC
 	, LO_HI(RU_MZ),           RU_ZH, NC
 	
-	, LO_HI(CC_W5), RU_B, RU_N, NC // бн
+	, LO_HI(CC_W5), RU_B, RU_L, NC // бл
 	, LO_HI(KC_F8), RU_M, RU_N, NC // мн
 	, LO_HI(KC_F4), RU_V, RU_M, NC // вм
 	#ifdef USE_ALTCODE
