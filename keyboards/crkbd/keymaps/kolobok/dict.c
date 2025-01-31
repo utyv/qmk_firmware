@@ -293,7 +293,7 @@ const uint8_t PROGMEM dict_r_ru[] = {
 	, K_E | K_A | K_Y | K_Q, 0,       RU_A, RU_YU, RU_T, NC // ают
 	#endif
 
-	#ifdef KOLOBOK_LEVEL_3
+ 	#ifdef KOLOBOK_LEVEL_3
 	, K_E | K_O | K_A | K_Q, 0,       RU_A, RU_N, RU_I, RU_E, NC // ание
 	, K_E | K_O | K_A | K_U | K_Q, 0, RU_A, RU_N, RU_I, RU_Q, NC // ания
 	, K_E | K_O | K_Y | K_U, 0,       RU_I, RU_I, NC // ии
@@ -306,6 +306,11 @@ const uint8_t PROGMEM dict_r_ru[] = {
 	, K_E | K_O | K_A | K_U | K_Q | K_MZ, 0, RU_Q, RU_N, RU_I, RU_Q, NC // яния
 	, K_E | K_Y | K_U | K_Q | K_MZ, 0,       RU_E, RU_N, RU_I, RU_I, NC // ении
 	, K_E | K_O | K_A | K_Y | K_U | K_Q, 0,  RU_A, RU_N, RU_I, RU_I, NC // ании
+	, K_E | K_O | K_Y | K_U | K_Q | K_MZ, 0, RU_E, RU_N, RU_I, RU_J, NC // ений
+	, K_E | K_O | K_A | K_Y | K_U | K_Q | K_MZ, 0,  RU_A, RU_N, RU_I, RU_J, NC // аний
+	, K_E | K_O | K_A | K_Y | K_Q | K_MZ, 0,       RU_Q, RU_N, RU_I, RU_YU, NC // янию
+	, K_E | K_O | K_A | K_I | K_Q | K_MZ, 0,       RU_Q, RU_N, RU_I, RU_I, NC // янии
+	, K_E | K_O | K_A | K_I | K_U | K_Q | K_MZ, 0, RU_Q, RU_N, RU_I, RU_J, NC // яний
 	
 	#endif
 	#ifdef UTYUMOV
