@@ -233,7 +233,6 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 				}
 				
 			} else {
-
 				if (is_phonetic()) { // en
 					
 					if (is_shift()) {
@@ -276,6 +275,19 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 					
 				} else { // ru
 					
+					#ifdef UTYUMOV
+					if (thmb_chorde && !left_chorde && rght_chorde) {
+						uint8_t rght_lo = (uint8_t) rght_chorde;
+						uint8_t rght_hi = (uint8_t) (rght_chorde >> 8);
+						if (rght_lo && !rght_hi) {
+							uint16_t thmb_chorde2 = thmb_chorde | (rght_lo << 8);
+							p_thmb_word = find_word16(thmb_chorde2, dict_t_ru);
+							if(p_thmb_word) {
+								rght_chorde = 0;
+							}
+						}
+					}
+					#endif
 					if (is_shift()) {
 						if (thmb_chorde && !p_thmb_word) {
 						    p_thmb_word = find_word16(thmb_chorde, dict_t_ru_sft);
