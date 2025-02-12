@@ -276,7 +276,7 @@ bool process_chorde(uint16_t keycode, bool pressed) {
 				} else { // ru
 					
 					#ifdef UTYUMOV
-					if (thmb_chorde && !left_chorde && rght_chorde) {
+					if (thmb_chorde && !left_chorde && rght_chorde && !is_shift()) {
 						uint8_t rght_lo = (uint8_t) rght_chorde;
 						uint8_t rght_hi = (uint8_t) (rght_chorde >> 8);
 						if (rght_lo && !rght_hi) {
