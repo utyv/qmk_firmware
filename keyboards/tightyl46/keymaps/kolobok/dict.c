@@ -567,6 +567,7 @@ const uint8_t PROGMEM dict_r_en[] = {
 	, K_A | K_Y | K_U | K_Q, 0,        KC_I, KC_G, KC_H, NC
 	, K_A | K_Y | K_U | K_Q | K_MZ, 0, KC_I, KC_G, KC_H, KC_T, NC
 	, K_Q | K_MZ, 0,                   KC_QUOT, KC_S, NC
+	, K_E | K_Y, 0,                    KC_E, KC_I, NC
 	#else
       K_E, 0,      KC_E, NC
 	, K_O, 0,      KC_O, NC
