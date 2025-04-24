@@ -253,6 +253,7 @@ const uint8_t PROGMEM dict_l_en[] = {
 	, K_T | K_D, 0,       KC_J, NC
 	, K_S | K_B, 0,       KC_Q, NC
 	, K_V | K_P, 0,       KC_Z, NC
+	, K_B | K_K, 0,       KC_Y, NC
 	, K_V | K_T, 0,       KC_T, KC_H, NC
 	, K_S | K_V, 0,       KC_S, KC_H, NC
 	, K_S | K_K, 0,       KC_C, KC_H, NC
@@ -541,8 +542,11 @@ const uint8_t PROGMEM dict_r_en[] = {
 	, K_Q, 0,      KC_S, NC
 	, K_MZ, 0,     KC_QUOT, NC
 	, K_E | K_A, 0, KC_E, KC_A, NC
+	, K_E | K_A | K_MZ, 0,       KC_E, KC_A, KC_R, NC
+	, K_E | K_A | K_Q | K_MZ, 0, KC_E, KC_A, KC_R, KC_S, NC
 	, K_E | K_O | K_A, 0, KC_E, KC_E, NC
 	, K_E | K_O, 0,       KC_E, KC_R, NC
+	, K_E | K_Y, 0,                    KC_E, KC_I, NC
 	, K_E | K_O | K_Q, 0, KC_E, KC_R, KC_S, NC
 	, K_E | K_I, 0,       KC_E, KC_Y, NC
 	, K_E | K_Q, 0,       KC_E, KC_S, NC
@@ -556,8 +560,13 @@ const uint8_t PROGMEM dict_r_en[] = {
 	, K_O | K_U, 0,                    KC_O, KC_U, NC
 	, K_O | K_Y | K_U | K_Q, 0,        KC_O, KC_U, KC_G, KC_H, NC
 	, K_O | K_Y | K_U | K_Q | K_MZ, 0, KC_O, KC_U, KC_G, KC_H, KC_T, NC
+	, K_O | K_U | K_MZ, 0,             KC_O, KC_U, KC_R, NC
+	, K_O | K_U | K_Q | K_MZ, 0,       KC_O, KC_U, KC_R, KC_S, NC
 	, K_A | K_Y, 0,                    KC_A, KC_I, NC
 	, K_A | K_I, 0,                    KC_A, KC_Y, NC
+	, K_A | K_Q, 0,                    KC_A, KC_S, NC
+	, K_A | K_MZ, 0,                   KC_A, KC_R, NC
+	, K_A | K_Q | K_MZ, 0,             KC_A, KC_R, KC_S, NC
 	, K_Y | K_MZ, 0,                   KC_I, KC_E, NC
 	, K_Y | K_Q |K_MZ, 0,              KC_I, KC_E, KC_S, NC
 	, K_Y | K_U, 0,                    KC_I, KC_N, KC_G, NC
@@ -566,8 +575,10 @@ const uint8_t PROGMEM dict_r_en[] = {
 	, K_Y | K_U | K_Q | K_MZ, 0,       KC_I, KC_O, KC_N, KC_S, NC
 	, K_A | K_Y | K_U | K_Q, 0,        KC_I, KC_G, KC_H, NC
 	, K_A | K_Y | K_U | K_Q | K_MZ, 0, KC_I, KC_G, KC_H, KC_T, NC
+	, K_Y | K_Q, 0,                    KC_I, KC_R, NC
+	, K_U | K_Q, 0,                    KC_U, KC_S, NC
+	, K_U | K_MZ, 0,                   KC_U, KC_R, NC
 	, K_Q | K_MZ, 0,                   KC_QUOT, KC_S, NC
-	, K_E | K_Y, 0,                    KC_E, KC_I, NC
 	#else
       K_E, 0,      KC_E, NC
 	, K_O, 0,      KC_O, NC
