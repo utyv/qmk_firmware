@@ -232,6 +232,42 @@ const uint8_t PROGMEM dict_l_ru[] = {
 };
 
 const uint8_t PROGMEM dict_l_en[] = {
+	#ifdef KOLOBOK_EN
+	  K_S, 0,      KC_S, NC
+	, K_V, 0,      KC_H, NC
+	, K_K, 0,      KC_C, NC
+	, K_T, 0,      KC_T, NC
+	, K_D, 0,      KC_D, NC
+	, K_B, 0,      KC_F, NC
+	, K_P, 0,      KC_P, NC
+	, K_N, 0,      KC_N, NC
+	, K_B | K_N, 0, KC_R, NC
+	, K_B | K_P, 0, KC_L, NC
+	, K_K | K_T, 0, KC_M, NC
+	, K_K | K_N, 0, KC_G, NC
+	, K_D | K_N, 0, KC_W, NC
+	, K_D | K_B, 0, KC_V, NC
+	, K_D | K_B | K_P, 0, KC_B, NC
+	, K_V | K_K, 0,       KC_K, NC
+	, K_V | K_D, 0,       KC_X, NC
+	, K_T | K_D, 0,       KC_J, NC
+	, K_S | K_B, 0,       KC_Q, NC
+	, K_V | K_P, 0,       KC_Z, NC
+	, K_V | K_T, 0,       KC_T, KC_H, NC
+	, K_S | K_V, 0,       KC_S, KC_H, NC
+	, K_S | K_K, 0,       KC_C, KC_H, NC
+	, K_V | K_K | K_P, 0, KC_P, KC_H, NC
+	, K_V | K_D | K_N, 0, KC_W, KC_H, NC
+	, K_V | K_K | K_T, 0, KC_C, KC_K, NC
+	, K_P | K_N, 0,       KC_P, KC_R, NC
+	, K_S | K_T, 0,       KC_S, KC_T, NC
+	, K_S | K_V | K_K | K_T, 0, KC_S, KC_T, KC_R, NC
+	, K_T | K_B | K_N, 0,       KC_T, KC_R, NC
+	, K_B | K_P | K_N, 0,       KC_B, KC_R, NC
+	, K_D | K_P, 0,             KC_P, KC_L, NC
+	, K_V | K_T | K_D, 0,       KC_X, KC_T, NC
+	, K_T | K_N, 0,             KC_I, KC_N, NC
+	#else
 	  K_S, 0,        KC_S, NC
 	, K_V, 0,      KC_V, NC
 	, K_K, 0,      KC_K, NC
@@ -251,6 +287,7 @@ const uint8_t PROGMEM dict_l_en[] = {
 	, K_T | K_P, 0, KC_C, NC
 	, K_T | K_B, 0, KC_F, NC
 	, K_S | K_B, 0, KC_J, NC
+	#endif
 
 	#ifdef USE_ALTCODE
 	, 0, K_8 | K_4,         SFF, AC2(4, 6), NC // .
@@ -494,13 +531,52 @@ const uint8_t PROGMEM dict_r_ru[] = {
 };
 
 const uint8_t PROGMEM dict_r_en[] = {
+	#ifdef KOLOBOK_EN
 	  K_E, 0,      KC_E, NC
+	, K_O, 0,      KC_O, NC
+	, K_A, 0,      KC_A, NC
+	, K_I, 0,      KC_Y, NC
+	, K_Y, 0,      KC_I, NC
+	, K_U, 0,      KC_U, NC
+	, K_Q, 0,      KC_S, NC
+	, K_MZ, 0,     KC_QUOT, NC
+	, K_E | K_A, 0, KC_E, KC_A, NC
+	, K_E | K_O | K_A, 0, KC_E, KC_E, NC
+	, K_E | K_O, 0,       KC_E, KC_R, NC
+	, K_E | K_O | K_Q, 0, KC_E, KC_R, KC_S, NC
+	, K_E | K_I, 0,       KC_E, KC_Y, NC
+	, K_E | K_Q, 0,       KC_E, KC_S, NC
+	, K_E | K_MZ, 0,      KC_E, KC_D, NC
+	, K_E | K_Y | K_U | K_Q, 0,        KC_E, KC_I, KC_G, KC_H, NC
+	, K_E | K_Y | K_U | K_Q | K_MZ, 0, KC_E, KC_I, KC_G, KC_H, KC_T, NC
+	, K_O | K_A | K_I, 0,              KC_O, KC_O, NC
+	, K_O | K_A, 0,                    KC_O, KC_R, NC
+	, K_O | K_A | K_Q, 0,              KC_O, KC_R, KC_S, NC
+	, K_O | K_Y, 0,                    KC_O, KC_I, NC
+	, K_O | K_U, 0,                    KC_O, KC_U, NC
+	, K_O | K_Y | K_U | K_Q, 0,        KC_O, KC_U, KC_G, KC_H, NC
+	, K_O | K_Y | K_U | K_Q | K_MZ, 0, KC_O, KC_U, KC_G, KC_H, KC_T, NC
+	, K_A | K_Y, 0,                    KC_A, KC_I, NC
+	, K_A | K_I, 0,                    KC_A, KC_Y, NC
+	, K_Y | K_MZ, 0,                   KC_I, KC_E, NC
+	, K_Y | K_Q |K_MZ, 0,              KC_I, KC_E, KC_S, NC
+	, K_Y | K_U, 0,                    KC_I, KC_N, KC_G, NC
+	, K_Y | K_U | K_Q, 0,              KC_I, KC_N, KC_G, KC_S, NC
+	, K_Y | K_U | K_MZ, 0,             KC_I, KC_O, KC_N, NC
+	, K_Y | K_U | K_Q | K_MZ, 0,       KC_I, KC_O, KC_N, KC_S, NC
+	, K_A | K_Y | K_U | K_Q, 0,        KC_I, KC_G, KC_H, NC
+	, K_A | K_Y | K_U | K_Q | K_MZ, 0, KC_I, KC_G, KC_H, KC_T, NC
+	, K_Q | K_MZ, 0,                   KC_QUOT, KC_S, NC
+	, K_E | K_Y, 0,                    KC_E, KC_I, NC
+	#else
+      K_E, 0,      KC_E, NC
 	, K_O, 0,      KC_O, NC
 	, K_A, 0,      KC_A, NC
 	, K_I, 0,      KC_I, NC
 	, K_Y, 0,      KC_Y, NC
 	, K_U, 0,      KC_U, NC
 	, K_Q, 0,      KC_Q, NC
+	#endif
 
 	#ifdef USE_ALTCODE
 	, 0, K_8,             SFF, AC2(4, 6), NC // .

@@ -67,4 +67,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define KOLOBOK_LEVEL_3
 
 #define KOLOBOK_ONE_SHOT
+#define KOLOBOK_EN
 //#define ONEHAND
