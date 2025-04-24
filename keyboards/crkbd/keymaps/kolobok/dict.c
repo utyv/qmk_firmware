@@ -246,8 +246,8 @@ const uint8_t PROGMEM dict_l_en[] = {
 	, K_K | K_T, 0, KC_M, NC
 	, K_K | K_N, 0, KC_G, NC
 	, K_D | K_N, 0, KC_W, NC
-	, K_D | K_B, 0, KC_V, NC
-	, K_D | K_B | K_P, 0, KC_B, NC
+	, K_V | K_N, 0, KC_V, NC
+	, K_T | K_B, 0, KC_B, NC
 	, K_V | K_K, 0,       KC_K, NC
 	, K_V | K_D, 0,       KC_X, NC
 	, K_T | K_D, 0,       KC_J, NC
