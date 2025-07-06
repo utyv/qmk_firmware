@@ -1360,6 +1360,7 @@ const uint8_t PROGMEM dict_l_cmd[] = {
 
 	, K_V | K_K | K_B | K_P, 0, CLN, KC_B, NC
 	, K_K | K_B, 0,             CLN, KC_I, NC
+	, K_V | K_K | K_B, 0,             CLN, KC_Y, NC
 
 	#else
 		
@@ -1380,7 +1381,7 @@ const uint8_t PROGMEM dict_l_cmd[] = {
 	, K_S | K_D | K_V | K_B | K_K | K_P | K_T | K_N, 0,   KC_F15, NC
 	
 	#endif
-	, K_D | K_B | K_P, 0, CMD, OHN, NC
+	//, K_D | K_B | K_P, 0, CMD, OHN, NC
 	, 0, 0 // end
 };
 
