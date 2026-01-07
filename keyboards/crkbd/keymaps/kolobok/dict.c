@@ -308,6 +308,19 @@ const uint8_t PROGMEM dict_l_en[] = {
 	#endif
 	, 0, K_8 | K_4 | K_2 | K_1, SFF, KC_MINS, NC // -
 	
+	#ifdef UTYUMOV
+	, K_T | K_D | K_N, 0,       CMD, CPS, KC_I, KC_T, NC
+	, K_D | K_P | K_N, 0,       CMD, CPS, KC_I, KC_D, NC
+	, K_D | K_B | K_N, 0,       CMD, CPS, KC_T, KC_N, NC
+	, K_S | K_T | K_N, 0,       CMD, CPS, KC_I, KC_S, NC
+	, K_V | K_B | K_P, 0,       CMD, CPS, KC_I, KC_Z, NC
+	, K_S | K_V | K_P, 0,       CMD, CPS, KC_T, KC_Z, NC
+	, K_K | K_D | K_N, 0,       CMD, CPS, KC_I, KC_C, NC
+	, K_K | K_D | K_P, 0,       CMD, CPS, KC_T, KC_C, NC
+	, K_K | K_B | K_P, 0,       CMD, CPS, KC_I, KC_L, NC
+	, K_K | K_B | K_N, 0,       CMD, CPS, KC_I, KC_R, NC
+	#endif
+	
 	, 0, 0 // end
 };
 
@@ -432,7 +445,7 @@ const uint8_t PROGMEM dict_r_ru[] = {
 	, K_E | K_O | K_A | K_Y | K_Q | K_MZ, 0,       RU_Q, RU_N, RU_I, RU_YU, NC // янию
 	, K_E | K_O | K_A | K_I | K_Q | K_MZ, 0,       RU_Q, RU_N, RU_I, RU_I, NC // янии
 	, K_E | K_O | K_A | K_I | K_U | K_Q | K_MZ, 0, RU_Q, RU_N, RU_I, RU_J, NC // яний
-	
+	, K_O | K_A | K_U | K_Q, 0,                    RU_E, RU_WW, RU_E, NC // еще
 	#endif
 	#ifdef UTYUMOV
 	, K_U, K_8,                             CMD, LSW, KC_U, KC_T, KC_Y, KC_V, CMD, LSW, NC // utyv
@@ -679,6 +692,22 @@ const uint8_t PROGMEM dict_r_en[] = {
 	#else
 	, K_Y | K_U, K_2 | K_1,       SFF, KC_SPC, SFN, KC_EQL, SFF, KC_SPC, KC_1, KC_SCLN, KC_ENT, NC // + 1;
 	#endif
+	#endif
+
+	#ifdef UTYUMOV
+	, K_A | K_Y | K_MZ, 0,        CMD, CPS, KC_I, KC_A, NC
+	, K_A, K_8,                   CMD, CPS, KC_T, KC_A, NC
+	, K_A | K_MZ, K_8,            CMD, CPS, KC_H, KC_A, NC
+	, K_E | K_Y | K_MZ, 0,        CMD, CPS, KC_I, KC_E, NC
+	, K_E, K_1,                   CMD, CPS, KC_T, KC_E, NC
+	, K_E | K_Y, K_1,             CMD, CPS, KC_H, KC_E, NC
+	, K_O | K_Y | K_MZ, 0,        CMD, CPS, KC_I, KC_O, NC
+	, K_O, K_1,                   CMD, CPS, KC_T, KC_O, NC
+	, K_O | K_Y, K_1,            CMD, CPS, KC_H, KC_O, NC
+	, K_E | K_U | K_Q, 0,         CMD, CPS, KC_I, KC_U, NC
+	, K_U, K_2,                   CMD, CPS, KC_T, KC_U, NC
+	, K_E | K_U, K_2,             CMD, CPS, KC_H, KC_U, NC
+	, K_Y, K_1,                   CMD, CPS, KC_I, KC_I, NC
 	#endif
 
 	, 0, 0 // end
@@ -1141,6 +1170,18 @@ const uint8_t PROGMEM dict_l_ru_th[] = { // two hands
 	, K_V | K_K | K_T | K_D, 0,       RU_V, RU_M, NC // вм
 	, K_K | K_D | K_P, 0,             RU_P, RU_O, RU_L, NC // пол
 	, K_K | K_T | K_B | K_P | K_N, 0, RU_EE, RU_L, RU_E, RU_K, RU_T, RU_R, NC // электр
+	, K_V | K_K | K_B | K_P | K_N, 0, RU_G, RU_L, RU_A, RU_Z, NC // глаз
+	, K_V | K_D | K_P | K_N, 0,       RU_EE, RU_K, RU_S, NC // экс
+	, K_V | K_D | K_B | K_P | K_N, 0, RU_EE, RU_K, RU_Z, NC // экз
+	, K_V | K_K | K_B | K_P, 0,       RU_Z, RU_L, NC // зл
+	, K_K | K_T | K_P | K_N, 0,       RU_F, RU_O, RU_R, RU_M, NC // форм
+	, K_V | K_B | K_P | K_N, 0,       RU_P, RU_A, RU_R, RU_T, NC // парт
+	, K_V | K_K | K_P | K_N, 0,       RU_Z, RU_V, NC // зв
+	, K_V | K_K | K_T | K_B | K_P | K_N, 0, RU_X, RU_E, RU_L, RU_O, RU_V, RU_E, RU_K, NC // человек
+	, K_V | K_K | K_T | K_D | K_B | K_P | K_N, 0, RU_X, RU_E, RU_L, RU_O, RU_V, RU_E, RU_X, NC // человеч
+	, K_K | K_T | K_B | K_P, 0,       RU_V, RU_Z, NC // вз
+	, K_V | K_D | K_B | K_P, 0,       RU_Z, RU_R, NC // зр
+	, K_S | K_K | K_P | K_N, 0,       RU_V, RU_S, RU_P, NC // всп
 	, 
 	#endif
 	
@@ -1153,7 +1194,9 @@ const uint8_t PROGMEM dict_l_ru_th[] = { // two hands
  	#endif
     , K_P, K_8,          RU_K, RU_O, RU_N, RU_E, RU_C, NC // конец	
     , K_N, K_4,          RU_P, RU_R, RU_O, RU_C, RU_E, RU_D, RU_U, RU_R, NC // процедур
-    , K_N, K_2,          RU_F,  RU_U, RU_N, RU_K, RU_C, RU_I, NC // функци
+    , K_N, K_2,          RU_F, RU_U, RU_N, RU_K, RU_C, RU_I, NC // функци
+	, K_N, K_1,          RU_EE, RU_K, RU_S, RU_P, RU_O, RU_R, RU_T, NC // экспорт
+    , K_D, K_8,          RU_C, RU_I, RU_K, RU_L, NC // цикл
 	,
 	#endif
 

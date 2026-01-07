@@ -56,6 +56,11 @@ uint8_t type_word(const uint8_t *dict, uint8_t sa, bool do_ctl_off) { // sa mean
 				onehand_off();
 			} else if (dict_key == CFN) {
 				sa = SA_NO;
+			} else if (dict_key == CPS) {
+				// WinCompose
+				//shift_off();
+				tap_code(KC_RALT);
+				sa = SA_NO;
 			}
 			is_cmd = false;
 		} else if (dict_key == NC) {

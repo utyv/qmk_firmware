@@ -120,6 +120,8 @@
 #define OHF 0x08
 // caps first on
 #define CFN 0x10
+// WinCompose
+#define CPS 0x09
 
 
 
