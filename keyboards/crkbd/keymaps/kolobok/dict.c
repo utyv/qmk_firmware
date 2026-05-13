@@ -181,7 +181,7 @@ const uint8_t PROGMEM dict_l[] = {
 const uint8_t PROGMEM dict_r[] = {
 	  0, K_BSPC,   CMD, UND, NC
 	#ifdef UTYUMOV
-	, 0, K_ENT,    SFF, KC_MINS, NC
+	, 0, K_ENT,    KC_MINS, NC
 	#endif
 	, 0, 0 // end
 };
@@ -228,6 +228,10 @@ const uint8_t PROGMEM dict_l_ru[] = {
 	, 0, K_8 | K_4 | K_2 | K_1, SFF, KC_MINS, NC // -
 
 
+	#ifdef UTYUMOV
+	, K_D, K_ENT,          CMD, LSW, CMD, CPS, KC_MINS, SFN, KC_DOT, CMD, LSW, NC
+	#endif
+	
 	, 0, 0 // end
 };
 
@@ -319,6 +323,10 @@ const uint8_t PROGMEM dict_l_en[] = {
 	, K_K | K_D | K_P, 0,       CMD, CPS, KC_T, KC_C, NC
 	, K_K | K_B | K_P, 0,       CMD, CPS, KC_I, KC_L, NC
 	, K_K | K_B | K_N, 0,       CMD, CPS, KC_I, KC_R, NC
+	#endif
+
+	#ifdef UTYUMOV
+	, K_D, K_ENT,          CMD, CPS, KC_MINS, SFN, KC_DOT, NC
 	#endif
 	
 	, 0, 0 // end
@@ -451,21 +459,41 @@ const uint8_t PROGMEM dict_r_ru[] = {
 	, K_U, K_8,                             CMD, LSW, KC_U, KC_T, KC_Y, KC_V, CMD, LSW, NC // utyv
 	#endif
 
+	#ifdef UTYUMOV
+	, 0, K_8, 	    SFF, KC_EQL, NC // =
+	#else
 	#ifdef USE_ALTCODE
 	, 0, K_8,       SFF, AC2(4, 6), NC // .
 	#else
 	, 0, K_8,       SFF, RU_DOT, NC // .
 	#endif
+	#endif
 	, 0, K_4,       SFN, KC_9, NC // (
 	, 0, K_2,       SFN, KC_0, NC // )
+	#ifdef UTYUMOV
+	, 0, K_1, 	    SFN, KC_8, NC // *
+	#else
 	, 0, K_1, 	    SFF, KC_EQL, NC // =
+	#endif
+	#ifdef UTYUMOV
+	, 0, K_8 | K_4,            SFN, KC_EQL, NC // +
+	#else
 	#ifdef USE_ALTCODE
 	, 0, K_8 | K_4,            SFF, AC2(4, 4), NC // ,
 	#else
 	, 0, K_8 | K_4,            SFN, RU_DOT, NC // ,
 	#endif
+	#endif
 	, 0, K_2 | K_4,            SFN, KC_9, KC_0, NC // ()
+	#ifdef UTYUMOV
+	#ifdef USE_ALTCODE
+    , 0, K_1 | K_2,             SFF, AC2(3, 7), NC // %
+	#else
+    , 0, K_1 | K_2,             SFN, KC_5, NC // %
+	#endif
+	#else
 	, 0, K_1 | K_2,            SFN, KC_EQL, NC // +
+	#endif
 	#ifdef USE_ALTCODE
 	, 0, K_8 | K_1,            SFF, AC2(3, 4), NC // "
  	#else
@@ -540,6 +568,7 @@ const uint8_t PROGMEM dict_r_ru[] = {
 	#else
 	, K_Y | K_U, K_2 | K_1,            SFF, KC_SPC, SFN, KC_EQL, SFF, KC_SPC, KC_1, SFN, KC_4, SFF, KC_ENT, NC // ;
 	#endif
+	, K_Y, K_8,    CMD, LSW, CMD, CPS, KC_BSLS, KC_QUOT, CMD, LSW, NC // ударение
 	#endif
 
 	, 0, 0 // end
@@ -603,21 +632,42 @@ const uint8_t PROGMEM dict_r_en[] = {
 	, K_Q, 0,      KC_Q, NC
 	#endif
 
+
+	#ifdef UTYUMOV
+	, 0, K_8, 	    SFF, KC_EQL, NC // =
+	#else
 	#ifdef USE_ALTCODE
 	, 0, K_8,             SFF, AC2(4, 6), NC // .
 	#else
 	, 0, K_8,             SFF, KC_DOT, NC // .
 	#endif
+	#endif
 	, 0, K_4,             SFN, KC_9, NC // (
 	, 0, K_2,             SFN, KC_0, NC // )
-	, 0, K_1, 	          SFF, KC_EQL, NC // =
+	#ifdef UTYUMOV
+	, 0, K_1, 	    SFN, KC_8, NC // *
+	#else
+	, 0, K_1, 	    SFF, KC_EQL, NC // =
+	#endif
+	#ifdef UTYUMOV
+	, 0, K_8 | K_4,            SFN, KC_EQL, NC // +
+	#else
 	#ifdef USE_ALTCODE
 	, 0, K_8 | K_4,       SFF, AC2(4, 4), NC // ,
 	#else
 	, 0, K_8 | K_4,       SFF, KC_COMM, NC // ,
 	#endif
+	#endif
 	, 0, K_2 | K_4,       SFN, KC_9, KC_0, NC // ()
+	#ifdef UTYUMOV
+	#ifdef USE_ALTCODE
+    , 0, K_1 | K_2,       SFF, AC2(3, 7), NC // %
+	#else
+    , 0, K_1 | K_2,       SFN, KC_5, NC // %
+	#endif
+	#else
 	, 0, K_1 | K_2,       SFN, KC_EQL, NC // +
+	#endif
 	#ifdef USE_ALTCODE
 	, 0, K_8 | K_1,       SFF, AC2(3, 4), NC // "
  	#else
@@ -1182,6 +1232,8 @@ const uint8_t PROGMEM dict_l_ru_th[] = { // two hands
 	, K_K | K_T | K_B | K_P, 0,       RU_V, RU_Z, NC // вз
 	, K_V | K_D | K_B | K_P, 0,       RU_Z, RU_R, NC // зр
 	, K_S | K_K | K_P | K_N, 0,       RU_V, RU_S, RU_P, NC // всп
+	, K_S | K_K | K_T | K_N, 0,       RU_W, RU_N, NC // шн
+	, K_S | K_T | K_P | K_N, 0,       RU_W, RU_L, NC // шл
 	, 
 	#endif
 	
